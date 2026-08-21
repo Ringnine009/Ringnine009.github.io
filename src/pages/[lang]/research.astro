@@ -127,6 +127,32 @@ const doi = `https://doi.org/${c.meta.doi}`;
         <div style="margin-top:14px">
           <TodoNote note={c.results.todoNote} lang={lang} />
         </div>
+        <div class="card card--plain" style="padding:0;overflow:hidden;margin-top:24px">
+          <div style="padding:16px 18px 0">
+            <h4 style="margin:0 0 4px">{t(c.results.allConfigs.heading, lang)}</h4>
+            <p style="font-size:0.8125rem;line-height:1.7;color:var(--ink-muted);margin:0">
+              {t(c.results.allConfigs.note, lang)}
+            </p>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                {c.results.allConfigs.headers.map((h) => <th>{t(h, lang)}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {c.results.allConfigs.rows.map((row) => (
+                <tr>
+                  {row.map((cell) => (
+                    <td class={typeof cell === 'string' ? (row.indexOf(cell) === 0 ? '' : 'num') : 'num'}>
+                      {typeof cell === 'string' ? cell : t(cell, lang)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>

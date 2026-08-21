@@ -6,9 +6,8 @@ import type { SiteConfig } from '@/data/types';
 // ------------------------------------------------------------------
 export const siteConfig: SiteConfig = {
   author: {
-    // TODO(zh): confirm the Chinese name spelling for the zh locale.
     en: 'Zhenxiao Guo',
-    zh: 'Zhenxiao Guo',
+    zh: '郭震霄',
   },
   brandMark: 'ZG',
   nav: [
@@ -63,10 +62,10 @@ export const siteConfig: SiteConfig = {
     tags: { en: 'Stack', zh: '技术栈' },
   },
   seo: {
-    titleSuffix: { en: '· Zhenxiao Guo — LLM Engineer & Multi-Agent Researcher', zh: '· 郭振骁 — LLM 工程师与多智能体研究者' },
+    titleSuffix: { en: '· Zhenxiao Guo — LLM Engineer & Multi-Agent Researcher', zh: '· 郭震霄 — LLM 工程师与多智能体研究者' },
     description: {
       en: 'Portfolio of Zhenxiao Guo: production-grade LLM applications (RAG, document intelligence, agents) and multi-agent social reasoning research.',
-      zh: '郭振骁作品集：生产级 LLM 应用（RAG、文档智能、智能体）与多智能体社会推理研究。',
+      zh: '郭震霄作品集：生产级 LLM 应用（RAG、文档智能、智能体）与多智能体社会推理研究。',
     },
   },
 };
