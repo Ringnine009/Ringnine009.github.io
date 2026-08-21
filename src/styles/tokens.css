@@ -1,39 +1,39 @@
 /* ============================================================
-   Design tokens — Dark tech (Linear-inspired)
-   Near-black canvas · hairline borders · single indigo accent
+   Design tokens — Light editorial-tech
+   White canvas · soft gray layering · hairline borders · indigo accent
    ============================================================ */
 :root {
-  /* Surfaces — near-black, slightly blue-tinted; layering via surface levels */
-  --canvas: #010102;
-  --surface-1: #0f1011;
-  --surface-2: #141516;
-  --surface-3: #18191a;
-  --surface-4: #1c1d1f;
+  /* Surfaces — white canvas with soft gray layering */
+  --canvas: #fafbfc;
+  --surface-1: #ffffff;
+  --surface-2: #f4f5f7;
+  --surface-3: #eef0f3;
+  --surface-4: #e8eaee;
 
-  /* Hairlines (1px separators) — white at 8–12% alpha */
-  --hairline: rgba(255, 255, 255, 0.09);
-  --hairline-strong: rgba(255, 255, 255, 0.16);
+  /* Hairlines (1px separators) — black at 8–14% alpha */
+  --hairline: rgba(0, 0, 0, 0.08);
+  --hairline-strong: rgba(0, 0, 0, 0.14);
 
-  /* Ink — text hierarchy */
-  --ink: #f7f8f8;
-  --ink-muted: #d0d6e0;
-  --ink-subtle: #8a8f98;
-  --ink-tertiary: #62666d;
+  /* Ink — text hierarchy (dark grays on light) */
+  --ink: #17181c;
+  --ink-muted: #454b52;
+  --ink-subtle: #6d737c;
+  --ink-tertiary: #9aa0a9;
 
   /* Single accent — indigo */
-  --primary: #6366f1;
-  --primary-hover: #818cf8;
-  --primary-dim: rgba(99, 102, 241, 0.14);
-  --primary-ring: rgba(99, 102, 241, 0.4);
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-dim: rgba(79, 70, 229, 0.09);
+  --primary-ring: rgba(79, 70, 229, 0.3);
   --on-primary: #ffffff;
 
   /* Semantic status */
-  --success: #34d399;
-  --success-dim: rgba(52, 211, 153, 0.1);
-  --warning: #fbbf24;
-  --warning-dim: rgba(251, 191, 36, 0.1);
-  --danger: #f87171;
-  --danger-dim: rgba(248, 113, 113, 0.1);
+  --success: #059669;
+  --success-dim: rgba(5, 150, 105, 0.1);
+  --warning: #b45309;
+  --warning-dim: rgba(180, 83, 9, 0.1);
+  --danger: #dc2626;
+  --danger-dim: rgba(220, 38, 38, 0.1);
 
   /* Typography */
   --font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',

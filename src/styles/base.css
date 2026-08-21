@@ -10,7 +10,7 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
@@ -87,12 +87,12 @@ button {
   background: var(--canvas);
 }
 ::-webkit-scrollbar-thumb {
-  background: #26272b;
+  background: #d4d6da;
   border-radius: 6px;
   border: 2px solid var(--canvas);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #33343a;
+  background: #c2c5ca;
 }
 
 /* ------------------------------------------------------------

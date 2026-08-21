@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#010102"/>
-  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#23252a"/>
-  <rect x="60" y="60" width="72" height="72" rx="14" fill="#6366F1"/>
-  <rect x="18" y="18" width="36" height="36" rx="7" fill="#6366F1"/>
+  <rect width="1200" height="630" fill="#FAFBFC"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none" stroke="#E4E6EA"/>
+  <rect x="60" y="60" width="72" height="72" rx="14" fill="#4F46E5"/>
+  <rect x="18" y="18" width="36" height="36" rx="7" fill="#4F46E5"/>
   <path d="M27 28h10l-10 9.5h10" stroke="#FFFFFF" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="60" y="212" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="64" font-weight="650" letter-spacing="-1.5" fill="#F7F8F8">Zhenxiao Guo</text>
-  <text x="60" y="280" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="30" fill="#8A8F98">LLM Engineer · Multi-Agent Researcher</text>
-  <text x="60" y="360" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="24" fill="#6366F1">production-grade LLM apps + multi-agent research</text>
-  <rect x="60" y="470" width="360" height="52" rx="10" fill="#6366F1"/>
+  <text x="60" y="212" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="64" font-weight="650" letter-spacing="-1.5" fill="#17181C">Zhenxiao Guo</text>
+  <text x="60" y="280" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="30" fill="#6D737C">LLM Engineer · Multi-Agent Researcher</text>
+  <text x="60" y="360" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="24" fill="#4F46E5">production-grade LLM apps + multi-agent research</text>
+  <rect x="60" y="470" width="360" height="52" rx="10" fill="#4F46E5"/>
   <text x="240" y="505" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="#FFFFFF">View Portfolio →</text>
 </svg>

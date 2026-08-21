@@ -40,7 +40,7 @@
 }
 .btn--secondary:hover {
   background: var(--surface-2);
-  border-color: rgba(255, 255, 255, 0.28);
+  border-color: rgba(0, 0, 0, 0.18);
   color: var(--ink);
 }
 .btn--ghost {
@@ -443,7 +443,7 @@ a.chip:hover {
   top: 0;
   z-index: 50;
   height: var(--header-h);
-  background: rgba(1, 1, 2, 0.82);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--hairline);
