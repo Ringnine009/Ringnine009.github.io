@@ -28,7 +28,7 @@ export const PROJECTS: Project[] = [
     stats: [
       { value: '30', label: { en: 'invoice evaluation set', zh: '张样例发票评测集' } },
       { value: '7', label: { en: 'audit rule categories', zh: '类稽查规则' } },
-      { value: '95.6%', label: { en: 'field-level accuracy (dev)', zh: '字段级准确率（dev）' } },
+      { value: '82.5%', label: { en: 'field-level accuracy (qwen-vl-plus)', zh: '字段级准确率（qwen-vl-plus）' } },
     ],
     links: {
       github: {
@@ -83,8 +83,9 @@ export const PROJECTS: Project[] = [
         { en: 'Field-level benchmark over 30 sample invoices', zh: '30 张样例发票的字段级评测基准' },
       ],
       results: [
-        { en: 'Field-level accuracy 95.6% on the dev set (5 invoices, 9 fields); invoice number, date, party names and all three amount fields reach 100%; failure rate 0%.', zh: 'dev 集（5 张发票、9 个字段）字段级准确率 95.6%；发票号、日期、购销方名称与全部金额字段达 100%；失败率 0%。' },
-        { en: '7 audit rules implemented (duplicate number, arithmetic consistency, line-item sum, tax-rate sanity, invoice date, party info, low confidence) over a 30-invoice benchmark with ground truth.', zh: '实现 7 条审计规则（重复号码、算术一致性、明细求和、税率合理性、发票日期、购销方信息、低置信度），并建立含真值的 30 张发票评测基准。' },
+        { en: 'Real-API benchmark over 30 synthetic invoices (qwen-vl-plus): 82.5% overall field-level accuracy — invoice number 86.7%, date 90.0%, party names 86.7%, amounts 80–86.7%, tax IDs 70–72% (hardest field); average confidence ~0.97; 3/30 file-level failures recorded.', zh: '30 张合成发票的真实 API 基准（qwen-vl-plus）：字段级总体准确率 82.5%——发票号 86.7%、日期 90.0%、购销方名称 86.7%、金额 80–86.7%、税号 70–72%（最难字段）；平均置信度 ~0.97；3/30 整包失败已记录。' },
+        { en: '7 audit rules with severity ranking and evidence (GB 32100-2015 tax-ID check digit included); the 30-invoice demo batch with 11 injected anomalies produced exactly 2 CRITICAL + 5 ERROR + 2 WARNING findings.', zh: '7 条带严重级与证据的审计规则（含 GB 32100-2015 税号校验位）；注入 11 处异常的 30 张演示批次精确产出 2 CRITICAL + 5 ERROR + 2 WARNING。' },
+        { en: '92 offline tests green (LLM mocked); engineering decisions (model choice, DPI, retry policy) backed by measured evidence in docs/benchmark.md.', zh: '92 项离线测试全绿（LLM mock）；模型选型、DPI、重试策略等工程决策均有实测证据（docs/benchmark.md）。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
@@ -115,7 +116,7 @@ export const PROJECTS: Project[] = [
         { en: 'ML integration', zh: '模型集成' },
       ],
       todos: [
-        { en: 'Extend the dev benchmark to the full 30-invoice set for the final numbers.', zh: '将 dev 基准扩展到完整 30 张发票以更新最终数字。' },
+        { en: 'Optional: improved second-pass verification prompt to push tax-ID accuracy higher.', zh: '可选：改进二次验证 prompt 以提升税号字段准确率。' },
         { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
       ],
     },
