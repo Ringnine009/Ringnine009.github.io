@@ -54,18 +54,18 @@ const timelineKicker = (k: { en: string; zh: string }) => t(k, lang);
     </div>
   </section>
 
-  <!-- ============ THESIS ============ -->
+  <!-- ============ PUBLICATION ============ -->
   <section class="section">
     <div class="container">
-      <SectionHead kicker={c.thesis.kicker} title={c.thesis.heading} lang={lang} />
+      <SectionHead kicker={c.publication.kicker} title={c.publication.heading} lang={lang} />
       <div class="paper-block" data-reveal>
-        <div class="paper-block__title">{t(c.thesis.title, lang)}</div>
+        <div class="paper-block__title">{t(c.publication.title, lang)}</div>
         <div class="paper-block__meta">
-          {c.thesis.meta.map((m) => <div>{t(m, lang)}</div>)}
+          {c.publication.meta.map((m) => <div>{t(m, lang)}</div>)}
         </div>
         <div style="margin-top:12px">
           <a class="link-arrow" href={langPath(lang, '/research')}>
-            {t(c.thesis.link, lang)}
+            {t(c.publication.link, lang)}
             <span class="arr" aria-hidden="true">→</span>
           </a>
         </div>

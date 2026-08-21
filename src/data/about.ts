@@ -1,18 +1,18 @@
 // ------------------------------------------------------------------
-// About page — grounded in the real CV (GUO Zhenxiao-CV-0812.docx).
-// Dates/labels match the CV; phrasing is condensed for the web.
+// About page — grounded in the real CV and user-verified facts.
+// Chinese names, internship companies and courses confirmed by the user.
 // ------------------------------------------------------------------
 
 export const aboutContent = {
   kicker: { en: 'About', zh: '关于' },
-  title: { en: 'Zhenxiao Guo', zh: 'Zhenxiao Guo' },
+  title: { en: 'Zhenxiao Guo', zh: '郭震霄' },
   role: {
     en: 'AI undergraduate · LLM engineer · multi-agent researcher',
     zh: '人工智能本科生 · LLM 工程师 · 多智能体研究者',
   },
   intro: {
-    en: 'I am an undergraduate in Artificial Intelligence at Tongji University (2023–2027). My work spans the full stack of LLM products — retrieval, document intelligence, agent orchestration — and research into how agents reason socially. I ship, measure and publish.',
-    zh: '同济大学人工智能专业本科生（2023–2027）。工作覆盖 LLM 产品全栈——检索、文档智能、智能体编排——以及智能体社会推理研究。既交付产品，也做评测，也发表论文。',
+    en: 'I am an undergraduate in Artificial Intelligence at Tongji University. My work spans the full stack of LLM products — retrieval, document intelligence, agent orchestration — and research into how agents reason socially. I build, measure and publish.',
+    zh: '同济大学人工智能专业本科生。工作覆盖 LLM 产品全栈——检索、文档智能、智能体编排——以及智能体社会推理研究。既做工程，也做评测，也发表论文。',
   },
   contact: {
     email: 'guozhenxiao6778@163.com',
@@ -29,21 +29,21 @@ export const aboutContent = {
     period: { en: '09/2023 – 06/2027', zh: '2023.09 – 2027.06' },
     gpa: { en: 'GPA 80.16/100 · 3.61/5.00', zh: 'GPA 80.16/100 · 3.61/5.00' },
     courses: {
-      en: 'Extracurricular: Peking University — Discrete Mathematics Generality (Coursera)',
-      zh: '课外课程：北京大学 — 离散数学概论（Coursera）',
+      en: 'Extracurricular: Generative AI with Large Language Models (DeepLearning.AI × AWS) · Natural Language Processing Specialization, 4 courses (DeepLearning.AI)',
+      zh: '课外课程：《Generative AI with Large Language Models》（DeepLearning.AI × AWS）· DeepLearning.AI《自然语言处理专项课程》4 门',
     },
   },
 
-  thesis: {
-    kicker: { en: 'Thesis', zh: '毕业论文' },
-    heading: { en: 'Undergraduate thesis', zh: '毕业论文' },
+  publication: {
+    kicker: { en: 'Publication', zh: '论文发表' },
+    heading: { en: 'Published research', zh: '论文发表' },
     title: {
       en: 'Dynamic Belief Networks and Deep-Thinking Probes for Multi-agent Social Reasoning',
       zh: '多智能体社会推理的动态信念网络与深度思考探针',
     },
     meta: [
       { en: '03/2026 – 06/2026', zh: '2026.03 – 2026.06' },
-      { en: 'Supervisor: LIU Jianneng — HKUST', zh: '导师：刘建能 — 香港科技大学' },
+      { en: 'Supervisor: Vincent LAU — Chair Professor, HKUST', zh: '导师：刘坚能（香港科技大学讲席教授）' },
       { en: 'Published in Theoretical and Natural Science (TNS) · Vol.174', zh: '发表于 Theoretical and Natural Science（TNS）· 第 174 卷' },
     ],
     link: { en: 'See the research page', zh: '查看研究页' },
@@ -86,8 +86,8 @@ export const aboutContent = {
     items: [
       {
         title: { en: 'GEO system development & full-stack implementation', zh: 'GEO 系统开发与全栈实现' },
-        org: { en: 'Shanghai Zhidian Qiaodong AI Technology Co., Ltd.', zh: '上海智点桥东人工智能科技有限公司' },
-        role: { en: 'AI R&D Engineer Intern (full-time)', zh: 'AI 研发工程师实习生（全职）' },
+        org: { en: 'Shanghai Zhidian Qiaodong AI Technology Co., Ltd.', zh: '支点撬动' },
+        role: { en: 'AI R&D Engineer Intern', zh: 'AI 研发工程师实习生' },
         period: { en: '23/06/2026 – 31/07/2026', zh: '2026.06.23 – 2026.07.31' },
         points: [
           {
@@ -106,7 +106,7 @@ export const aboutContent = {
       },
       {
         title: { en: 'Data warehouse & analytical reporting', zh: '数据仓库与分析报表' },
-        org: { en: 'Hunan CountData Technology Information Co., Ltd.', zh: '湖南数达科技有限公司' },
+        org: { en: 'Hunan CountData Technology Information Co., Ltd.', zh: '大算' },
         role: { en: 'Big Data and Cloud Computing Intern', zh: '大数据与云计算实习生' },
         period: { en: '05/01/2026 – 27/02/2026', zh: '2026.01.05 – 2026.02.27' },
         points: [
@@ -126,8 +126,8 @@ export const aboutContent = {
       },
       {
         title: { en: 'Digital content management platform', zh: '企业数字内容管理平台' },
-        org: { en: 'Hunan Zhigaodian Network Technology Co., Ltd.', zh: '湖南智高点网络科技有限公司' },
-        role: { en: 'Information Technology Support Intern (full-time)', zh: '信息技术支持实习生（全职）' },
+        org: { en: 'Hunan Zhigaodian Network Technology Co., Ltd.', zh: '制高点' },
+        role: { en: 'Information Technology Support Intern', zh: '信息技术支持实习生' },
         period: { en: '03/07/2025 – 22/08/2025', zh: '2025.07.03 – 2025.08.22' },
         points: [
           {
@@ -179,8 +179,8 @@ export const aboutContent = {
   cta: {
     heading: { en: 'Get in touch', zh: '联系方式' },
     sub: {
-      en: 'Interested in my work, or looking for collaborators for 2027? I reply to email.',
-      zh: '对我的工作感兴趣，或正在寻找 2027 年的合作伙伴？我会回复邮件。',
+      en: 'Interested in my work, or open to research collaborations? I reply to email.',
+      zh: '对我的工作感兴趣，或想开展科研合作？欢迎来信。',
     },
     primary: { en: 'Email me', zh: '发邮件' },
     secondary: { en: 'GitHub', zh: 'GitHub' },

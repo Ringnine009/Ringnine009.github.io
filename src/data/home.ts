@@ -15,8 +15,8 @@ export const homeContent = {
       zh: '构建 ',
     },
     titleAccent: {
-      en: 'production-grade LLM applications',
-      zh: '生产级 LLM 应用',
+      en: 'full-stack LLM applications',
+      zh: '全栈 LLM 应用',
     },
     titleSuffix: {
       en: ', and the multi-agent research behind them.',
@@ -32,7 +32,7 @@ export const homeContent = {
     meta: [
       { en: 'Tongji Univ. · AI · 2023–2027', zh: '同济大学 · 人工智能 · 2023–2027' },
       { en: 'IELTS 7.0', zh: '雅思 7.0' },
-      { en: 'Open to 2027 Master’s programs', zh: '申请 2027 秋硕士项目' },
+      { en: 'Open-source portfolio · 6 repos', zh: '开源作品集 · 6 个仓库' },
     ],
     terminal: {
       title: { en: 'portfolio — zsh', zh: 'portfolio — zsh' },
@@ -52,7 +52,7 @@ export const homeContent = {
     kicker: { en: 'Featured work', zh: '精选项目' },
     heading: { en: 'Selected projects & research', zh: '精选项目与研究' },
     desc: {
-      en: 'Five shipped products and one published paper — from multimodal document intelligence to a transformer trained from scratch.',
+      en: 'Five built products and one published paper — from multimodal document intelligence to a transformer trained from scratch.',
       zh: '五个成型项目与一篇已发表论文——从多模态文档智能到从零训练的 transformer。',
     },
     viewAll: { en: 'All projects', zh: '全部项目' },
@@ -86,10 +86,6 @@ export const homeContent = {
       },
     ] as Stat[],
     cta: { en: 'Read the research page', zh: '查看研究页' },
-    todoNote: {
-      en: 'Numbers to be re-verified against the published PDF before launch.',
-      zh: '上线前将以论文原文重新核对以上数字。',
-    },
   },
 
   skills: {
@@ -112,8 +108,8 @@ export const homeContent = {
   cta: {
     heading: { en: 'Let’s build and research together', zh: '一起构建，一起研究' },
     sub: {
-      en: 'Looking for 2027 Master’s programs in LLM / NLP / multi-agent systems — and open to research collaborations.',
-      zh: '申请 2027 年 LLM / NLP / 多智能体方向硕士项目，欢迎科研合作。',
+      en: 'Open to research collaborations in LLM / NLP / multi-agent systems — and always happy to discuss the projects on this page.',
+      zh: '欢迎 LLM / NLP / 多智能体方向的科研合作，也随时乐意聊聊本页的项目。',
     },
     primary: { en: 'Email me', zh: '发邮件' },
     secondary: { en: 'GitHub profile', zh: 'GitHub 主页' },

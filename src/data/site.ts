@@ -19,8 +19,8 @@ export const siteConfig: SiteConfig = {
   langSwitch: { en: 'EN', zh: '中文' },
   footer: {
     blurb: {
-      en: 'AI undergraduate at Tongji University. I build production-grade LLM applications and research multi-agent systems.',
-      zh: '同济大学人工智能专业本科生。构建生产级 LLM 应用，研究多智能体系统。',
+      en: 'AI undergraduate at Tongji University. I build full-stack LLM applications and research multi-agent systems.',
+      zh: '同济大学人工智能专业本科生。构建全栈 LLM 应用，研究多智能体系统。',
     },
     columns: [
       {
@@ -64,8 +64,8 @@ export const siteConfig: SiteConfig = {
   seo: {
     titleSuffix: { en: '· Zhenxiao Guo — LLM Engineer & Multi-Agent Researcher', zh: '· 郭震霄 — LLM 工程师与多智能体研究者' },
     description: {
-      en: 'Portfolio of Zhenxiao Guo: production-grade LLM applications (RAG, document intelligence, agents) and multi-agent social reasoning research.',
-      zh: '郭震霄作品集：生产级 LLM 应用（RAG、文档智能、智能体）与多智能体社会推理研究。',
+      en: 'Portfolio of Zhenxiao Guo: full-stack LLM applications (RAG, document intelligence, agents) and multi-agent social reasoning research.',
+      zh: '郭震霄作品集：全栈 LLM 应用（RAG、文档智能、智能体）与多智能体社会推理研究。',
     },
   },
 };

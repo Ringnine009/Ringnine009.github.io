@@ -60,13 +60,6 @@ const doi = `https://doi.org/${c.meta.doi}`;
       </div>
       <div class="detail-section__body">
         {c.abstract.body.map((b) => <p>{t(b, lang)}</p>)}
-        <TodoNote
-          note={{
-            en: 'Cross-check the abstract wording against the published PDF before launch.',
-            zh: '上线前请对照论文原文核对摘要措辞。',
-          }}
-          lang={lang}
-        />
       </div>
     </div>
   </section>
@@ -125,7 +118,7 @@ const doi = `https://doi.org/${c.meta.doi}`;
           </table>
         </div>
         <div style="margin-top:14px">
-          <TodoNote note={c.results.todoNote} lang={lang} />
+          <p style="font-size:0.8125rem;color:var(--ink-subtle)">{t(c.results.todoNote, lang)}</p>
         </div>
         <div class="card card--plain" style="padding:0;overflow:hidden;margin-top:24px">
           <div style="padding:16px 18px 0">

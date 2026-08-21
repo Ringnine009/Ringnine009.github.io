@@ -18,7 +18,7 @@ export const researchContent = {
     },
     doi: '10.54254/2753-8818/2026.DL34010',
     access: { en: 'Open access · free to read', zh: '开放获取 · 免费阅读' },
-    supervisor: { en: 'Supervisor: LIU Jianneng — The Hong Kong University of Science and Technology', zh: '导师：Liu Jianneng（香港科技大学）' },
+    supervisor: { en: 'Supervisor: Vincent LAU — Chair Professor, HKUST', zh: '导师：刘坚能（香港科技大学讲席教授）' },
     date: { en: '03/2026 – 06/2026', zh: '2026 年 3 月 – 6 月' },
     role: { en: 'First & sole author', zh: '第一作者（唯一作者）' },
   },

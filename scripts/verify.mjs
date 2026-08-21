@@ -50,7 +50,7 @@ const markers = [
   [join(dist, 'zh', 'about', 'index.html'), '同济大学', 'about/zh education'],
   [join(dist, 'en', 'projects', 'docmind', 'index.html'), 'Problem', 'docmind/en has Problem section'],
   [join(dist, 'zh', 'projects', 'docmind', 'index.html'), '问题', 'docmind/zh has 问题 section'],
-  [join(dist, 'en', 'index.html'), 'production-grade LLM', 'home/en hero positioning'],
+  [join(dist, 'en', 'index.html'), 'full-stack LLM applications', 'home/en hero positioning'],
 ];
 
 for (const [file, needle, label] of markers) {

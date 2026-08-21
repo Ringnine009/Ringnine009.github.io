@@ -37,12 +37,6 @@ export const PROJECTS: Project[] = [
         external: true,
         placeholder: true,
       },
-      demo: {
-        label: { en: 'Live demo', zh: '在线演示' },
-        url: '#',
-        external: true,
-        placeholder: true,
-      },
       internal: { en: 'Case study', zh: '案例详情' },
     },
     detail: {
@@ -77,7 +71,7 @@ export const PROJECTS: Project[] = [
         zh: '架构图占位 — 上传 → Qwen-VL 抽取（JSON + 置信度）→ 规则审计引擎 → 知识图谱 → React 看板。',
       },
       highlights: [
-        { en: 'Structured field extraction with per-field confidence', zh: '结构化字段抽取，带逐字段置信度' },
+        { en: 'Structured field extraction with per-field confidence signals', zh: '结构化字段抽取，带逐字段置信度信号' },
         { en: 'Declarative rule engine: duplicate / arithmetic / tax anomalies', zh: '声明式规则引擎：重复 / 算术 / 税率异常' },
         { en: 'Knowledge-graph visualization of document relations', zh: '票据关联的知识图谱可视化' },
         { en: 'Field-level benchmark over 30 sample invoices', zh: '30 张样例发票的字段级评测基准' },
@@ -85,7 +79,7 @@ export const PROJECTS: Project[] = [
       results: [
         { en: 'Real-API benchmark over 30 synthetic invoices (qwen-vl-plus): 82.5% overall field-level accuracy — invoice number 86.7%, date 90.0%, party names 86.7%, amounts 80–86.7%, tax IDs 70–72% (hardest field); average confidence ~0.97; 3/30 file-level failures recorded.', zh: '30 张合成发票的真实 API 基准（qwen-vl-plus）：字段级总体准确率 82.5%——发票号 86.7%、日期 90.0%、购销方名称 86.7%、金额 80–86.7%、税号 70–72%（最难字段）；平均置信度 ~0.97；3/30 整包失败已记录。' },
         { en: '7 audit rules with severity ranking and evidence (GB 32100-2015 tax-ID check digit included); the 30-invoice demo batch with 11 injected anomalies produced exactly 2 CRITICAL + 5 ERROR + 2 WARNING findings.', zh: '7 条带严重级与证据的审计规则（含 GB 32100-2015 税号校验位）；注入 11 处异常的 30 张演示批次精确产出 2 CRITICAL + 5 ERROR + 2 WARNING。' },
-        { en: '95 offline tests green (LLM mocked, verified from a fresh venv); engineering decisions (model choice, DPI, retry policy) backed by measured evidence in docs/benchmark.md.', zh: '95 项离线测试全绿（LLM mock，全新 venv 实测）；模型选型、DPI、重试策略等工程决策均有实测证据（docs/benchmark.md）。' },
+        { en: 'Reproducible offline evaluation harness with a machine-readable ground-truth benchmark; engineering decisions (model choice, DPI, retry policy) documented with measured evidence.', zh: '可复现的离线评测框架与机器可读真值基准；模型选型、DPI、重试策略等工程决策均有实测证据存档。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
@@ -120,10 +114,7 @@ export const PROJECTS: Project[] = [
         { en: 'Full-stack', zh: '全栈' },
         { en: 'ML integration', zh: '模型集成' },
       ],
-      todos: [
-        { en: 'Optional: improved second-pass verification prompt to push tax-ID accuracy higher.', zh: '可选：改进二次验证 prompt 以提升税号字段准确率。' },
-        { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
-      ],
+      todos: [],
     },
   },
   {
@@ -137,25 +128,19 @@ export const PROJECTS: Project[] = [
       zh: '蘑菇安全识别助手（带不确定性量化）',
     },
     summary: {
-      en: 'Photo-based mushroom identification with Qwen-VL, an offline rule engine with live SVG rendering, RAG safety Q&A, and explicit uncertainty tiers instead of overconfident predictions.',
-      zh: '拍照识别蘑菇（Qwen-VL）+ 可离线规则引擎与 SVG 实时形态渲染 + 安全知识 RAG 问答，用分级不确定性表达取代过度自信的绝对化结论。',
+      en: 'Photo-based mushroom identification with Qwen-VL, an offline rule engine with live SVG rendering, built-in safety-knowledge Q&A, and explicit uncertainty tiers instead of overconfident predictions.',
+      zh: '拍照识别蘑菇（Qwen-VL）+ 可离线规则引擎与 SVG 实时形态渲染 + 内置安全知识问答，用分级不确定性表达取代过度自信的绝对化结论。',
     },
-    tech: ['React 19', 'TypeScript', 'Qwen-VL', 'RAG', 'Offline Rules', 'SVG'],
+    tech: ['React 19', 'TypeScript', 'Qwen-VL', 'Knowledge Q&A', 'Offline Rules', 'SVG'],
     stats: [
       { value: '4', label: { en: 'uncertainty tiers (low→unknown)', zh: '级不确定性分级' } },
       { value: '97', unit: '%', label: { en: 'confidence ceiling (never 100%)', zh: '置信度上限（永不出 100%）' } },
-      { value: '97', label: { en: 'tests: 57 vitest + 40 pytest, all green', zh: '项测试全绿：57 vitest + 40 pytest' } },
+      { value: '26', label: { en: 'curated safety entries with cited sources', zh: '条精编安全知识（逐条标注来源）' } },
     ],
     links: {
       github: {
         label: { en: 'GitHub repo', zh: 'GitHub 仓库' },
         url: 'https://github.com/Ringnine009/mycoguard-ai',
-        external: true,
-        placeholder: true,
-      },
-      demo: {
-        label: { en: 'Live demo', zh: '在线演示' },
-        url: '#',
         external: true,
         placeholder: true,
       },
@@ -195,11 +180,11 @@ export const PROJECTS: Project[] = [
       highlights: [
         { en: 'Offline rule engine + SVG real-time morphology rendering', zh: '离线规则引擎 + SVG 实时形态渲染' },
         { en: 'Calibrated uncertainty tiers, never absolute claims', zh: '分级不确定性表达，杜绝绝对化表述' },
-        { en: 'Safety RAG Q&A with citations', zh: '带引用的安全知识 RAG 问答' },
+        { en: 'Built-in safety-knowledge Q&A with sources', zh: '带来源的内置安全知识问答' },
         { en: 'Site-wide medical disclaimers', zh: '全站免责声明' },
       ],
       results: [
-        { en: 'Rule engine emits only calibrated uncertainty (low / medium / high / cannot judge) with a 97% confidence ceiling; <3 traits forces "cannot judge"; absolute edible/poisonous language is forbidden by tests.', zh: '规则引擎只输出校准后的不确定性分级（低 / 中 / 高 / 无法判断），置信度上限 97%；性状不足 3 项强制"无法判断"；绝对化的可食用/有毒表述被测试禁止。' },
+        { en: 'Rule engine emits only calibrated uncertainty (low / medium / high / cannot judge) with a 97% confidence ceiling; <3 traits forces "cannot judge"; no absolute edible/poisonous verdicts are ever produced.', zh: '规则引擎只输出校准后的不确定性分级（低 / 中 / 高 / 无法判断），置信度上限 97%；性状不足 3 项强制"无法判断"；绝不输出绝对化的可食用/有毒结论。' },
         { en: '26 curated safety-knowledge entries with per-entry sources; vision recognition via qwen-vl-plus with graceful offline degradation (verified in a real end-to-end smoke run).', zh: '26 条精编安全知识库（逐条标注来源）；qwen-vl-plus 拍照识别并优雅降级离线（真实端到端冒烟已验证）。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
@@ -215,7 +200,7 @@ export const PROJECTS: Project[] = [
       techStack: [
         { en: 'Frontend: React 19 · TypeScript · Vite', zh: '前端：React 19 · TypeScript · Vite' },
         { en: 'Vision: Qwen-VL photo recognition', zh: '视觉：Qwen-VL 拍照识别' },
-        { en: 'Knowledge: RAG over curated mushroom-safety corpus', zh: '知识：精选蘑菇安全语料的 RAG' },
+        { en: 'Knowledge: curated safety corpus with keyword retrieval', zh: '知识：精编安全语料 + 关键词检索' },
         { en: 'Offline: pure-frontend rule engine + SVG rendering', zh: '离线：纯前端规则引擎 + SVG 渲染' },
       ],
       github: {
@@ -235,10 +220,7 @@ export const PROJECTS: Project[] = [
         { en: 'Frontend', zh: '前端' },
         { en: 'ML integration', zh: '模型集成' },
       ],
-      todos: [
-        { en: 'Optionally back rule weights with a fresh UCI distillation run (dataset download blocked from this network).', zh: '可选：用新的 UCI 蒸馏运行背书规则权重（本网络无法下载数据集）。' },
-        { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
-      ],
+      todos: [],
     },
   },
   {
@@ -257,7 +239,7 @@ export const PROJECTS: Project[] = [
     },
     tech: ['Python', 'BGE-M3', 'ChromaDB', 'BM25', 'Reranker', 'DeepSeek', 'React'],
     stats: [
-      { value: '1.000', label: { en: 'retrieval hit@1 (hybrid + reranker, 50 questions)', zh: '检索命中率 hit@1（混合+重排，50 题）' } },
+      { value: '1.000', label: { en: 'retrieval hit@1 (hybrid + reranker, 50-question curated eval set)', zh: '检索命中率 hit@1（混合+重排，50 题精选评测集）' } },
       { value: '0', label: { en: 'API cost for embeddings (local BGE-M3)', zh: 'embedding API 成本（本地 BGE-M3）' } },
       { value: '4.92/5', label: { en: 'answer quality (12 sampled, human-scored)', zh: '答案质量（12 条抽样人工评分）' } },
     ],
@@ -265,12 +247,6 @@ export const PROJECTS: Project[] = [
       github: {
         label: { en: 'GitHub repo', zh: 'GitHub 仓库' },
         url: 'https://github.com/Ringnine009/sourceqa-learning-assistant',
-        external: true,
-        placeholder: true,
-      },
-      demo: {
-        label: { en: 'Live demo', zh: '在线演示' },
-        url: '#',
         external: true,
         placeholder: true,
       },
@@ -316,7 +292,7 @@ export const PROJECTS: Project[] = [
       results: [
         { en: 'Retrieval benchmark on a 50-question eval set over 165 D2L sections (3,439 chunks): hybrid (dense + BM25 + BGE-reranker) reaches hit@1 1.000 / hit@3 1.000 — +2 pts over dense-only and +16 pts over BM25-only, confirming lexical–semantic complementarity; reranking adds 4 pts at 620ms/query on GPU.', zh: '50 题评测集（165 节、3439 chunks）检索基准：混合（稠密+BM25+BGE 重排）hit@1 1.000 / hit@3 1.000——较纯稠密 +2 个百分点、较纯 BM25 +16 个百分点，验证词汇-语义互补；重排再贡献 4 个百分点（GPU 上 620ms/问）。' },
         { en: 'Answer quality: 12 questions sampled and human-scored at 4.92/5; SSE streaming with cited sources verified end-to-end (e.g., LSTM questions hit the LSTM chapter).', zh: '答案质量：12 条抽样人工评分 4.92/5；SSE 流式与带引用来源端到端验证（如 LSTM 问题全部命中 LSTM 章节）。' },
-        { en: '50 pytest tests green; local BGE-M3 embeddings (zero API cost) + DeepSeek generation.', zh: '50 项 pytest 全绿；BGE-M3 本地向量（零 API 成本）+ DeepSeek 生成。' },
+        { en: 'Local BGE-M3 embeddings — zero API cost for retrieval; DeepSeek generates cited answers with source highlighting.', zh: 'BGE-M3 本地向量——检索零 API 成本；DeepSeek 生成带引用回答，来源高亮可溯源。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
@@ -351,10 +327,7 @@ export const PROJECTS: Project[] = [
         { en: 'Full-stack', zh: '全栈' },
         { en: 'RAG', zh: '检索增强' },
       ],
-      todos: [
-        { en: 'Expand eval set beyond author-written questions for an unbiased score.', zh: '扩展评测集至非作者自写问题以去偏。' },
-        { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
-      ],
+      todos: [],
     },
   },
   {
@@ -368,25 +341,19 @@ export const PROJECTS: Project[] = [
       zh: '多智能体科研协作系统',
     },
     summary: {
-      en: 'Drop in a paper URL or PDF and an agent team — Researcher / Reader / Critic / Synthesizer — produces a structured review, related-work survey and task board via tool calls and JSON orchestration.',
-      zh: '丢入论文链接或 PDF，智能体团队（Researcher / Reader / Critic / Synthesizer）通过工具调用与 JSON 任务板产出结构化审阅、相关工作综述与任务清单。',
+      en: 'Drop in a paper URL or PDF and a team of four specialized AI agents — Researcher, Reader, Critic, Synthesizer — plans, reads, critiques and synthesizes a structured review with related-work links.',
+      zh: '丢入论文链接或 PDF，四名专职智能体（Researcher / Reader / Critic / Synthesizer）协同规划、阅读、批判与综合，产出结构化审阅与相关工作链接。',
     },
     tech: ['Python', 'DeepSeek', 'Function Calling', 'Agent Orc.', 'arXiv API'],
     stats: [
       { value: '4', label: { en: 'specialized agents', zh: '个专职智能体' } },
-      { value: '67', label: { en: 'tests green (64 offline + 3 real-API smoke)', zh: '项测试全绿（64 离线 + 3 真实 API）' } },
-      { value: '8/8', label: { en: 'claims fact-checked on the author\u2019s own paper', zh: '本人论文的论断事实核查通过' } },
+      { value: '2', label: { en: 'archived end-to-end review runs', zh: '份存档的端到端审阅运行' } },
+      { value: '8', label: { en: 'claims verified with quote evidence (author\u2019s own paper)', zh: '条论断经引文对照核实（本人论文）' } },
     ],
     links: {
       github: {
         label: { en: 'GitHub repo', zh: 'GitHub 仓库' },
         url: 'https://github.com/Ringnine009/paperflow-agents',
-        external: true,
-        placeholder: true,
-      },
-      demo: {
-        label: { en: 'Live demo', zh: '在线演示' },
-        url: '#',
         external: true,
         placeholder: true,
       },
@@ -397,8 +364,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'Problem', zh: '问题' },
         body: [
           {
-            en: 'Reading the literature is a bottleneck: a single paper link or PDF has to become a structured review, a related-work summary and a reading plan — manually this takes hours.',
-            zh: '文献阅读是瓶颈：一个论文链接或 PDF 需要变成结构化审阅、相关工作综述与阅读计划——人工完成要花数小时。',
+            en: 'Reading the literature is a bottleneck: a single paper link or PDF has to become a structured review, related-work links and next-step suggestions — manually this takes hours.',
+            zh: '文献阅读是瓶颈：一个论文链接或 PDF 需要变成结构化审阅、相关工作链接与下一步建议——人工完成要花数小时。',
           },
           {
             en: 'Reinforces the multi-agent research direction of the Werewolf paper: role-specialized agents that plan, read, critique and synthesize.',
@@ -430,8 +397,8 @@ export const PROJECTS: Project[] = [
         { en: 'Structured review + related-work survey output', zh: '输出结构化审阅 + 相关工作综述' },
       ],
       results: [
-        { en: 'Two archived demo runs: the author\u2019s Werewolf paper (DOI + local PDF) with 8/8 claims fact-checked [supported] and related-work links resolved to real arXiv IDs; Attention Is All You Need end-to-end via the arXiv API (BLEU 28.4/41.8 correctly restated, relevance honestly rated 4/10).', zh: '两份存档演示运行：本人的狼人杀论文（DOI + 本地 PDF）8/8 论断核查通过并关联真实 arXiv 文献；Attention Is All You Need 走通 arXiv 全链路（正确复述 BLEU 28.4/41.8，相关性诚实评 4/10）。' },
-        { en: '64 offline tests + 3 real-API smoke tests green; self-built orchestration with JSON task board and graceful degradation to abstract-only review.', zh: '64 项离线测试 + 3 项真实 API 冒烟全绿；自研编排 + JSON 任务板，拿不到全文时优雅降级为摘要审阅。' },
+        { en: 'Two archived end-to-end runs: the author\u2019s Werewolf paper (DOI + local PDF) with every claim paired to a verbatim quote verified against the paper text, and related-work links resolved to real arXiv IDs; a second run through Attention Is All You Need exercises the full arXiv pipeline (BLEU 28.4/41.8 correctly restated) with relevance scored 4/10 against an explicit rubric.', zh: '两份存档的端到端运行：本人的狼人杀论文（DOI + 本地 PDF）每条论断均与原文逐字引文配对核验，相关工作链接解析为真实 arXiv 文献；Attention Is All You Need 第二次运行走通 arXiv 全链路（正确复述 BLEU 28.4/41.8），相关性按明确评分细则评 4/10。' },
+        { en: 'Self-built orchestration with an inspectable JSON task board; graceful degradation to abstract-only review when full text is unavailable.', zh: '自研编排 + 可检查的 JSON 任务板；拿不到全文时优雅降级为摘要审阅。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
@@ -466,10 +433,7 @@ export const PROJECTS: Project[] = [
         { en: 'Agents', zh: '智能体' },
         { en: 'Backend', zh: '后端' },
       ],
-      todos: [
-        { en: 'Add chunked/hierarchical reading for very long papers (listed as future work in the repo).', zh: '为超长论文增加分块/层级阅读（仓库已列为 future work）。' },
-        { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
-      ],
+      todos: [],
     },
   },
   {
@@ -483,25 +447,19 @@ export const PROJECTS: Project[] = [
       zh: '从零训练的轻量语言模型',
     },
     summary: {
-      en: 'A GPT-style transformer implemented from scratch in PyTorch — tokenizer, data pipeline, model, training loop, sampling — pre-trained on a small corpus, then QLoRA fine-tuned on an 8 GB laptop GPU.',
-      zh: '用 PyTorch 从零实现 GPT 风格 transformer（分词 / 数据 / 模型 / 训练 / 采样），小语料预训练后在 8GB 笔记本 GPU 上 QLoRA 微调。',
+      en: 'A GPT-style transformer implemented from scratch in PyTorch — tokenizer, data pipeline, model, training loop, sampling — pre-trained on a small domain corpus, then fine-tuned with a from-scratch LoRA implementation.',
+      zh: '用 PyTorch 从零实现 GPT 风格 transformer（分词 / 数据 / 模型 / 训练 / 采样），小领域语料预训练后，用自实现 LoRA 微调。',
     },
-    tech: ['PyTorch', 'GPT', 'QLoRA', 'FastAPI', 'Streaming', 'Qwen2.5-1.5B'],
+    tech: ['PyTorch', 'GPT', 'LoRA', 'FastAPI', 'Streaming', 'BPE'],
     stats: [
       { value: '28.3M', label: { en: 'parameters (trained from scratch)', zh: '参数量（从零训练）' } },
-      { value: '9.5→0.1', label: { en: 'pretrain loss curve (6000 steps)', zh: '预训练 loss 曲线（6000 步）' } },
+      { value: '28', unit: 'min', label: { en: 'pretrain on an 8GB laptop GPU', zh: '8GB 笔记本 GPU 预训练耗时' } },
       { value: '1.6%', label: { en: 'trainable params in LoRA fine-tune', zh: 'LoRA 微调可训练参数占比' } },
     ],
     links: {
       github: {
         label: { en: 'GitHub repo', zh: 'GitHub 仓库' },
         url: 'https://github.com/Ringnine009/nanolm-from-scratch',
-        external: true,
-        placeholder: true,
-      },
-      demo: {
-        label: { en: 'Live demo', zh: '在线演示' },
-        url: '#',
         external: true,
         placeholder: true,
       },
@@ -529,8 +487,8 @@ export const PROJECTS: Project[] = [
             zh: '用 PyTorch 从零实现 decoder-only GPT 风格 transformer——BPE 分词、数据管线、transformer 模块、训练循环与采样。',
           },
           {
-            en: 'Pre-train on a small corpus, then QLoRA fine-tune Qwen2.5-1.5B on the 8 GB laptop GPU; serve streaming inference over FastAPI with a chat UI.',
-            zh: '小语料预训练后，在 8GB 笔记本 GPU 上 QLoRA 微调 Qwen2.5-1.5B；FastAPI 流式推理 + 聊天 UI。',
+            en: 'Pre-train on a small domain corpus (1.5MB mushroom-safety text), fine-tune with a from-scratch LoRA implementation (1.6% trainable parameters), then serve streaming inference over FastAPI with a chat UI.',
+            zh: '小领域语料（1.5MB 蘑菇安全文本）预训练，再用自实现 LoRA 微调（仅 1.6% 参数可训练），最后 FastAPI 流式推理 + 聊天界面。',
           },
         ],
       },
@@ -540,14 +498,14 @@ export const PROJECTS: Project[] = [
       },
       highlights: [
         { en: 'GPT from scratch: tokenizer → data → model → train → sample', zh: '从零实现 GPT：分词 → 数据 → 模型 → 训练 → 采样' },
-        { en: 'QLoRA fine-tuning on an 8 GB laptop GPU', zh: '8GB 笔记本 GPU 上的 QLoRA 微调' },
+        { en: 'From-scratch LoRA fine-tuning (1.6% trainable parameters)', zh: '自实现 LoRA 微调（仅 1.6% 参数可训练）' },
         { en: 'Streaming FastAPI inference + chat UI', zh: 'FastAPI 流式推理 + 聊天 UI' },
         { en: 'Before/after fine-tuning comparison', zh: '微调前后效果对比' },
       ],
       results: [
         { en: 'Pre-training: 28.3M-parameter GPT, 6000 steps in 28 minutes on an 8GB laptop GPU (29–87K tok/s), loss 9.50 → 0.10 (train), best val 5.02; custom BPE tokenizer (12,000 vocab) round-trips exactly.', zh: '预训练：28.3M 参数 GPT，8GB 笔记本 GPU 上 6000 步 28 分钟（29–87K tok/s），loss 9.50 → 0.10（训练），最佳验证 5.02；自实现 BPE 分词器（12000 词表）往返精确。' },
         { en: 'LoRA fine-tuning: 28 adapters, only 1.60% of parameters trainable (0.459M), 442/49 instruction pairs, val loss 4.03 → 0.84 in 3 minutes. Before fine-tuning the model outputs gibberish; after, it answers \u201cIs the death cap mushroom poisonous?\u201d with structured, factually correct guidance (amatoxins, 6–24h delayed poisoning, poison control contact).', zh: 'LoRA 微调：28 个适配器、仅 1.60% 参数可训练（0.459M）、442/49 指令对、3 分钟 val loss 4.03 → 0.84。微调前输出乱码，微调后能结构化且事实正确地回答"毒鹅膏有毒吗"（鹅膏毒素、6-24 小时迟发中毒、联系中毒控制中心）。' },
-        { en: '30 tests green; streaming FastAPI + SSE + web UI verified end-to-end; inference fully local — zero API cost.', zh: '30 项测试全绿；FastAPI+SSE 流式与网页 UI 端到端验证；推理完全本地——零 API 成本。' },
+        { en: 'Streaming FastAPI + SSE serving with a web UI, verified end-to-end; inference fully local — zero API cost.', zh: 'FastAPI + SSE 流式服务与网页界面端到端验证；推理完全本地——零 API 成本。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
@@ -561,7 +519,7 @@ export const PROJECTS: Project[] = [
       },
       techStack: [
         { en: 'Framework: PyTorch (from-scratch GPT)', zh: '框架：PyTorch（从零 GPT）' },
-        { en: 'Fine-tuning: QLoRA (Qwen2.5-1.5B)', zh: '微调：QLoRA（Qwen2.5-1.5B）' },
+        { en: 'Fine-tuning: from-scratch LoRA implementation', zh: '微调：自实现 LoRA' },
         { en: 'Serving: FastAPI streaming', zh: '服务：FastAPI 流式' },
         { en: 'UI: chat interface', zh: 'UI：聊天界面' },
       ],
@@ -582,10 +540,7 @@ export const PROJECTS: Project[] = [
         { en: 'ML training', zh: '模型训练' },
         { en: 'Backend', zh: '后端' },
       ],
-      todos: [
-        { en: 'Scale corpus + model for a production-grade assistant (current scope is a mechanism demo with honest limits).', zh: '扩展语料与模型以成为生产级助手（当前为机制演示，限制已如实标注）。' },
-        { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
-      ],
+      todos: [],
     },
   },
   {
@@ -655,8 +610,8 @@ export const PROJECTS: Project[] = [
         { en: 'Brier score convergence — see full tables in the paper.', zh: 'Brier 分数收敛 — 完整表格见论文原文。' },
       ],
       demo: {
-        en: 'TODO: add a method-diagram figure and in-game screenshots once verified against the paper PDF.',
-        zh: '待填充：核对论文 PDF 后补充方法图与游戏内截图。',
+        en: 'Figures, tables and the full evaluation data are in the open-access paper (DOI below); an interactive summary of the six configurations is shown above.',
+        zh: '图表与完整评测数据见开放获取论文（见下方 DOI）；上方已给出六组配置的交互式汇总。',
       },
       techStack: [
         { en: 'Framework: AgentScope multi-agent platform', zh: '框架：AgentScope 多智能体平台' },
