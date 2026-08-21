@@ -332,7 +332,7 @@ export const PROJECTS: Project[] = [
         { en: 'RAG', zh: '检索增强' },
       ],
       todos: [
-        { en: 'Verify evaluation numbers and corpus scope (D2L open chapters).', zh: '核对评测数字与语料范围（D2L 开放章节）。' },
+        { en: 'Verify evaluation numbers and corpus scope (open textbook chapters).', zh: '核对评测数字与语料范围（开放教材章节）。' },
         { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
       ],
     },
@@ -499,8 +499,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'Approach', zh: '方法' },
         body: [
           {
-            en: 'Implement GPT from scratch in PyTorch (nanoGPT-inspired, credited in the repo): byte-pair tokenizer, data pipeline, transformer blocks, training loop and sampling.',
-            zh: 'PyTorch 从零实现 GPT（思路借鉴 nanoGPT，仓库内注明来源）：BPE 分词、数据管线、transformer 模块、训练循环与采样。',
+            en: 'Implement a decoder-only GPT-style transformer from scratch in PyTorch — byte-pair tokenizer, data pipeline, transformer blocks, training loop and sampling.',
+            zh: '用 PyTorch 从零实现 decoder-only GPT 风格 transformer——BPE 分词、数据管线、transformer 模块、训练循环与采样。',
           },
           {
             en: 'Pre-train on a small corpus, then QLoRA fine-tune Qwen2.5-1.5B on the 8 GB laptop GPU; serve streaming inference over FastAPI with a chat UI.',
