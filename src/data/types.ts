@@ -70,6 +70,12 @@ export interface Project {
     results: L[];
     /** demo area placeholder */
     demo: L;
+    /** optional demo media paths under /demos/<slug>/ (video, gif, screenshots) */
+    demoMedia?: {
+      video: string;
+      gif: string;
+      shots: string[];
+    };
     /** tech stack list */
     techStack: L[];
     /** GitHub link row */

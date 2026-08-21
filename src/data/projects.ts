@@ -89,8 +89,13 @@ export const PROJECTS: Project[] = [
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
-        en: 'TODO: embed demo video/GIF + screenshots here. Static media only — no external hosting.',
-        zh: '待填充：此处嵌入演示视频 / GIF 与截图。仅静态媒体，不依赖外部托管。',
+        en: 'Screen recording of the full flow: load the 30-invoice demo batch → extraction results with confidence → audit findings → knowledge-graph view.',
+        zh: '完整流程录屏：加载 30 张演示发票 → 带置信度的抽取结果 → 审计告警 → 知识图谱视图。',
+      },
+      demoMedia: {
+        video: '/demos/docmind/demo.mp4',
+        gif: '/demos/docmind/demo.gif',
+        shots: ['/demos/docmind/1-home.png', '/demos/docmind/2-results.png', '/demos/docmind/3-results-scrolled.png', '/demos/docmind/4-audit.png', '/demos/docmind/5-graph.png'],
       },
       techStack: [
         { en: 'Backend: Python · FastAPI (layered architecture)', zh: '后端：Python · FastAPI（分层架构）' },
@@ -199,8 +204,13 @@ export const PROJECTS: Project[] = [
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
-        en: 'TODO: embed demo video/GIF + screenshots here. Static media only — no external hosting.',
-        zh: '待填充：此处嵌入演示视频 / GIF 与截图。仅静态媒体，不依赖外部托管。',
+        en: 'Screen recording: select six traits (including strong-risk signals) → live SVG morphology → calibrated risk verdict with disclaimer → safety-knowledge chat. Runs fully offline.',
+        zh: '录屏：选择六项性状（含强风险信号）→ SVG 形态实时渲染 → 校准后的风险结论与免责声明 → 安全知识问答。全程离线可运行。',
+      },
+      demoMedia: {
+        video: '/demos/mycoguard/demo.mp4',
+        gif: '/demos/mycoguard/demo.gif',
+        shots: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/2-traits-filled.png', '/demos/mycoguard/3-result.png', '/demos/mycoguard/4-result-scrolled.png', '/demos/mycoguard/5-chat.png'],
       },
       techStack: [
         { en: 'Frontend: React 19 · TypeScript · Vite', zh: '前端：React 19 · TypeScript · Vite' },
@@ -418,8 +428,13 @@ export const PROJECTS: Project[] = [
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
-        en: 'TODO: embed demo video/GIF + screenshots here. Static media only — no external hosting.',
-        zh: '待填充：此处嵌入演示视频 / GIF 与截图。仅静态媒体，不依赖外部托管。',
+        en: 'Live recording of a real run: submit the author\u2019s Werewolf paper DOI → the four-agent team (Researcher → Reader → Critic → Synthesizer) executes with visible task-board states → structured review with fact-checked claims.',
+        zh: '真实运行的现场录制：提交本人狼人杀论文 DOI → 四智能体团队（Researcher → Reader → Critic → Synthesizer）执行，任务板状态实时可见 → 输出经事实核查的结构化审阅。',
+      },
+      demoMedia: {
+        video: '/demos/paperflow/demo.mp4',
+        gif: '/demos/paperflow/demo.gif',
+        shots: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/2-entry.png', '/demos/paperflow/4-final-board.png', '/demos/paperflow/6-report.png', '/demos/paperflow/7-report-scrolled.png'],
       },
       techStack: [
         { en: 'Orchestration: self-built agent team + JSON task board', zh: '编排：自研智能体团队 + JSON 任务板' },

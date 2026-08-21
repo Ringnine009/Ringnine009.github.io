@@ -146,10 +146,23 @@ const sections = [
           case 'demo':
             return (
               <div class="detail-section__body">
-                <div class="arch-box" data-reveal>
-                  <span class="mono" aria-hidden="true">▶</span>
-                  {t(d.demo, lang)}
-                </div>
+                {d.demoMedia ? (
+                  <div class="demo-media">
+                    <video controls preload="metadata" poster={d.demoMedia.gif} style="width:100%;border-radius:10px;border:1px solid var(--hairline);background:#000">
+                      <source src={d.demoMedia.video} type="video/mp4" />
+                    </video>
+                    <div style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px">
+                      {d.demoMedia.shots.map((s) => (
+                        <img src={s} alt="" loading="lazy" style="width:100%;border-radius:8px;border:1px solid var(--hairline)" />
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <div class="arch-box" data-reveal>
+                    <span class="mono" aria-hidden="true">▶</span>
+                    {t(d.demo, lang)}
+                  </div>
+                )}
               </div>
             );
           case 'stack':
