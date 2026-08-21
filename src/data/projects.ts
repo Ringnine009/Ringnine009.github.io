@@ -481,9 +481,9 @@ export const PROJECTS: Project[] = [
     },
     tech: ['PyTorch', 'GPT', 'QLoRA', 'FastAPI', 'Streaming', 'Qwen2.5-1.5B'],
     stats: [
-      { value: '0', label: { en: 'API cost at inference (local)', zh: '推理 API 成本（本地）' } },
-      { value: '8GB', label: { en: 'GPU budget (QLoRA feasible)', zh: '显存预算（QLoRA 可行）' } },
-      { value: 'TODO', label: { en: 'loss / sample quality (fill in)', zh: 'loss / 采样质量（待填充）' } },
+      { value: '28.3M', label: { en: 'parameters (trained from scratch)', zh: '参数量（从零训练）' } },
+      { value: '9.5→0.1', label: { en: 'pretrain loss curve (6000 steps)', zh: '预训练 loss 曲线（6000 步）' } },
+      { value: '1.6%', label: { en: 'trainable params in LoRA fine-tune', zh: 'LoRA 微调可训练参数占比' } },
     ],
     links: {
       github: {
@@ -538,12 +538,19 @@ export const PROJECTS: Project[] = [
         { en: 'Before/after fine-tuning comparison', zh: '微调前后效果对比' },
       ],
       results: [
-        { en: 'TODO: fill in pre-training loss curve and sample quality comparison (before/after fine-tuning).', zh: '待填充：预训练 loss 曲线与微调前后采样质量对比。' },
-        { en: 'TODO: add demo video + screenshots (3–5).', zh: '待填充：演示视频与截图（3–5 张）。' },
+        { en: 'Pre-training: 28.3M-parameter GPT, 6000 steps in 28 minutes on an 8GB laptop GPU (29–87K tok/s), loss 9.50 → 0.10 (train), best val 5.02; custom BPE tokenizer (12,000 vocab) round-trips exactly.', zh: '预训练：28.3M 参数 GPT，8GB 笔记本 GPU 上 6000 步 28 分钟（29–87K tok/s），loss 9.50 → 0.10（训练），最佳验证 5.02；自实现 BPE 分词器（12000 词表）往返精确。' },
+        { en: 'LoRA fine-tuning: 28 adapters, only 1.60% of parameters trainable (0.459M), 442/49 instruction pairs, val loss 4.03 → 0.84 in 3 minutes. Before fine-tuning the model outputs gibberish; after, it answers \u201cIs the death cap mushroom poisonous?\u201d with structured, factually correct guidance (amatoxins, 6–24h delayed poisoning, poison control contact).', zh: 'LoRA 微调：28 个适配器、仅 1.60% 参数可训练（0.459M）、442/49 指令对、3 分钟 val loss 4.03 → 0.84。微调前输出乱码，微调后能结构化且事实正确地回答"毒鹅膏有毒吗"（鹅膏毒素、6-24 小时迟发中毒、联系中毒控制中心）。' },
+        { en: '30 tests green; streaming FastAPI + SSE + web UI verified end-to-end; inference fully local — zero API cost.', zh: '30 项测试全绿；FastAPI+SSE 流式与网页 UI 端到端验证；推理完全本地——零 API 成本。' },
+        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
-        en: 'TODO: embed demo video/GIF + screenshots here. Static media only — no external hosting.',
-        zh: '待填充：此处嵌入演示视频 / GIF 与截图。仅静态媒体，不依赖外部托管。',
+        en: 'Screen recording of the locally served chat UI: ask \u201cIs the death cap mushroom poisonous?\u201d and a follow-up first-aid question — the fine-tuned model streams structured, factual answers with zero API cost.',
+        zh: '本地部署聊天界面录屏：提问"毒鹅膏是否有毒"与急救追问——微调后的模型流式输出结构化、事实正确的回答，零 API 成本。',
+      },
+      demoMedia: {
+        video: '/demos/nanollm/demo.mp4',
+        gif: '/demos/nanollm/demo.gif',
+        shots: ['/demos/nanollm/1-home.png', '/demos/nanollm/2-question.png', '/demos/nanollm/3-answer.png', '/demos/nanollm/4-answer-scrolled.png', '/demos/nanollm/5-second.png'],
       },
       techStack: [
         { en: 'Framework: PyTorch (from-scratch GPT)', zh: '框架：PyTorch（从零 GPT）' },
@@ -559,8 +566,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'TODO: describe what you personally built — model code, training pipeline, fine-tuning config, serving layer.',
-            zh: '待填充：描述个人负责部分 — 模型代码、训练管线、微调配置、服务层。',
+            en: 'Implemented the entire model stack from scratch — byte-level BPE tokenizer, data pipeline, transformer architecture (attention, LayerNorm, GPT-2 init, weight tying), training loop with checkpointing, sampling, a from-scratch LoRA implementation, and streaming FastAPI serving with a chat UI.',
+            zh: '从零实现完整模型栈——字节级 BPE 分词器、数据管线、transformer 架构（注意力、LayerNorm、GPT-2 初始化、权重共享）、带检查点的训练循环、采样、自实现 LoRA，以及流式 FastAPI 服务与聊天界面。',
           },
         ],
       },
@@ -569,7 +576,7 @@ export const PROJECTS: Project[] = [
         { en: 'Backend', zh: '后端' },
       ],
       todos: [
-        { en: 'Record final loss, samples and training cost.', zh: '记录最终 loss、采样结果与训练成本。' },
+        { en: 'Scale corpus + model for a production-grade assistant (current scope is a mechanism demo with honest limits).', zh: '扩展语料与模型以成为生产级助手（当前为机制演示，限制已如实标注）。' },
         { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
       ],
     },
