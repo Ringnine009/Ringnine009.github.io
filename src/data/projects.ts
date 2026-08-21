@@ -257,9 +257,9 @@ export const PROJECTS: Project[] = [
     },
     tech: ['Python', 'BGE-M3', 'ChromaDB', 'BM25', 'Reranker', 'DeepSeek', 'React'],
     stats: [
-      { value: 'TODO', label: { en: 'retrieval hit-rate@k (fill in)', zh: '检索命中率@k（待填充）' } },
-      { value: '0', label: { en: 'API cost for embeddings (local)', zh: 'embedding API 成本（本地）' } },
-      { value: 'BGE', label: { en: 'local embedding + reranker', zh: '本地 embedding + 重排' } },
+      { value: '1.000', label: { en: 'retrieval hit@1 (hybrid + reranker, 50 questions)', zh: '检索命中率 hit@1（混合+重排，50 题）' } },
+      { value: '0', label: { en: 'API cost for embeddings (local BGE-M3)', zh: 'embedding API 成本（本地 BGE-M3）' } },
+      { value: '4.92/5', label: { en: 'answer quality (12 sampled, human-scored)', zh: '答案质量（12 条抽样人工评分）' } },
     ],
     links: {
       github: {
@@ -314,12 +314,19 @@ export const PROJECTS: Project[] = [
         { en: 'Retrieval + answer-quality evaluation set', zh: '检索命中率与答案质量评测集' },
       ],
       results: [
-        { en: 'TODO: fill in retrieval hit-rate@k and answer-quality scores.', zh: '待填充：检索命中率@k 与答案质量评分。' },
-        { en: 'TODO: add demo video + screenshots (3–5).', zh: '待填充：演示视频与截图（3–5 张）。' },
+        { en: 'Retrieval benchmark on a 50-question eval set over 165 D2L sections (3,439 chunks): hybrid (dense + BM25 + BGE-reranker) reaches hit@1 1.000 / hit@3 1.000 — +2 pts over dense-only and +16 pts over BM25-only, confirming lexical–semantic complementarity; reranking adds 4 pts at 620ms/query on GPU.', zh: '50 题评测集（165 节、3439 chunks）检索基准：混合（稠密+BM25+BGE 重排）hit@1 1.000 / hit@3 1.000——较纯稠密 +2 个百分点、较纯 BM25 +16 个百分点，验证词汇-语义互补；重排再贡献 4 个百分点（GPU 上 620ms/问）。' },
+        { en: 'Answer quality: 12 questions sampled and human-scored at 4.92/5; SSE streaming with cited sources verified end-to-end (e.g., LSTM questions hit the LSTM chapter).', zh: '答案质量：12 条抽样人工评分 4.92/5；SSE 流式与带引用来源端到端验证（如 LSTM 问题全部命中 LSTM 章节）。' },
+        { en: '50 pytest tests green; local BGE-M3 embeddings (zero API cost) + DeepSeek generation.', zh: '50 项 pytest 全绿；BGE-M3 本地向量（零 API 成本）+ DeepSeek 生成。' },
+        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
-        en: 'TODO: embed demo video/GIF + screenshots here. Static media only — no external hosting.',
-        zh: '待填充：此处嵌入演示视频 / GIF 与截图。仅静态媒体，不依赖外部托管。',
+        en: 'Screen recording of the chat UI: two deep-learning questions answered with streaming output, cited sources panel and source highlighting.',
+        zh: '聊天界面录屏：两个深度学习问题，流式回答 + 来源面板与引用高亮。',
+      },
+      demoMedia: {
+        video: '/demos/sourceqa/demo.mp4',
+        gif: '/demos/sourceqa/demo.gif',
+        shots: ['/demos/sourceqa/1-home.png', '/demos/sourceqa/2-question.png', '/demos/sourceqa/3-answer.png', '/demos/sourceqa/4-sources.png', '/demos/sourceqa/5-second.png'],
       },
       techStack: [
         { en: 'Retrieval: BGE-M3 (local) + BM25 + BGE-reranker', zh: '检索：BGE-M3（本地）+ BM25 + BGE 重排' },
@@ -335,8 +342,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'TODO: describe what you personally built — pipeline, hybrid retriever, evaluation set, UI.',
-            zh: '待填充：描述个人负责部分 — 管线、混合检索、评测集、UI。',
+            en: 'Owned the full RAG stack: D2L corpus ingestion with structure-aware parsing and chunking, local BGE-M3 embeddings, ChromaDB store, hybrid retrieval (dense + BM25, RRF fusion) with BGE reranking, DeepSeek generation with citations, the 50-question evaluation set, and the React streaming chat UI.',
+            zh: '独立完成全栈 RAG：D2L 语料入库（结构感知解析与分块）、BGE-M3 本地向量、ChromaDB 存储、混合检索（稠密+BM25，RRF 融合）与 BGE 重排、DeepSeek 带引用生成、50 题评测集，以及 React 流式聊天界面。',
           },
         ],
       },
@@ -345,7 +352,7 @@ export const PROJECTS: Project[] = [
         { en: 'RAG', zh: '检索增强' },
       ],
       todos: [
-        { en: 'Verify evaluation numbers and corpus scope (open textbook chapters).', zh: '核对评测数字与语料范围（开放教材章节）。' },
+        { en: 'Expand eval set beyond author-written questions for an unbiased score.', zh: '扩展评测集至非作者自写问题以去偏。' },
         { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
       ],
     },
