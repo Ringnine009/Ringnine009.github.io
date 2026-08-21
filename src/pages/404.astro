@@ -1,0 +1,27 @@
+---
+import Base from '@/layouts/Base.astro';
+import { siteConfig } from '@/data/site';
+import { t } from '@/lib/i18n';
+---
+
+<Base
+  lang="en"
+  title={`404 — ${t(siteConfig.author, 'en')}`}
+  description="Page not found — Zhenxiao Guo portfolio."
+  path="/404"
+>
+  <section class="notfound">
+    <div class="container">
+      <div class="notfound__code">404</div>
+      <h1>Page not found / 页面不存在</h1>
+      <p>
+        The page you are looking for was moved or never existed. Choose a language to
+        continue. — 你访问的页面不存在或已移动，请选择语言继续浏览。
+      </p>
+      <div class="hero__cta" style="justify-content:center">
+        <a class="btn btn--primary" href="/en/">EN — Home / 英文首页</a>
+        <a class="btn btn--secondary" href="/zh/">中文 — 首页</a>
+      </div>
+    </div>
+  </section>
+</Base>

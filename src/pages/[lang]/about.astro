@@ -1,0 +1,157 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { aboutContent as c } from '@/data/about';
+import { siteConfig } from '@/data/site';
+import { t, langPath, type Lang } from '@/lib/i18n';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'zh' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const path = `/${lang}/about`;
+const title = `${t({ en: 'About', zh: '关于' }, lang)}${t(siteConfig.seo.titleSuffix, lang)}`;
+const description = t(c.intro, lang);
+const timelineKicker = (k: { en: string; zh: string }) => t(k, lang);
+---
+
+<Base lang={lang} title={title} description={description} path={path}>
+  <PageHero
+    kicker={c.kicker}
+    title={c.title}
+    lede={c.intro}
+    chips={[
+      'IELTS 7.0',
+      'GPA 80.16/100',
+      c.contact.email,
+      '2023–2027',
+    ]}
+    lang={lang}
+  />
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="section section--flush">
+    <div class="container">
+      <SectionHead kicker={c.education.kicker} title={c.education.heading} lang={lang} />
+      <ol class="timeline">
+        <li class="timeline-item" data-reveal>
+          <div class="timeline-item__head">
+            <span class="timeline-item__title">{t(c.education.school, lang)}</span>
+            <span class="timeline-item__org">{t(c.education.location, lang)}</span>
+            <span class="timeline-item__date">{t(c.education.period, lang)}</span>
+          </div>
+          <div class="timeline-item__role">
+            {t(c.education.major, lang)} · {t(c.education.gpa, lang)}
+          </div>
+          <div class="timeline-item__body">
+            <p style="color:var(--ink-subtle);font-size:0.8125rem">{t(c.education.courses, lang)}</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ THESIS ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker={c.thesis.kicker} title={c.thesis.heading} lang={lang} />
+      <div class="paper-block" data-reveal>
+        <div class="paper-block__title">{t(c.thesis.title, lang)}</div>
+        <div class="paper-block__meta">
+          {c.thesis.meta.map((m) => <div>{t(m, lang)}</div>)}
+        </div>
+        <div style="margin-top:12px">
+          <a class="link-arrow" href={langPath(lang, '/research')}>
+            {t(c.thesis.link, lang)}
+            <span class="arr" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH EXPERIENCE ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker={c.research.kicker} title={c.research.heading} lang={lang} />
+      <ol class="timeline">
+        {
+          c.research.items.map((item) => (
+            <li class="timeline-item" data-reveal>
+              <div class="timeline-item__head">
+                <span class="timeline-item__title">{t(item.title, lang)}</span>
+                <span class="timeline-item__date">{t(item.period, lang)}</span>
+              </div>
+              <div class="timeline-item__org">{t(item.org, lang)}</div>
+              <div class="timeline-item__role">{t(item.role, lang)}</div>
+              <div class="timeline-item__body">
+                <ul>
+                  {item.points.map((p) => <li>{t(p, lang)}</li>)}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ INTERNSHIPS ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker={c.work.kicker} title={c.work.heading} lang={lang} />
+      <ol class="timeline">
+        {
+          c.work.items.map((item) => (
+            <li class="timeline-item" data-reveal>
+              <div class="timeline-item__head">
+                <span class="timeline-item__title">{t(item.title, lang)}</span>
+                <span class="timeline-item__date">{t(item.period, lang)}</span>
+              </div>
+              <div class="timeline-item__org">{t(item.org, lang)}</div>
+              <div class="timeline-item__role">{t(item.role, lang)}</div>
+              <div class="timeline-item__body">
+                <ul>
+                  {item.points.map((p) => <li>{t(p, lang)}</li>)}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker={c.skills.kicker} title={c.skills.heading} lang={lang} />
+      <div class="info-grid">
+        {
+          c.skills.groups.map((g) => (
+            <div class="info-box" data-reveal>
+              <div class="info-box__label">{timelineKicker(g.title)}</div>
+              <ul style="list-style:none;display:grid;gap:8px">
+                {g.items.map((item) => (
+                  <li style="color:var(--ink-muted);font-size:0.8125rem">{t(item, lang)}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    heading={c.cta.heading}
+    sub={c.cta.sub}
+    primary={{ label: c.cta.primary, href: `mailto:${c.contact.email}`, external: true }}
+    secondary={{ label: c.cta.secondary, href: c.contact.github, external: true }}
+    emailLine={c.contact.email}
+    lang={lang}
+  />
+</Base>

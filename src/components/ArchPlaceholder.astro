@@ -1,0 +1,17 @@
+---
+import type { L } from '@/data/types';
+import { t, type Lang } from '@/lib/i18n';
+
+interface Props {
+  caption: L;
+  glyph?: string;
+  lang: Lang;
+}
+
+const { caption, glyph = '◫', lang } = Astro.props;
+---
+
+<div class="arch-box" role="img" aria-label={t(caption, lang)} data-reveal>
+  <span class="mono" aria-hidden="true">{glyph}</span>
+  {t(caption, lang)}
+</div>

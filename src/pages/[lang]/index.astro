@@ -1,0 +1,149 @@
+---
+import Base from '@/layouts/Base.astro';
+import SectionHead from '@/components/SectionHead.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import StatGrid from '@/components/StatGrid.astro';
+import SkillBars from '@/components/SkillBars.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import TodoNote from '@/components/TodoNote.astro';
+import { PROJECTS } from '@/data/projects';
+import { homeContent } from '@/data/home';
+import { siteConfig, CONTACT_EMAIL, GITHUB_URL } from '@/data/site';
+import { langPath, t, type Lang } from '@/lib/i18n';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'zh' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const path = `/${lang}/`;
+const c = homeContent;
+const title = `${t(siteConfig.author, lang)} — LLM Engineer & Multi-Agent Researcher`;
+const description = t(siteConfig.seo.description, lang);
+const terminalGlyph = '▮';
+
+// Precompute terminal lines (block-bodied arrows are not allowed in templates).
+const termLines = c.hero.terminal.lines.map((line) => {
+  const cls = line.kind === 'cmd' ? 't-cmd' : line.kind === 'out' ? 't-str' : 't-dim';
+  return { cls, text: t(line.text, lang), prompt: line.kind === 'cmd' };
+});
+---
+
+<Base lang={lang} title={title} description={description} path={path}>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div data-reveal>
+          <div class="hero__kicker">
+            <span class="dot" aria-hidden="true"></span>
+            <span>{t(c.hero.kicker, lang)}</span>
+          </div>
+          <h1 class="hero__title">
+            {t(c.hero.title, lang)}
+            <span class="accent">{t(c.hero.titleAccent, lang)}</span>
+            {t(c.hero.titleSuffix, lang)}
+          </h1>
+          <p class="hero__sub">{t(c.hero.sub, lang)}</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href={langPath(lang, '/projects')}>
+              {t(c.hero.ctaPrimary, lang)}
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--secondary" href={langPath(lang, '/research')}>
+              {t(c.hero.ctaSecondary, lang)}
+            </a>
+            <a class="btn btn--ghost" href={langPath(lang, '/about')}>
+              {t(c.hero.ctaTertiary, lang)}
+            </a>
+          </div>
+          <div class="hero__meta">
+            {c.hero.meta.map((m) => <span class="chip">{t(m, lang)}</span>)}
+          </div>
+        </div>
+
+        <div class="terminal" data-reveal aria-hidden="true">
+          <div class="terminal__bar">
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__title">{t(c.hero.terminal.title, lang)}</span>
+          </div>
+          <div class="terminal__body">
+            {
+              termLines.map((line) => (
+                <div class="term-line">
+                  {line.prompt ? <span class="term-prompt">➜</span> : <span class="term-prompt"></span>}
+                  <span class={line.cls}>{line.text}</span>
+                </div>
+              ))
+            }
+            <div class="term-line">
+              <span class="term-prompt">➜</span>
+              <span class="t-cmd">{terminalGlyph}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURED PROJECTS ===================== -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker={c.featured.kicker}
+        title={c.featured.heading}
+        desc={c.featured.desc}
+        link={{ label: c.featured.viewAll, href: langPath(lang, '/projects') }}
+        lang={lang}
+      />
+      <div class="grid grid--3">
+        {PROJECTS.map((p) => <ProjectCard project={p} lang={lang} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESEARCH HIGHLIGHTS ===================== -->
+  <section class="section">
+    <div class="container">
+      <SectionHead
+        kicker={c.researchHighlights.kicker}
+        title={c.researchHighlights.heading}
+        desc={c.researchHighlights.desc}
+        lang={lang}
+      />
+      <StatGrid stats={c.researchHighlights.stats} lang={lang} />
+      <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <a class="btn btn--secondary" href={langPath(lang, '/research')}>
+          {t(c.researchHighlights.cta, lang)}
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+        <TodoNote note={c.researchHighlights.todoNote} lang={lang} />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="section">
+    <div class="container">
+      <SectionHead kicker={c.skills.kicker} title={c.skills.heading} lang={lang} />
+      <div class="card card--plain" data-reveal>
+        <SkillBars items={c.skills.items} lang={lang} />
+        <p style="margin-top:16px;color:var(--ink-tertiary);font-size:0.75rem">
+          {t(c.skills.note, lang)}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <CtaBand
+    heading={c.cta.heading}
+    sub={c.cta.sub}
+    primary={{ label: c.cta.primary, href: `mailto:${CONTACT_EMAIL}`, external: true }}
+    secondary={{ label: c.cta.secondary, href: GITHUB_URL, external: true }}
+    emailLine={t(c.cta.emailLine, lang)}
+    lang={lang}
+  />
+</Base>

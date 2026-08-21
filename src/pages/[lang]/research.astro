@@ -1,0 +1,170 @@
+---
+import Base from '@/layouts/Base.astro';
+import PageHero from '@/components/PageHero.astro';
+import ArchPlaceholder from '@/components/ArchPlaceholder.astro';
+import TodoNote from '@/components/TodoNote.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { researchContent as c } from '@/data/research';
+import { siteConfig } from '@/data/site';
+import { t, langPath, type Lang } from '@/lib/i18n';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'zh' } }];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const path = `/${lang}/research`;
+const title = `${t(c.title, lang)}${t(siteConfig.seo.titleSuffix, lang)}`;
+const description = t(c.abstract.body[0], lang);
+const doi = `https://doi.org/${c.meta.doi}`;
+---
+
+<Base lang={lang} title={title} description={description} path={path} ogType="article">
+  <PageHero
+    kicker={c.kicker}
+    title={c.title}
+    lede={{
+      en: 'A published study on making LLM agents reason socially — open access.',
+      zh: '已发表研究：让 LLM 智能体具备社会推理能力——开放获取。',
+    }}
+    badges={[{ en: 'TNS Vol.174', zh: 'TNS Vol.174' }, { en: 'Open access', zh: '开放获取' }]}
+    lang={lang}
+  />
+
+  <!-- ============ PAPER META ============ -->
+  <section class="section section--flush">
+    <div class="container">
+      <div class="paper-block" data-reveal>
+        <div class="paper-block__title">{t(c.title, lang)}</div>
+        <div class="paper-block__meta">
+          <div>{t(c.meta.venue, lang)} · {t(c.meta.volume, lang)}</div>
+          <div>{t(c.meta.conference, lang)}</div>
+          <div>{t(c.meta.supervisor, lang)}</div>
+          <div>{t(c.meta.date, lang)} · {t(c.meta.role, lang)}</div>
+          <a class="paper-block__doi" href={doi} target="_blank" rel="noopener noreferrer">
+            DOI: {c.meta.doi}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABSTRACT ============ -->
+  <section class="detail-section">
+    <div class="container detail-section__grid">
+      <div>
+        <div class="detail-section__label">
+          <span class="num">01</span>
+          {t(c.abstract.kicker, lang)}
+        </div>
+      </div>
+      <div class="detail-section__body">
+        {c.abstract.body.map((b) => <p>{t(b, lang)}</p>)}
+        <TodoNote
+          note={{
+            en: 'Cross-check the abstract wording against the published PDF before launch.',
+            zh: '上线前请对照论文原文核对摘要措辞。',
+          }}
+          lang={lang}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ METHOD ============ -->
+  <section class="detail-section">
+    <div class="container detail-section__grid">
+      <div>
+        <div class="detail-section__label">
+          <span class="num">02</span>
+          {t(c.methods.kicker, lang)}
+        </div>
+        <h3 style="margin-top:6px">{t(c.methods.heading, lang)}</h3>
+      </div>
+      <div class="detail-section__body">
+        <ArchPlaceholder caption={c.methods.architecture} glyph="◈" lang={lang} />
+        <div style="margin-top:20px;display:grid;gap:14px">
+          {c.methods.points.map((p) => (
+            <div class="card card--plain" style="padding:16px 18px">
+              <h4 style="margin-bottom:6px;color:var(--primary-hover)">{t(p.title, lang)}</h4>
+              <p style="font-size:0.8125rem">{t(p.body, lang)}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="detail-section">
+    <div class="container detail-section__grid">
+      <div>
+        <div class="detail-section__label">
+          <span class="num">03</span>
+          {t(c.results.kicker, lang)}
+        </div>
+        <h3 style="margin-top:6px">{t(c.results.heading, lang)}</h3>
+      </div>
+      <div class="detail-section__body">
+        <div class="card card--plain" style="padding:0;overflow:hidden">
+          <table class="data-table">
+            <thead>
+              <tr>
+                {c.results.table.headers.map((h) => <th>{t(h, lang)}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {c.results.table.rows.map((row) => (
+                <tr>
+                  {row.map((cell) => (
+                    <td class={typeof cell === 'string' ? 'num' : ''}>{typeof cell === 'string' ? cell : t(cell, lang)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:14px">
+          <TodoNote note={c.results.todoNote} lang={lang} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAPER INFO / CITATION ============ -->
+  <section class="detail-section">
+    <div class="container detail-section__grid">
+      <div>
+        <div class="detail-section__label">
+          <span class="num">04</span>
+          {t(c.paperInfo.kicker, lang)}
+        </div>
+      </div>
+      <div class="detail-section__body">
+        <div class="paper-block" style="border-left-color:var(--primary)">
+          <p style="font-size:0.8125rem;line-height:1.8;color:var(--ink-muted)">
+            {t(c.paperInfo.citation, lang)}
+          </p>
+          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+            <a class="btn btn--primary" href={doi} target="_blank" rel="noopener noreferrer">
+              {t(c.paperInfo.readOnline, lang)}
+              <span class="btn__arrow" aria-hidden="true">↗</span>
+            </a>
+            <span class="chip">{t(c.paperInfo.doiLabel, lang)}: {c.meta.doi}</span>
+          </div>
+          <p style="margin-top:12px;color:var(--ink-tertiary);font-size:0.75rem">
+            {t(c.paperInfo.note, lang)}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    heading={c.cta.heading}
+    sub={c.cta.sub}
+    primary={{ label: c.cta.primary, href: langPath(lang, '/projects/paperflow') }}
+    secondary={{ label: c.cta.secondary, href: langPath(lang, '/research') }}
+    lang={lang}
+  />
+</Base>

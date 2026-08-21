@@ -1,0 +1,45 @@
+---
+import type { L } from '@/data/types';
+import { t, type Lang } from '@/lib/i18n';
+
+interface Crumb {
+  label: L;
+  href?: string;
+}
+
+interface Props {
+  kicker?: L;
+  title: L;
+  lede?: L;
+  crumbs?: Crumb[];
+  badges?: L[];
+  chips?: string[];
+  lang: Lang;
+}
+
+const { kicker, title, lede, crumbs, badges = [], chips = [], lang } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="container">
+    {crumbs && crumbs.length > 0 && (
+      <nav class="page-hero__crumbs" aria-label="Breadcrumb">
+        {crumbs.map((c, i) => (
+          <>
+            {i > 0 && <span aria-hidden="true">/</span>}
+            {c.href ? <a href={c.href}>{t(c.label, lang)}</a> : <span>{t(c.label, lang)}</span>}
+          </>
+        ))}
+      </nav>
+    )}
+    {kicker && <div class="section-head__kicker">{t(kicker, lang)}</div>}
+    <h1 class="page-hero__title">{t(title, lang)}</h1>
+    {lede && <p class="page-hero__lede">{t(lede, lang)}</p>}
+    {(badges.length > 0 || chips.length > 0) && (
+      <div class="page-hero__meta">
+        {badges.map((b) => <span class="badge badge--primary">{t(b, lang)}</span>)}
+        {chips.map((c) => <span class="chip">{c}</span>)}
+      </div>
+    )}
+  </div>
+</section>
