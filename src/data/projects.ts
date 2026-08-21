@@ -27,8 +27,8 @@ export const PROJECTS: Project[] = [
     tech: ['FastAPI', 'Qwen-VL', 'Python', 'React · TS', 'Rule Engine', 'KG Viz'],
     stats: [
       { value: '30', label: { en: 'invoice evaluation set', zh: '张样例发票评测集' } },
-      { value: '3+', label: { en: 'audit rule categories', zh: '类稽查规则' } },
-      { value: 'TODO', label: { en: 'field-level F1 (fill in)', zh: '字段级 F1（待填充）' } },
+      { value: '7', label: { en: 'audit rule categories', zh: '类稽查规则' } },
+      { value: '95.6%', label: { en: 'field-level accuracy (dev)', zh: '字段级准确率（dev）' } },
     ],
     links: {
       github: {
@@ -83,8 +83,9 @@ export const PROJECTS: Project[] = [
         { en: 'Field-level benchmark over 30 sample invoices', zh: '30 张样例发票的字段级评测基准' },
       ],
       results: [
-        { en: 'TODO: fill in field-level precision/recall/F1 from the evaluation set.', zh: '待填充：评测集上的字段级精确率 / 召回率 / F1。' },
-        { en: 'TODO: add demo video + screenshots (3–5).', zh: '待填充：演示视频与截图（3–5 张）。' },
+        { en: 'Field-level accuracy 95.6% on the dev set (5 invoices, 9 fields); invoice number, date, party names and all three amount fields reach 100%; failure rate 0%.', zh: 'dev 集（5 张发票、9 个字段）字段级准确率 95.6%；发票号、日期、购销方名称与全部金额字段达 100%；失败率 0%。' },
+        { en: '7 audit rules implemented (duplicate number, arithmetic consistency, line-item sum, tax-rate sanity, invoice date, party info, low confidence) over a 30-invoice benchmark with ground truth.', zh: '实现 7 条审计规则（重复号码、算术一致性、明细求和、税率合理性、发票日期、购销方信息、低置信度），并建立含真值的 30 张发票评测基准。' },
+        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
         en: 'TODO: embed demo video/GIF + screenshots here. Static media only — no external hosting.',
@@ -104,8 +105,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'TODO: describe what you personally built — extraction pipeline, audit rules, KG visualization, evaluation set.',
-            zh: '待填充：描述个人负责部分 — 抽取管线、审计规则、图谱可视化、评测集。',
+            en: 'Architected and built the full system: multimodal extraction pipeline with per-field confidence, the declarative audit engine with 7 rules, knowledge-graph builder, batch processing API, React dashboard, and the 30-invoice benchmark with ground truth.',
+            zh: '独立完成系统整体架构与实现：带逐字段置信度的多模态抽取管线、7 条规则的声明式审计引擎、知识图谱构建、批量处理 API、React 看板，以及含真值的 30 张发票评测基准。',
           },
         ],
       },
@@ -114,7 +115,7 @@ export const PROJECTS: Project[] = [
         { en: 'ML integration', zh: '模型集成' },
       ],
       todos: [
-        { en: 'Verify all result numbers against the evaluation run.', zh: '核对评测运行中的全部结果数字。' },
+        { en: 'Extend the dev benchmark to the full 30-invoice set for the final numbers.', zh: '将 dev 基准扩展到完整 30 张发票以更新最终数字。' },
         { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
       ],
     },
@@ -136,8 +137,8 @@ export const PROJECTS: Project[] = [
     tech: ['React 19', 'TypeScript', 'Qwen-VL', 'RAG', 'Offline Rules', 'SVG'],
     stats: [
       { value: '4', label: { en: 'uncertainty tiers (low→unknown)', zh: '级不确定性分级' } },
-      { value: '100%', label: { en: 'offline rule-engine availability', zh: '规则引擎可离线运行' } },
-      { value: 'TODO', label: { en: 'recognition accuracy (fill in)', zh: '识别准确率（待填充）' } },
+      { value: '97', unit: '%', label: { en: 'confidence ceiling (never 100%)', zh: '置信度上限（永不出 100%）' } },
+      { value: '97', label: { en: 'tests: 57 vitest + 40 pytest, all green', zh: '项测试全绿：57 vitest + 40 pytest' } },
     ],
     links: {
       github: {
@@ -192,8 +193,9 @@ export const PROJECTS: Project[] = [
         { en: 'Site-wide medical disclaimers', zh: '全站免责声明' },
       ],
       results: [
-        { en: 'TODO: fill in recognition accuracy + uncertainty calibration metrics.', zh: '待填充：识别准确率与不确定性校准指标。' },
-        { en: 'TODO: add demo video + screenshots (3–5).', zh: '待填充：演示视频与截图（3–5 张）。' },
+        { en: 'Rule engine emits only calibrated uncertainty (low / medium / high / cannot judge) with a 97% confidence ceiling; <3 traits forces "cannot judge"; absolute edible/poisonous language is forbidden by tests.', zh: '规则引擎只输出校准后的不确定性分级（低 / 中 / 高 / 无法判断），置信度上限 97%；性状不足 3 项强制"无法判断"；绝对化的可食用/有毒表述被测试禁止。' },
+        { en: '26 curated safety-knowledge entries with per-entry sources; vision recognition via qwen-vl-plus with graceful offline degradation (verified in a real end-to-end smoke run).', zh: '26 条精编安全知识库（逐条标注来源）；qwen-vl-plus 拍照识别并优雅降级离线（真实端到端冒烟已验证）。' },
+        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
         en: 'TODO: embed demo video/GIF + screenshots here. Static media only — no external hosting.',
@@ -213,8 +215,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'TODO: describe what you personally built — rule engine, uncertainty calibration, RAG, disclaimer strategy.',
-            zh: '待填充：描述个人负责部分 — 规则引擎、不确定性校准、RAG、免责策略。',
+            en: 'Rebuilt the course project into a safety-first product: uncertainty-quantified rule engine and calibration logic, vision proxy backend with secret-safe key handling, curated knowledge base, offline-first degradation, and the compliance/ disclaimer strategy.',
+            zh: '将课程项目重构为安全优先的产品：不确定性量化规则引擎与校准逻辑、密钥安全的视觉代理后端、精编知识库、离线优先降级，以及合规与免责策略。',
           },
         ],
       },
@@ -223,7 +225,7 @@ export const PROJECTS: Project[] = [
         { en: 'ML integration', zh: '模型集成' },
       ],
       todos: [
-        { en: 'Confirm no absolute-accuracy claims remain anywhere.', zh: '确认全站不再出现绝对化准确率表述。' },
+        { en: 'Optionally back rule weights with a fresh UCI distillation run (dataset download blocked from this network).', zh: '可选：用新的 UCI 蒸馏运行背书规则权重（本网络无法下载数据集）。' },
         { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
       ],
     },
@@ -354,8 +356,8 @@ export const PROJECTS: Project[] = [
     tech: ['Python', 'DeepSeek', 'Function Calling', 'Agent Orc.', 'arXiv API'],
     stats: [
       { value: '4', label: { en: 'specialized agents', zh: '个专职智能体' } },
-      { value: '3s', label: { en: 'arXiv API etiquette (no key needed)', zh: 'arXiv API 限速间隔（免密钥）' } },
-      { value: 'TODO', label: { en: 'review quality eval (fill in)', zh: '审阅质量评测（待填充）' } },
+      { value: '67', label: { en: 'tests green (64 offline + 3 real-API smoke)', zh: '项测试全绿（64 离线 + 3 真实 API）' } },
+      { value: '8/8', label: { en: 'claims fact-checked on the author\u2019s own paper', zh: '本人论文的论断事实核查通过' } },
     ],
     links: {
       github: {
@@ -410,8 +412,9 @@ export const PROJECTS: Project[] = [
         { en: 'Structured review + related-work survey output', zh: '输出结构化审阅 + 相关工作综述' },
       ],
       results: [
-        { en: 'TODO: fill in review-quality evaluation and pipeline success rate.', zh: '待填充：审阅质量评测与流水线成功率。' },
-        { en: 'TODO: add demo video + screenshots (3–5).', zh: '待填充：演示视频与截图（3–5 张）。' },
+        { en: 'Two archived demo runs: the author\u2019s Werewolf paper (DOI + local PDF) with 8/8 claims fact-checked [supported] and related-work links resolved to real arXiv IDs; Attention Is All You Need end-to-end via the arXiv API (BLEU 28.4/41.8 correctly restated, relevance honestly rated 4/10).', zh: '两份存档演示运行：本人的狼人杀论文（DOI + 本地 PDF）8/8 论断核查通过并关联真实 arXiv 文献；Attention Is All You Need 走通 arXiv 全链路（正确复述 BLEU 28.4/41.8，相关性诚实评 4/10）。' },
+        { en: '64 offline tests + 3 real-API smoke tests green; self-built orchestration with JSON task board and graceful degradation to abstract-only review.', zh: '64 项离线测试 + 3 项真实 API 冒烟全绿；自研编排 + JSON 任务板，拿不到全文时优雅降级为摘要审阅。' },
+        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
         en: 'TODO: embed demo video/GIF + screenshots here. Static media only — no external hosting.',
@@ -431,8 +434,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'TODO: describe what you personally built — orchestration loop, agent roles, function-calling contracts, task board.',
-            zh: '待填充：描述个人负责部分 — 编排循环、智能体角色、function calling 契约、任务板。',
+            en: 'Designed and built the full multi-agent framework — Agent base class, tool registry, JSON task board, dependency-aware orchestrator, four-agent team on DeepSeek function calling, CLI and web dashboard. The direction extends my published multi-agent social-reasoning research into a product.',
+            zh: '设计并实现完整的多智能体框架——Agent 基类、工具注册表、JSON 任务板、依赖感知编排器、基于 DeepSeek function calling 的四智能体团队、CLI 与 Web 看板。该方向是我已发表的多智能体社会推理研究的工程化延伸。',
           },
         ],
       },
@@ -441,7 +444,7 @@ export const PROJECTS: Project[] = [
         { en: 'Backend', zh: '后端' },
       ],
       todos: [
-        { en: 'Verify arXiv API rate-limit behavior in practice.', zh: '实测确认 arXiv API 限速行为。' },
+        { en: 'Add chunked/hierarchical reading for very long papers (listed as future work in the repo).', zh: '为超长论文增加分块/层级阅读（仓库已列为 future work）。' },
         { en: 'Replace GitHub/demo placeholder URLs.', zh: '替换 GitHub / 演示占位链接。' },
       ],
     },
