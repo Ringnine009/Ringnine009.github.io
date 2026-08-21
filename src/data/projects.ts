@@ -85,7 +85,7 @@ export const PROJECTS: Project[] = [
       results: [
         { en: 'Real-API benchmark over 30 synthetic invoices (qwen-vl-plus): 82.5% overall field-level accuracy — invoice number 86.7%, date 90.0%, party names 86.7%, amounts 80–86.7%, tax IDs 70–72% (hardest field); average confidence ~0.97; 3/30 file-level failures recorded.', zh: '30 张合成发票的真实 API 基准（qwen-vl-plus）：字段级总体准确率 82.5%——发票号 86.7%、日期 90.0%、购销方名称 86.7%、金额 80–86.7%、税号 70–72%（最难字段）；平均置信度 ~0.97；3/30 整包失败已记录。' },
         { en: '7 audit rules with severity ranking and evidence (GB 32100-2015 tax-ID check digit included); the 30-invoice demo batch with 11 injected anomalies produced exactly 2 CRITICAL + 5 ERROR + 2 WARNING findings.', zh: '7 条带严重级与证据的审计规则（含 GB 32100-2015 税号校验位）；注入 11 处异常的 30 张演示批次精确产出 2 CRITICAL + 5 ERROR + 2 WARNING。' },
-        { en: '92 offline tests green (LLM mocked); engineering decisions (model choice, DPI, retry policy) backed by measured evidence in docs/benchmark.md.', zh: '92 项离线测试全绿（LLM mock）；模型选型、DPI、重试策略等工程决策均有实测证据（docs/benchmark.md）。' },
+        { en: '95 offline tests green (LLM mocked, verified from a fresh venv); engineering decisions (model choice, DPI, retry policy) backed by measured evidence in docs/benchmark.md.', zh: '95 项离线测试全绿（LLM mock，全新 venv 实测）；模型选型、DPI、重试策略等工程决策均有实测证据（docs/benchmark.md）。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
