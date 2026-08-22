@@ -504,8 +504,9 @@ export const PROJECTS: Project[] = [
       ],
       results: [
         { en: 'Pre-training: 28.3M-parameter GPT, 6000 steps in 28 minutes on an 8GB laptop GPU (29–87K tok/s), loss 9.50 → 0.10 (train), best val 5.02; custom BPE tokenizer (12,000 vocab) round-trips exactly.', zh: '预训练：28.3M 参数 GPT，8GB 笔记本 GPU 上 6000 步 28 分钟（29–87K tok/s），loss 9.50 → 0.10（训练），最佳验证 5.02；自实现 BPE 分词器（12000 词表）往返精确。' },
-        { en: 'LoRA fine-tuning: 28 adapters, only 1.60% of parameters trainable (0.459M), 442/49 instruction pairs, val loss 4.03 → 0.84 in 3 minutes. Before fine-tuning the model outputs gibberish; after, it answers \u201cIs the death cap mushroom poisonous?\u201d with structured, factually correct guidance (amatoxins, 6–24h delayed poisoning, poison control contact).', zh: 'LoRA 微调：28 个适配器、仅 1.60% 参数可训练（0.459M）、442/49 指令对、3 分钟 val loss 4.03 → 0.84。微调前输出乱码，微调后能结构化且事实正确地回答"毒鹅膏有毒吗"（鹅膏毒素、6-24 小时迟发中毒、联系中毒控制中心）。' },
-        { en: 'Streaming FastAPI + SSE serving with a web UI, verified end-to-end; inference fully local — zero API cost.', zh: 'FastAPI + SSE 流式服务与网页界面端到端验证；推理完全本地——零 API 成本。' },
+        { en: 'LoRA fine-tuning: 28 adapters, only 1.60% of parameters trainable (0.459M), 442/49 instruction pairs, val loss 4.03 → 0.84 in 3 minutes. Before fine-tuning the model outputs gibberish; after, it answers \u201cIs the death cap mushroom poisonous?\u201d with structured, factually correct guidance.', zh: 'LoRA 微调：28 个适配器、仅 1.60% 参数可训练（0.459M）、442/49 指令对、3 分钟 val loss 4.03 → 0.84。微调前输出乱码，微调后能结构化且事实正确地回答"毒鹅膏有毒吗"。' },
+        { en: 'Held-out evaluation (44 hand-written questions, zero overlap with training): 38.6% keyword hit-rate — strongest on edibility questions (80%), weakest on morphological recall (12.5%). Honest limits documented: a mechanism-focused project, not a production chatbot.', zh: '留出评测（44 条手写题、与训练集零重合）：关键词命中率 38.6%——食性判断最强（80%），形态回忆最弱（12.5%）。限制如实记录：这是机制演示项目，不是生产级聊天机器人。' },
+        { en: 'True token-level SSE streaming (first token ~0.6s) with repetition penalty and no-repeat n-grams; inference fully local — zero API cost.', zh: '真 token 级 SSE 流式（首 token 约 0.6 秒）+ 重复惩罚与 n-gram 去重；推理完全本地——零 API 成本。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
