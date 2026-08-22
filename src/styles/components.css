@@ -779,7 +779,6 @@ a.chip:hover {
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
-}
 .contact-strip__item {
   display: inline-flex;
   align-items: center;
@@ -809,6 +808,21 @@ a.chip:hover {
 .contact-strip__copy:hover {
   color: var(--primary-hover);
   border-color: var(--hairline-strong);
+}
+
+/* Section quick-nav (project detail pages) */
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.section-nav .chip {
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+.section-nav .chip:hover {
+  border-color: var(--primary);
+  color: var(--primary-hover);
 }
 
 /* BibTeX block */

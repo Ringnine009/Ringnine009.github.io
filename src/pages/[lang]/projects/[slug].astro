@@ -87,6 +87,17 @@ const sections = [
     </div>
   </section>
 
+  <!-- ============ ON THIS PAGE ============ -->
+  <section class="section section--flush" style="padding-bottom:8px">
+    <div class="container">
+      <nav class="section-nav" aria-label="On this page">
+        {sections.map((sec) => (
+          <a class="chip" href={`#${sec.id}`}>{t(sec.label, lang)}</a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
   <!-- ============ STATS ============ -->
   {project.stats.length > 0 && (
     <section class="section section--flush" style="padding-bottom:8px">
