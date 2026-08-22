@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
     tech: ['FastAPI', 'Qwen-VL', 'Python', 'React · TS', 'Rule Engine', 'KG Viz'],
     stats: [
       { value: '30', label: { en: 'invoice evaluation set', zh: '张样例发票评测集' } },
-      { value: '7', label: { en: 'audit rule categories', zh: '类稽查规则' } },
+      { value: '8', label: { en: 'audit rules incl. QR cross-check', zh: '类稽查规则（含二维码交叉校验）' } },
       { value: '82.5%', label: { en: 'field-level accuracy (qwen-vl-plus)', zh: '字段级准确率（qwen-vl-plus）' } },
     ],
     links: {
@@ -78,7 +78,7 @@ export const PROJECTS: Project[] = [
       ],
       results: [
         { en: 'Real-API benchmark over 30 synthetic invoices (qwen-vl-plus): 82.5% overall field-level accuracy — invoice number 86.7%, date 90.0%, party names 86.7%, amounts 80–86.7%, tax IDs 70–72% (hardest field); average confidence ~0.97; 3/30 file-level failures recorded.', zh: '30 张合成发票的真实 API 基准（qwen-vl-plus）：字段级总体准确率 82.5%——发票号 86.7%、日期 90.0%、购销方名称 86.7%、金额 80–86.7%、税号 70–72%（最难字段）；平均置信度 ~0.97；3/30 整包失败已记录。' },
-        { en: '7 audit rules with severity ranking and evidence (GB 32100-2015 tax-ID check digit included); the 30-invoice demo batch with 11 injected anomalies produced exactly 2 CRITICAL + 5 ERROR + 2 WARNING findings.', zh: '7 条带严重级与证据的审计规则（含 GB 32100-2015 税号校验位）；注入 11 处异常的 30 张演示批次精确产出 2 CRITICAL + 5 ERROR + 2 WARNING。' },
+        { en: '8 audit rules with severity ranking and evidence — including QR-code cross-validation (invoice number / amounts decoded from the invoice QR and checked against the extracted fields) and GB 32100-2015 tax-ID check-digit repair; the 30-invoice demo batch with injected anomalies produces exactly matched findings.', zh: '8 条带严重级与证据的审计规则——含二维码交叉校验（解码发票二维码中的号码/金额与抽取字段比对）与 GB 32100-2015 税号校验位自动修复；注入异常的 30 张演示批次精确产出对应告警。' },
         { en: 'Reproducible offline evaluation harness with a machine-readable ground-truth benchmark; engineering decisions (model choice, DPI, retry policy) documented with measured evidence.', zh: '可复现的离线评测框架与机器可读真值基准；模型选型、DPI、重试策略等工程决策均有实测证据存档。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
@@ -184,8 +184,9 @@ export const PROJECTS: Project[] = [
         { en: 'Site-wide medical disclaimers', zh: '全站免责声明' },
       ],
       results: [
-        { en: 'Rule engine emits only calibrated uncertainty (low / medium / high / cannot judge) with a 97% confidence ceiling; <3 traits forces "cannot judge"; no absolute edible/poisonous verdicts are ever produced.', zh: '规则引擎只输出校准后的不确定性分级（低 / 中 / 高 / 无法判断），置信度上限 97%；性状不足 3 项强制"无法判断"；绝不输出绝对化的可食用/有毒结论。' },
-        { en: '26 curated safety-knowledge entries with per-entry sources; vision recognition via qwen-vl-plus with graceful offline degradation (verified in a real end-to-end smoke run).', zh: '26 条精编安全知识库（逐条标注来源）；qwen-vl-plus 拍照识别并优雅降级离线（真实端到端冒烟已验证）。' },
+        { en: 'Rule engine distills a random forest trained on the real UCI Mushrooms dataset (8,124 rows): held-out accuracy 100.00% (teaching dataset property, stated as such), Gini importances (odor 0.161, gill-color 0.112, gill-size 0.111, spore-print 0.093, ring-type 0.070) drive the weights; every 100%-purity branch is encoded with its supporting sample count and surfaced as an explainable rule.', zh: '规则引擎由真实 UCI 蘑菇数据集（8124 行）上训练的随机森林蒸馏而来：留出集准确率 100.00%（如实标注为教学数据集属性），Gini 重要性（气味 0.161、菌褶颜色 0.112、菌褶大小 0.111、孢子印 0.093、菌环类型 0.070）驱动权重；每条 100% 纯度分支编码为可解释规则并标注支持样本数。' },
+        { en: 'Emits only calibrated uncertainty (low / medium / high / cannot judge) with a 97% confidence ceiling; <3 traits forces "cannot judge"; no absolute edible/poisonous verdicts are ever produced.', zh: '只输出校准后的不确定性分级（低 / 中 / 高 / 无法判断），置信度上限 97%；性状不足 3 项强制"无法判断"；绝不输出绝对化的可食用/有毒结论。' },
+        { en: 'Dual-channel confidence fusion (rule engine + vision model) with an explicit agree / partial / disagree indicator; offline expert explanation generated deterministically — never weaker than the original course version.', zh: '规则引擎与视觉模型双通道置信度融合，带一致 / 部分一致 / 分歧指示；离线专家解读确定性生成——严格不弱于原版课程作业。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
@@ -195,7 +196,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: '/demos/mycoguard/demo.mp4',
         gif: '/demos/mycoguard/demo.gif',
-        shots: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/2-traits-filled.png', '/demos/mycoguard/3-result.png', '/demos/mycoguard/4-result-scrolled.png', '/demos/mycoguard/5-chat.png'],
+        shots: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/2-scenario.png', '/demos/mycoguard/3-result.png', '/demos/mycoguard/4-expert.png', '/demos/mycoguard/6-chat.png'],
       },
       techStack: [
         { en: 'Frontend: React 19 · TypeScript · Vite', zh: '前端：React 19 · TypeScript · Vite' },
@@ -239,9 +240,9 @@ export const PROJECTS: Project[] = [
     },
     tech: ['Python', 'BGE-M3', 'ChromaDB', 'BM25', 'Reranker', 'DeepSeek', 'React'],
     stats: [
-      { value: '1.000', label: { en: 'retrieval hit@1 (hybrid + reranker, 50-question curated eval set)', zh: '检索命中率 hit@1（混合+重排，50 题精选评测集）' } },
+      { value: '0.82', label: { en: 'strict retrieval hit@1 (section-level, 50-question eval)', zh: '严格检索命中率 hit@1（章节级，50 题）' } },
+      { value: '0.98', label: { en: 'loose hit@1 incl. keyword matches (hybrid)', zh: '宽松命中率 hit@1 含关键词（混合）' } },
       { value: '0', label: { en: 'API cost for embeddings (local BGE-M3)', zh: 'embedding API 成本（本地 BGE-M3）' } },
-      { value: '4.92/5', label: { en: 'answer quality (12 sampled, human-scored)', zh: '答案质量（12 条抽样人工评分）' } },
     ],
     links: {
       github: {
@@ -290,7 +291,7 @@ export const PROJECTS: Project[] = [
         { en: 'Retrieval + answer-quality evaluation set', zh: '检索命中率与答案质量评测集' },
       ],
       results: [
-        { en: 'Retrieval benchmark on a 50-question eval set over 165 D2L sections (3,439 chunks): hybrid (dense + BM25 + BGE-reranker) reaches hit@1 1.000 / hit@3 1.000 — +2 pts over dense-only and +16 pts over BM25-only, confirming lexical–semantic complementarity; reranking adds 4 pts at 620ms/query on GPU.', zh: '50 题评测集（165 节、3439 chunks）检索基准：混合（稠密+BM25+BGE 重排）hit@1 1.000 / hit@3 1.000——较纯稠密 +2 个百分点、较纯 BM25 +16 个百分点，验证词汇-语义互补；重排再贡献 4 个百分点（GPU 上 620ms/问）。' },
+        { en: 'Honest dual-metric retrieval benchmark on a 50-question eval set over 165 D2L sections (3,439 chunks): strict section-level hit@1 = 0.82 (dense-only, best), hybrid + BM25 = 0.76; loose hit@1 including keyword matches = 0.98 (hybrid). Both metrics reported — the strict number is the honest headline.', zh: '50 题评测集（165 节、3439 chunks）的双口径诚实检索基准：严格章节级 hit@1 = 0.82（纯稠密最优）、混合 + BM25 = 0.76；宽松口径（含关键词命中）混合 hit@1 = 0.98。两组数字都如实报告——严格口径才是诚实的主数字。' },
         { en: 'Answer quality: 12 questions sampled and human-scored at 4.92/5; SSE streaming with cited sources verified end-to-end (e.g., LSTM questions hit the LSTM chapter).', zh: '答案质量：12 条抽样人工评分 4.92/5；SSE 流式与带引用来源端到端验证（如 LSTM 问题全部命中 LSTM 章节）。' },
         { en: 'Local BGE-M3 embeddings — zero API cost for retrieval; DeepSeek generates cited answers with source highlighting.', zh: 'BGE-M3 本地向量——检索零 API 成本；DeepSeek 生成带引用回答，来源高亮可溯源。' },
         { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
@@ -408,7 +409,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: '/demos/paperflow/demo.mp4',
         gif: '/demos/paperflow/demo.gif',
-        shots: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/2-entry.png', '/demos/paperflow/4-final-board.png', '/demos/paperflow/6-report.png', '/demos/paperflow/7-report-scrolled.png'],
+        shots: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/2-board.png', '/demos/paperflow/3-report.png', '/demos/paperflow/4-report-scrolled.png'],
       },
       techStack: [
         { en: 'Orchestration: self-built agent team + JSON task board', zh: '编排：自研智能体团队 + JSON 任务板' },
