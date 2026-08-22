@@ -20,3 +20,6 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# local-only CI workflow (needs a PAT with workflow scope to push; see README)
+.github/
