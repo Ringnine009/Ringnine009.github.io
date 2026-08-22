@@ -1,7 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
 import StatGrid from '@/components/StatGrid.astro';
-import TodoNote from '@/components/TodoNote.astro';
 import { getProject, DETAILED_PROJECTS } from '@/data/projects';
 import { siteConfig } from '@/data/site';
 import { t, langPath, type Lang } from '@/lib/i18n';
@@ -217,20 +216,6 @@ const sections = [
       );
     })
   }
-
-  <!-- ============ TODO NOTES ============ -->
-  {d.todos.length > 0 && (
-    <section class="section">
-      <div class="container">
-        <div class="detail-section__label" style="margin-bottom:12px">
-          {t({ en: 'Before launch', zh: '上线前' }, lang)}
-        </div>
-        <div style="display:grid;gap:10px">
-          {d.todos.map((todo) => <TodoNote note={todo} lang={lang} />)}
-        </div>
-      </div>
-    </section>
-  )}
 
   <!-- ============ NEXT PROJECT ============ -->
   {
