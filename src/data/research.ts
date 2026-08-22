@@ -33,8 +33,8 @@ export const researchContent = {
         zh: 'LLM 驱动的多智能体系统在社会推理中面临两大长期难题：同质智能体之间的递归共识，以及欺骗的稳定检测。我们提出动态信念网络（DBN）与跨模型深度思考 Token 比率（DTR）探针联合方案，在 9 人狼人杀场景中以 6 组受控配置、3000 局模拟完成评测。',
       },
       {
-        en: 'DBN maintains per-player suspicion estimates with exponential moving average (EMA) smoothing, cutting the positive-feedback loop between homogeneous models. The DTR probe measures vocabulary-distribution change across transformer layers via logit-lens as a proxy of cognitive load. Combined, they raise the villager win rate from 44.2% to 68.8%, vote accuracy from 35.5% to 66.6%, and expedite Brier-score convergence — while revealing a non-monotonic relation between individual capability and collective payoff, akin to the handicap principle.',
-        zh: 'DBN 通过指数滑动平均（EMA）平滑维护对每位玩家的怀疑估计，切断同质模型间的正反馈循环；DTR 探针以 logit-lens 测量各 transformer 层间的词表分布变化，作为认知负荷的代理。联合使用将村民胜率从 44.2% 提升至 68.8%，投票准确率从 35.5% 提升至 66.6%，并加速 Brier 分数收敛——同时揭示了个体能力与集体收益之间的非单调关系（类似演化博弈中的累赘原则）。',
+        en: 'DBN maintains per-player suspicion estimates with exponential moving average (EMA) smoothing, cutting the positive-feedback loop between homogeneous models. A reasoning-prompting module (MaKTO-Proxy) and a DTR probe — a cross-model logit-lens measure of vocabulary-distribution change across transformer layers, used as a proxy of cognitive load — complement it. The best configuration (MaKTO-Proxy + DBN) raises the villager win rate from 44.2% to 68.8%; adding the DTR probe pushes vote accuracy to 66.6% (from 35.5%) and expedites Brier-score convergence — while revealing a non-monotonic relation between individual capability and collective payoff, akin to the handicap principle.',
+        zh: 'DBN 通过指数滑动平均（EMA）平滑维护对每位玩家的怀疑估计，切断同质模型间的正反馈循环；推理提示模块（MaKTO-Proxy）与 DTR 探针（以 logit-lens 测量各 transformer 层间词表分布变化、作为认知负荷代理的跨模型方案）与之互补。最佳配置（MaKTO-Proxy + DBN）将村民胜率从 44.2% 提升至 68.8%；加入 DTR 探针后投票准确率升至 66.6%（基线 35.5%），并加速 Brier 分数收敛——同时揭示了个体能力与集体收益之间的非单调关系（类似演化博弈中的累赘原则）。',
       },
     ],
   },
@@ -47,6 +47,13 @@ export const researchContent = {
       zh: 'DBN 信念维护（EMA）+ 跨模型 DTR 探针分析智能体隐藏状态 → 以游戏内指标衡量的社会推理提升。',
     },
     points: [
+      {
+        title: { en: 'MaKTO-Proxy (reasoning prompting)', zh: 'MaKTO-Proxy（推理提示）' },
+        body: {
+          en: 'Few-shot chain-of-thought examples distilled from winning villager dialogues in the WOLF benchmark, injected into the system prompt — approximating the MaKTO reinforcement-learning method at inference time without extra training.',
+          zh: '从 WOLF 基准中村民方获胜对话蒸馏的 few-shot 思维链样例，注入系统提示——推理时近似 MaKTO 强化学习方法，无需额外训练。',
+        },
+      },
       {
         title: { en: 'Dynamic Belief Network', zh: '动态信念网络' },
         body: {

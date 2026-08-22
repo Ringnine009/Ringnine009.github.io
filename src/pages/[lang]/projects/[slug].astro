@@ -149,6 +149,7 @@ const sections = [
               <div class="detail-section__body">
                 {d.demoMedia ? (
                   <div class="demo-media">
+                    <p class="demo-caption">{t(d.demo, lang)}</p>
                     <video controls preload="metadata" poster={d.demoMedia.gif} style="width:100%;border-radius:10px;border:1px solid var(--hairline);background:#000">
                       <source src={d.demoMedia.video} type="video/mp4" />
                     </video>

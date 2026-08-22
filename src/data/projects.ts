@@ -100,8 +100,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'Architected and built the full system: multimodal extraction pipeline with per-field confidence, the declarative audit engine with 7 rules, knowledge-graph builder, batch processing API, React dashboard, and the 30-invoice benchmark with ground truth.',
-            zh: '独立完成系统整体架构与实现：带逐字段置信度的多模态抽取管线、7 条规则的声明式审计引擎、知识图谱构建、批量处理 API、React 看板，以及含真值的 30 张发票评测基准。',
+            en: 'Architected and built the full system: multimodal extraction pipeline with per-field confidence, the declarative audit engine with 8 rules, knowledge-graph builder, batch processing API, React dashboard, and the 30-invoice benchmark with ground truth.',
+            zh: '独立完成系统整体架构与实现：带逐字段置信度的多模态抽取管线、8 条规则的声明式审计引擎、知识图谱构建、批量处理 API、React 看板，以及含真值的 30 张发票评测基准。',
           },
         ],
       },
@@ -284,7 +284,7 @@ export const PROJECTS: Project[] = [
       ],
       results: [
         { en: 'Honest dual-metric retrieval benchmark on a 50-question eval set over 165 D2L sections (3,439 chunks): strict section-level hit@1 = 0.82 (dense-only, best), hybrid + BM25 = 0.76; loose hit@1 including keyword matches = 0.98 (hybrid). Both metrics reported — the strict number is the honest headline.', zh: '50 题评测集（165 节、3439 chunks）的双口径诚实检索基准：严格章节级 hit@1 = 0.82（纯稠密最优）、混合 + BM25 = 0.76；宽松口径（含关键词命中）混合 hit@1 = 0.98。两组数字都如实报告——严格口径才是诚实的主数字。' },
-        { en: 'Answer quality: 12 questions sampled and human-scored at 4.92/5; SSE streaming with cited sources verified end-to-end (e.g., LSTM questions hit the LSTM chapter).', zh: '答案质量：12 条抽样人工评分 4.92/5；SSE 流式与带引用来源端到端验证（如 LSTM 问题全部命中 LSTM 章节）。' },
+        { en: 'Answer quality: 12 questions sampled and human-scored at 4.83/5; SSE streaming with cited sources verified end-to-end (e.g., LSTM questions hit the LSTM chapter).', zh: '答案质量：12 条抽样人工评分 4.83/5；SSE 流式与带引用来源端到端验证（如 LSTM 问题全部命中 LSTM 章节）。' },
         { en: 'Local BGE-M3 embeddings — zero API cost for retrieval; DeepSeek generates cited answers with source highlighting.', zh: 'BGE-M3 本地向量——检索零 API 成本；DeepSeek 生成带引用回答，来源高亮可溯源。' },
       ],
       demo: {
@@ -543,8 +543,8 @@ export const PROJECTS: Project[] = [
       zh: '多智能体社会推理：动态信念网络与深度思考探针',
     },
     summary: {
-      en: 'A 9-player Werewolf system on AgentScope with LLM-backed agents: a Dynamic Belief Network (EMA belief maintenance) and a cross-model Deep-Thinking-Ratio probe raise villager win rate and vote accuracy.',
-      zh: '基于 AgentScope 的 9 人狼人杀系统：动态信念网络（EMA 信念维护）与跨模型深度思考比率探针，显著提升村民胜率与投票准确率。',
+      en: 'A 9-player Werewolf system on AgentScope with LLM-backed agents: a Dynamic Belief Network (EMA belief maintenance) and a cross-model Deep-Thinking Token Ratio (DTR) probe raise villager win rate and vote accuracy.',
+      zh: '基于 AgentScope 的 9 人狼人杀系统：动态信念网络（EMA 信念维护）与跨模型深度思考 Token 比率（DTR）探针，显著提升村民胜率与投票准确率。',
     },
     tech: ['AgentScope', 'LLM Backend', 'DBN', 'DTR Probe', 'Agentic Evaluation'],
     stats: [
@@ -579,7 +579,7 @@ export const PROJECTS: Project[] = [
           },
           {
             en: 'Propose a cross-model architectural Deep-Thinking Token Ratio (DTR) probe that analyzes hidden-layer activation patterns through forward inference of probe models, providing enhanced marginal utility for complex social reasoning.',
-            zh: '提出跨模型架构的深度思考比率（DTR）探针，通过探针模型前向推理分析隐藏层激活模式，为复杂社会推理提供边际增益。',
+            zh: '提出跨模型架构的深度思考 Token 比率（DTR）探针，通过探针模型前向推理分析隐藏层激活模式，为复杂社会推理提供边际增益。',
           },
         ],
       },
@@ -616,8 +616,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'Co-author — developed the Werewolf system on AgentScope, designed the DBN EMA mechanism and the DTR probe, and built the quantitative in-game evaluation metrics. Supervised by Vincent LAU (HKUST).',
-            zh: '共同作者 — 基于 AgentScope 开发狼人杀系统，设计 DBN EMA 机制与 DTR 探针，并搭建游戏内定量评测指标。导师：刘坚能（香港科技大学）。',
+            en: 'Sole author — developed the Werewolf system on AgentScope, designed the DBN EMA mechanism and the DTR probe, and built the quantitative in-game evaluation metrics. Supervised by Vincent LAU (HKUST).',
+            zh: '第一作者（唯一作者）— 基于 AgentScope 开发狼人杀系统，设计 DBN EMA 机制与 DTR 探针，并搭建游戏内定量评测指标。导师：刘坚能（香港科技大学）。',
           },
         ],
       },

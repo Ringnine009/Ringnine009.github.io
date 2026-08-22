@@ -36,11 +36,6 @@ export const siteConfig: SiteConfig = {
         links: [
           { label: { en: 'Email', zh: '邮箱' }, href: 'mailto:guozhenxiao6778@163.com', external: true },
           { label: { en: 'GitHub', zh: 'GitHub' }, href: 'https://github.com/Ringnine009', external: true },
-          {
-            label: { en: 'Resume', zh: '简历' },
-            href: '/about',
-            // TODO: point to a hosted PDF once it exists.
-          },
         ],
       },
     ],
@@ -49,17 +44,6 @@ export const siteConfig: SiteConfig = {
       zh: '© 2026 Zhenxiao Guo · 使用 Astro 构建',
     },
     builtWith: { en: 'EN / 中文', zh: 'EN / 中文' },
-  },
-  common: {
-    readMore: { en: 'Read more', zh: '阅读详情' },
-    viewProject: { en: 'View case study', zh: '查看案例' },
-    viewAll: { en: 'View all', zh: '查看全部' },
-    openSource: { en: 'Source code', zh: '源码' },
-    backToProjects: { en: 'All projects', zh: '全部项目' },
-    backHome: { en: 'Back home', zh: '返回首页' },
-    onThisPage: { en: 'On this page', zh: '本页内容' },
-    todo: { en: 'TODO', zh: '待填充' },
-    tags: { en: 'Stack', zh: '技术栈' },
   },
   seo: {
     titleSuffix: { en: '· Zhenxiao Guo — LLM Engineer & Multi-Agent Researcher', zh: '· 郭震霄 — LLM 工程师与多智能体研究者' },

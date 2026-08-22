@@ -21,6 +21,7 @@ const description = t(
 );
 const rowHref = (slug: string) => `/${lang}/projects/${slug}`;
 const researchHref = `/${lang}/research`;
+const researchEntry = PROJECTS.find((p) => p.kind === 'research');
 ---
 
 <Base lang={lang} title={title} description={description} path={path}>
@@ -41,18 +42,18 @@ const researchHref = `/${lang}/research`;
       <a class="card card--interactive" style="margin-bottom:20px;display:block" href={researchHref} data-reveal>
         <div class="proj-card__top">
           <span class="proj-card__icon" aria-hidden="true">◉</span>
-          <h3 class="proj-card__name">{PROJECTS[5].name}</h3>
+          <h3 class="proj-card__name">{researchEntry!.name}</h3>
           <div class="proj-card__badges">
-            <span class="badge badge--success">{t(PROJECTS[5].status!, lang)}</span>
+            <span class="badge badge--success">{t(researchEntry!.status!, lang)}</span>
           </div>
         </div>
-        <p class="proj-card__summary">{t(PROJECTS[5].summary, lang)}</p>
+        <p class="proj-card__summary">{t(researchEntry!.summary, lang)}</p>
         <div class="proj-card__tags">
-          {PROJECTS[5].tech.map((tech) => <span class="chip">{tech}</span>)}
+          {researchEntry!.tech.map((tech) => <span class="chip">{tech}</span>)}
         </div>
         <div class="proj-card__foot">
           <span class="link-arrow">
-            {t(PROJECTS[5].links.internal, lang)}
+            {t(researchEntry!.links.internal, lang)}
             <span class="arr" aria-hidden="true">→</span>
           </span>
           <span class="mono">TNS · Vol.174</span>

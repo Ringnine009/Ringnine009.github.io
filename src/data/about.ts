@@ -26,7 +26,7 @@ export const aboutContent = {
     school: { en: 'Tongji University', zh: '同济大学' },
     location: { en: 'Shanghai, China', zh: '中国 · 上海' },
     major: { en: 'B.Eng. in Artificial Intelligence', zh: '人工智能专业（本科）' },
-    period: { en: '09/2023 – 06/2027', zh: '2023.09 – 2027.06' },
+    period: { en: 'Sep 2023 – Jun 2027', zh: '2023.09 – 2027.06' },
     gpa: { en: 'GPA 80.16/100 · 3.61/5.00', zh: 'GPA 80.16/100 · 3.61/5.00' },
     courses: {
       en: 'Extracurricular: Generative AI with Large Language Models (DeepLearning.AI × AWS) · Natural Language Processing Specialization, 4 courses (DeepLearning.AI)',
@@ -57,7 +57,7 @@ export const aboutContent = {
         title: { en: 'Multimodal Information Fusion Perception and Visual Semantic Understanding in Complex Scenarios', zh: '复杂场景多模态信息融合感知与视觉语义理解' },
         org: { en: 'School of Artificial Intelligence and Robotics, Hunan University', zh: '湖南大学 机器人与人工智能学院' },
         role: { en: 'Research Assistant', zh: '科研助理' },
-        period: { en: '05/08/2026 – 28/08/2026', zh: '2026.08.05 – 2026.08.28' },
+        period: { en: 'Aug 5 – 28, 2026', zh: '2026.08.05 – 2026.08.28' },
         points: [
           {
             en: 'Collected, cleaned and preprocessed multi-source visual perception data; built standardized multimodal datasets with temporal-spatial alignment and cross-modality feature correlation.',
@@ -88,7 +88,7 @@ export const aboutContent = {
         title: { en: 'GEO system development & full-stack implementation', zh: 'GEO 系统开发与全栈实现' },
         org: { en: 'Shanghai Zhidian Qiaodong AI Technology Co., Ltd.', zh: '支点撬动' },
         role: { en: 'AI R&D Engineer Intern', zh: 'AI 研发工程师实习生' },
-        period: { en: '23/06/2026 – 31/07/2026', zh: '2026.06.23 – 2026.07.31' },
+        period: { en: 'Jun 23 – Jul 31, 2026', zh: '2026.06.23 – 2026.07.31' },
         points: [
           {
             en: 'Developed modules of the GEO system (enterprise knowledge-base management, AI visibility diagnostics, content generation, publishing scheduling, result tracking) with React + TypeScript frontend and Python + FastAPI backend.',
@@ -108,7 +108,7 @@ export const aboutContent = {
         title: { en: 'Data warehouse & analytical reporting', zh: '数据仓库与分析报表' },
         org: { en: 'Hunan CountData Technology Information Co., Ltd.', zh: '大算' },
         role: { en: 'Big Data and Cloud Computing Intern', zh: '大数据与云计算实习生' },
-        period: { en: '05/01/2026 – 27/02/2026', zh: '2026.01.05 – 2026.02.27' },
+        period: { en: 'Jan 5 – Feb 27, 2026', zh: '2026.01.05 – 2026.02.27' },
         points: [
           {
             en: 'Collected and cleaned cloud-phone platform user behavior logs with Python scripts (dedup, field standardization, quality checks, summaries).',
@@ -128,7 +128,7 @@ export const aboutContent = {
         title: { en: 'Digital content management platform', zh: '企业数字内容管理平台' },
         org: { en: 'Hunan Zhigaodian Network Technology Co., Ltd.', zh: '制高点' },
         role: { en: 'Information Technology Support Intern', zh: '信息技术支持实习生' },
-        period: { en: '03/07/2025 – 22/08/2025', zh: '2025.07.03 – 2025.08.22' },
+        period: { en: 'Jul 3 – Aug 22, 2025', zh: '2025.07.03 – 2025.08.22' },
         points: [
           {
             en: 'Participated in designing and developing functional modules of the company’s digital content management platform: content publishing management, user permission management, and basic user-interface work.',

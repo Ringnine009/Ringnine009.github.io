@@ -69,7 +69,7 @@ export const homeContent = {
       {
         value: '44.2%',
         unit: '→ 68.8%',
-        label: { en: 'villager win rate after DBN + DTR probe', zh: '引入 DBN + DTR 探针后村民胜率' },
+        label: { en: 'villager win rate (best config: MaKTO-Proxy + DBN)', zh: '村民胜率（最佳配置 MaKTO-Proxy + DBN）' },
       },
       {
         value: '35.5%',

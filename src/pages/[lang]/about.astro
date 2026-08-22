@@ -32,6 +32,40 @@ const timelineKicker = (k: { en: string; zh: string }) => t(k, lang);
     lang={lang}
   />
 
+  <!-- ============ CONTACT STRIP ============ -->
+  <section class="section section--flush" style="padding-bottom:0">
+    <div class="container">
+      <div class="contact-strip" data-reveal>
+        <div class="contact-strip__item">
+          <span aria-hidden="true">✉</span>
+          <a href={`mailto:${c.contact.email}`}>{c.contact.email}</a>
+          <button type="button" class="contact-strip__copy" data-copy={c.contact.email} aria-label="Copy email address">
+            Copy
+          </button>
+        </div>
+        <div class="contact-strip__item">
+          <span aria-hidden="true">☏</span>
+          <a href={`tel:${c.contact.phone.replace(/\s/g, '')}`}>{c.contact.phone}</a>
+        </div>
+      </div>
+      <script>
+        const copyBtns = document.querySelectorAll('[data-copy]');
+        copyBtns.forEach((btn) => {
+          btn.addEventListener('click', async () => {
+            try {
+              await navigator.clipboard.writeText(btn.dataset.copy ?? '');
+              const old = btn.textContent;
+              btn.textContent = '✓ Copied';
+              setTimeout(() => (btn.textContent = old), 1600);
+            } catch {
+              /* clipboard unavailable */
+            }
+          });
+        });
+      </script>
+    </div>
+  </section>
+
   <!-- ============ EDUCATION ============ -->
   <section class="section section--flush">
     <div class="container">
