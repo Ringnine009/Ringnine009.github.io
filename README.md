@@ -1,18 +1,18 @@
 # Zhenxiao Guo — Portfolio Site
 
-Bilingual (English / 中文), dark-tech portfolio for Zhenxiao Guo — production-grade LLM
+Bilingual (English / 中文) portfolio for Zhenxiao Guo — production-grade LLM
 applications and multi-agent research. Built with **Astro 5 + TypeScript**, custom CSS
 design system, **zero external dependencies** (fonts are bundled npm packages, no CDN).
 
-Live site (once deployed): <https://Ringnine009.github.io> — default language **EN**, switch
+Live site: <https://Ringnine009.github.io> — default language **EN**, switch
 to **中文** from the top-right control.
 
 ## Tech stack
 
 - [Astro 5](https://astro.build) — static output, `output: 'static'`
 - TypeScript (strict, `astro check` clean)
-- Custom design system (Linear-inspired dark SaaS): near-black canvas `#010102`, hairline
-  borders, single indigo accent `#6366F1`, Inter + JetBrains Mono (bundled via Fontsource)
+- Custom light design system: canvas `#fafbfc`, white surfaces with hairline
+  borders, indigo accent `#4f46e5`, Inter + JetBrains Mono (bundled via Fontsource)
 - `@astrojs/sitemap` for `sitemap-index.xml` + per-page hreflang alternates
 - GitHub Actions → Pages deployment (no Jekyll, `.nojekyll` included)
 

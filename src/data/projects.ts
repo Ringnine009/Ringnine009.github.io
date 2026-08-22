@@ -78,13 +78,13 @@ export const PROJECTS: Project[] = [
         { en: 'An offline evaluation harness with a machine-readable ground-truth benchmark; model choice, DPI and retry policy are backed by measured evidence.', zh: '离线评测框架 + 机器可读真值基准；模型选型、DPI、重试策略均有实测数据支撑。' },
       ],
       demo: {
-        en: 'Screen recording of the full flow: load the 30-invoice demo batch → extraction results with confidence → audit findings → knowledge-graph view.',
-        zh: '完整流程录屏：加载 30 张演示发票 → 带置信度的抽取结果 → 审计告警 → 知识图谱视图。',
+        en: 'Screen recording of the full flow: load the 30-invoice demo batch → live extraction progress → results with confidence → audit findings → amount trend chart with buyer/seller filters → knowledge-graph view.',
+        zh: '完整流程录屏：加载 30 张演示发票 → 实时抽取进度 → 带置信度的抽取结果 → 审计告警 → 金额趋势图（可按购销方筛选）→ 知识图谱视图。',
       },
       demoMedia: {
         video: '/demos/docmind/demo.mp4',
         gif: '/demos/docmind/demo.gif',
-        shots: ['/demos/docmind/1-home.png', '/demos/docmind/2-results.png', '/demos/docmind/3-results-scrolled.png', '/demos/docmind/4-audit.png', '/demos/docmind/5-graph.png'],
+        shots: ['/demos/docmind/1-home.png', '/demos/docmind/3-results.png', '/demos/docmind/5-audit.png', '/demos/docmind/6-analysis.png', '/demos/docmind/7-analysis-filtered.png', '/demos/docmind/8-graph.png'],
       },
       techStack: [
         { en: 'Backend: Python · FastAPI (layered architecture)', zh: '后端：Python · FastAPI（分层架构）' },
@@ -183,13 +183,13 @@ export const PROJECTS: Project[] = [
         { en: 'Dual-channel confidence fusion (rule engine + vision model) with an explicit agree / partial / disagree indicator; offline expert explanation generated deterministically.', zh: '规则引擎与视觉模型双通道置信度融合，带一致 / 部分一致 / 分歧指示；离线专家解读确定性生成。' },
       ],
       demo: {
-        en: 'Screen recording: select six traits (including strong-risk signals) → live SVG morphology → calibrated risk verdict with disclaimer → safety-knowledge chat. Runs fully offline.',
-        zh: '录屏：选择六项性状（含强风险信号）→ SVG 形态实时渲染 → 校准后的风险结论与免责声明 → 安全知识问答。全程离线可运行。',
+        en: 'Screen recording: pick key traits one by one (cap color, spore print, gill size, cap shape — the SVG mushroom morphs live) → calibrated risk verdict with disclaimer → AI-enhanced safety-knowledge Q&A. The rule engine runs fully offline.',
+        zh: '录屏：逐项选择关键性状（菌盖颜色、孢子印、菌褶大小、菌盖形状——SVG 蘑菇实时变化）→ 校准后的风险结论与免责声明 → AI 增强的安全知识问答。规则引擎全程离线运行。',
       },
       demoMedia: {
         video: '/demos/mycoguard/demo.mp4',
         gif: '/demos/mycoguard/demo.gif',
-        shots: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/2-scenario.png', '/demos/mycoguard/3-result.png', '/demos/mycoguard/4-expert.png', '/demos/mycoguard/6-chat.png'],
+        shots: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/2-trait-spore.png', '/demos/mycoguard/3-traits-filled.png', '/demos/mycoguard/4-result.png', '/demos/mycoguard/5-expert.png', '/demos/mycoguard/7-chat-answer.png'],
       },
       techStack: [
         { en: 'Frontend: React 19 · TypeScript · Vite', zh: '前端：React 19 · TypeScript · Vite' },
@@ -294,7 +294,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: '/demos/sourceqa/demo.mp4',
         gif: '/demos/sourceqa/demo.gif',
-        shots: ['/demos/sourceqa/1-home.png', '/demos/sourceqa/2-question.png', '/demos/sourceqa/3-answer.png', '/demos/sourceqa/4-sources.png', '/demos/sourceqa/5-second.png'],
+        shots: ['/demos/sourceqa/1-home.png', '/demos/sourceqa/3-streaming.png', '/demos/sourceqa/4-answer.png', '/demos/sourceqa/5-sources.png', '/demos/sourceqa/6-second.png'],
       },
       techStack: [
         { en: 'Retrieval: BGE-M3 (local) + BM25 + BGE-reranker', zh: '检索：BGE-M3（本地）+ BM25 + BGE 重排' },
@@ -398,7 +398,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: '/demos/paperflow/demo.mp4',
         gif: '/demos/paperflow/demo.gif',
-        shots: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/2-board.png', '/demos/paperflow/3-report.png', '/demos/paperflow/4-report-scrolled.png'],
+        shots: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/3-board-start.png', '/demos/paperflow/4-live.png', '/demos/paperflow/9-report.png', '/demos/paperflow/10-report-scrolled.png'],
       },
       techStack: [
         { en: 'Orchestration: self-built agent team + JSON task board', zh: '编排：自研智能体团队 + JSON 任务板' },
@@ -504,7 +504,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: '/demos/nanollm/demo.mp4',
         gif: '/demos/nanollm/demo.gif',
-        shots: ['/demos/nanollm/1-home.png', '/demos/nanollm/2-question.png', '/demos/nanollm/3-answer.png', '/demos/nanollm/4-answer-scrolled.png', '/demos/nanollm/5-second.png'],
+        shots: ['/demos/nanollm/1-home.png', '/demos/nanollm/3-streaming.png', '/demos/nanollm/4-answer.png', '/demos/nanollm/5-answer-scrolled.png', '/demos/nanollm/6-second.png'],
       },
       techStack: [
         { en: 'Framework: PyTorch (from-scratch GPT)', zh: '框架：PyTorch（从零 GPT）' },
