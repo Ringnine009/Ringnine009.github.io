@@ -139,6 +139,11 @@ export const researchContent = {
     },
     doiLabel: { en: 'DOI', zh: 'DOI' },
     readOnline: { en: 'Read the open-access paper', zh: '阅读开放获取论文' },
+    download: { en: 'Download PDF', zh: '下载 PDF' },
+    bibtex: {
+      en: '@article{guo2026dbn,\n  title  = {Dynamic Belief Networks and Deep-Thinking Probes for Multi-agent Social Reasoning},\n  author = {Guo, Zhenxiao},\n  journal = {Theoretical and Natural Science},\n  volume = {174},\n  year   = {2026},\n  doi    = {10.54254/2753-8818/2026.DL34010}\n}',
+      zh: '@article{guo2026dbn,\n  title  = {Dynamic Belief Networks and Deep-Thinking Probes for Multi-agent Social Reasoning},\n  author = {Guo, Zhenxiao},\n  journal = {Theoretical and Natural Science},\n  volume = {174},\n  year   = {2026},\n  doi    = {10.54254/2753-8818/2026.DL34010}\n}',
+    },
     note: {
       en: 'Source code is intentionally not public (research policy).',
       zh: '源码按研究惯例不公开。',
@@ -152,6 +157,5 @@ export const researchContent = {
       zh: '看看多智能体方向如何延伸为产品：PaperFlow 将论文链接转化为结构化审阅。',
     },
     primary: { en: 'View PaperFlow', zh: '查看 PaperFlow' },
-    secondary: { en: 'Back to research', zh: '返回研究' },
   },
 };

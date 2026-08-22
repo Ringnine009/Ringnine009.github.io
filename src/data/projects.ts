@@ -433,7 +433,7 @@ export const PROJECTS: Project[] = [
     glyph: '▤',
     status: { en: 'Model Training', zh: '模型训练' },
     tagline: {
-      en: 'A language model trained from scratch, plus QLoRA fine-tuning',
+      en: 'A language model trained from scratch, plus LoRA fine-tuning',
       zh: '从零训练的轻量语言模型',
     },
     summary: {
@@ -578,7 +578,7 @@ export const PROJECTS: Project[] = [
             zh: '为目标智能体配备动态信念网络（DBN），通过指数滑动平均机制维护信念状态，解决多智能体系统中的递归一致性挑战。',
           },
           {
-            en: 'Propose a cross-model architectural Deep Thinking Ratio (DTR) probe that analyzes hidden-layer activation patterns through forward inference of probe models, providing enhanced marginal utility for complex social reasoning.',
+            en: 'Propose a cross-model architectural Deep-Thinking Token Ratio (DTR) probe that analyzes hidden-layer activation patterns through forward inference of probe models, providing enhanced marginal utility for complex social reasoning.',
             zh: '提出跨模型架构的深度思考比率（DTR）探针，通过探针模型前向推理分析隐藏层激活模式，为复杂社会推理提供边际增益。',
           },
         ],

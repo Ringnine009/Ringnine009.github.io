@@ -765,6 +765,43 @@ a.chip:hover {
   color: var(--ink-subtle);
 }
 
+/* BibTeX block */
+.bibtex {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.bibtex__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-subtle);
+  cursor: pointer;
+}
+.bibtex__toggle:hover {
+  color: var(--primary-hover);
+}
+.bibtex__caret {
+  transition: transform 0.15s ease;
+}
+.bibtex__pre {
+  margin: 0;
+  padding: 12px 14px;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--ink-muted);
+  overflow-x: auto;
+  white-space: pre;
+}
+
 /* Info grid (tech stack / role / links) */
 .info-grid {
   display: grid;

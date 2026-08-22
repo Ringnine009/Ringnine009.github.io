@@ -167,8 +167,31 @@ const doi = `https://doi.org/${c.meta.doi}`;
               {t(c.paperInfo.readOnline, lang)}
               <span class="btn__arrow" aria-hidden="true">↗</span>
             </a>
+            <a class="btn btn--secondary" href="/papers/dl34010.pdf" download>
+              {t(c.paperInfo.download, lang)}
+            </a>
             <span class="chip">{t(c.paperInfo.doiLabel, lang)}: {c.meta.doi}</span>
           </div>
+          <div class="bibtex" style="margin-top:14px">
+            <button type="button" class="bibtex__toggle" aria-expanded="false">
+              <span>BibTeX</span>
+              <span class="bibtex__caret" aria-hidden="true">▸</span>
+            </button>
+            <pre class="bibtex__pre" hidden>{t(c.paperInfo.bibtex, lang)}</pre>
+          </div>
+          <script>
+            const toggles = document.querySelectorAll('.bibtex__toggle');
+            toggles.forEach((btn) => {
+              btn.addEventListener('click', () => {
+                const pre = btn.parentElement?.querySelector('.bibtex__pre');
+                if (!pre) return;
+                const open = pre.hidden;
+                pre.hidden = !open;
+                btn.setAttribute('aria-expanded', String(open));
+                btn.querySelector('.bibtex__caret')!.textContent = open ? '▾' : '▸';
+              });
+            });
+          </script>
           <p style="margin-top:12px;color:var(--ink-tertiary);font-size:0.75rem">
             {t(c.paperInfo.note, lang)}
           </p>
@@ -181,7 +204,7 @@ const doi = `https://doi.org/${c.meta.doi}`;
     heading={c.cta.heading}
     sub={c.cta.sub}
     primary={{ label: c.cta.primary, href: langPath(lang, '/projects/paperflow') }}
-    secondary={{ label: c.cta.secondary, href: langPath(lang, '/research') }}
+    secondary={{ label: { en: 'Back to home', zh: '返回首页' }, href: langPath(lang, '/') }}
     lang={lang}
   />
 </Base>
