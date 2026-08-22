@@ -69,8 +69,9 @@ export const PROJECTS: Project[] = [
       highlights: [
         { en: 'Structured field extraction with per-field confidence signals', zh: '结构化字段抽取，带逐字段置信度信号' },
         { en: 'Declarative rule engine: duplicate / arithmetic / tax anomalies', zh: '声明式规则引擎：重复 / 算术 / 税率异常' },
-        { en: 'Knowledge-graph visualization of document relations', zh: '票据关联的知识图谱可视化' },
-        { en: 'Field-level benchmark over 30 sample invoices', zh: '30 张样例发票的字段级评测基准' },
+        { en: 'Interactive knowledge-graph explorer — object filters, node focus, transaction legend', zh: '交互式知识图谱探索——对象筛选、节点聚焦、关系图例' },
+        { en: 'Invoice detail drawer: confidence bars, audit evidence, graph connections', zh: '发票详情抽屉：置信度条、审计证据、图谱关联' },
+        { en: 'Audit statistics charts (by rule / by severity)', zh: '审计统计图（按规则 / 按严重级）' },
       ],
       results: [
         { en: 'Real-API benchmark over 30 synthetic invoices (qwen-vl-plus): 82.5% overall field-level accuracy — invoice number 86.7%, date 90.0%, party names 86.7%, amounts 80–86.7%, tax IDs 70–72% (hardest field); average confidence ~0.97; 3/30 file-level failures recorded.', zh: '30 张合成发票的真实 API 基准（qwen-vl-plus）：字段级总体准确率 82.5%——发票号 86.7%、日期 90.0%、购销方名称 86.7%、金额 80–86.7%、税号 70–72%（最难字段）；平均置信度 ~0.97；3/30 整包失败已记录。' },
@@ -78,13 +79,13 @@ export const PROJECTS: Project[] = [
         { en: 'An offline evaluation harness with a machine-readable ground-truth benchmark; model choice, DPI and retry policy are backed by measured evidence.', zh: '离线评测框架 + 机器可读真值基准；模型选型、DPI、重试策略均有实测数据支撑。' },
       ],
       demo: {
-        en: 'Screen recording of the full flow: load the 30-invoice demo batch → live extraction progress → results with confidence → audit findings → amount trend chart with buyer/seller filters → knowledge-graph view.',
-        zh: '完整流程录屏：加载 30 张演示发票 → 实时抽取进度 → 带置信度的抽取结果 → 审计告警 → 金额趋势图（可按购销方筛选）→ 知识图谱视图。',
+        en: 'Screen recording of the full flow: load the 30-invoice demo batch → live extraction progress → results with confidence → invoice detail drawer → audit findings → amount trend chart with buyer/seller filters + audit statistics → interactive knowledge-graph explorer (object filters, node focus) with a transaction legend.',
+        zh: '完整流程录屏：加载 30 张演示发票 → 实时抽取进度 → 带置信度的抽取结果 → 发票详情抽屉 → 审计告警 → 金额趋势图（可按购销方筛选）+ 审计统计 → 交互式知识图谱（对象筛选、节点聚焦、关系图例）。',
       },
       demoMedia: {
         video: '/demos/docmind/demo.mp4',
         gif: '/demos/docmind/demo.gif',
-        shots: ['/demos/docmind/1-home.png', '/demos/docmind/3-results.png', '/demos/docmind/5-audit.png', '/demos/docmind/6-analysis.png', '/demos/docmind/7-analysis-filtered.png', '/demos/docmind/8-graph.png'],
+        shots: ['/demos/docmind/1-home.png', '/demos/docmind/3-results.png', '/demos/docmind/4-detail-drawer.png', '/demos/docmind/5-audit.png', '/demos/docmind/6-analysis.png', '/demos/docmind/7-analysis-rules.png', '/demos/docmind/8-graph-full.png', '/demos/docmind/11-graph-focus.png'],
       },
       techStack: [
         { en: 'Backend: Python · FastAPI (layered architecture)', zh: '后端：Python · FastAPI（分层架构）' },
@@ -172,10 +173,11 @@ export const PROJECTS: Project[] = [
         zh: '拍照 → 视觉识别 + 离线规则引擎 → 置信度融合 → 带来源的校准结论。',
       },
       highlights: [
-        { en: 'Offline rule engine + SVG real-time morphology rendering', zh: '离线规则引擎 + SVG 实时形态渲染' },
+        { en: 'Product-grade SVG mushroom rendering — gradients, textures, animated transitions', zh: '产品级 SVG 蘑菇渲染——渐变光影、纹理细节、动画过渡' },
+        { en: 'Offline rule engine + real-time morphology rendering', zh: '离线规则引擎 + SVG 实时形态渲染' },
+        { en: 'Photo identification with vision-sourced trait badges', zh: '拍照识别，视觉来源性状带徽章标注' },
         { en: 'Calibrated uncertainty tiers, never absolute claims', zh: '分级不确定性表达，杜绝绝对化表述' },
         { en: 'Built-in safety-knowledge Q&A with sources', zh: '带来源的内置安全知识问答' },
-        { en: 'Site-wide medical disclaimers', zh: '全站免责声明' },
       ],
       results: [
         { en: 'Rule engine distills a random forest trained on the real UCI Mushrooms dataset (8,124 rows): held-out accuracy 100.00% (teaching dataset property, stated as such), Gini importances (odor 0.161, gill-color 0.112, gill-size 0.111, spore-print 0.093, ring-type 0.070) drive the weights; every 100%-purity branch is encoded with its supporting sample count and surfaced as an explainable rule.', zh: '规则引擎由真实 UCI 蘑菇数据集（8124 行）上训练的随机森林蒸馏而来：留出集准确率 100.00%（如实标注为教学数据集属性），Gini 重要性（气味 0.161、菌褶颜色 0.112、菌褶大小 0.111、孢子印 0.093、菌环类型 0.070）驱动权重；每条 100% 纯度分支编码为可解释规则并标注支持样本数。' },
@@ -183,13 +185,13 @@ export const PROJECTS: Project[] = [
         { en: 'Dual-channel confidence fusion (rule engine + vision model) with an explicit agree / partial / disagree indicator; offline expert explanation generated deterministically.', zh: '规则引擎与视觉模型双通道置信度融合，带一致 / 部分一致 / 分歧指示；离线专家解读确定性生成。' },
       ],
       demo: {
-        en: 'Screen recording: pick key traits one by one (cap color, spore print, gill size, cap shape — the SVG mushroom morphs live) → calibrated risk verdict with disclaimer → AI-enhanced safety-knowledge Q&A. The rule engine runs fully offline.',
-        zh: '录屏：逐项选择关键性状（菌盖颜色、孢子印、菌褶大小、菌盖形状——SVG 蘑菇实时变化）→ 校准后的风险结论与免责声明 → AI 增强的安全知识问答。规则引擎全程离线运行。',
+        en: 'Screen recording: pick key traits one by one (the SVG mushroom morphs with animated transitions) → calibrated risk verdict with disclaimer → photo identification with a real mushroom photo (vision-sourced traits marked, dual-channel fusion) → AI-enhanced safety-knowledge Q&A. The rule engine runs fully offline.',
+        zh: '录屏：逐项选择关键性状（SVG 蘑菇动画过渡实时变化）→ 校准后的风险结论与免责声明 → 用真实蘑菇照片拍照识别（视觉性状带标记、双通道融合）→ AI 增强的安全知识问答。规则引擎全程离线运行。',
       },
       demoMedia: {
         video: '/demos/mycoguard/demo.mp4',
         gif: '/demos/mycoguard/demo.gif',
-        shots: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/2-trait-spore.png', '/demos/mycoguard/3-traits-filled.png', '/demos/mycoguard/4-result.png', '/demos/mycoguard/5-expert.png', '/demos/mycoguard/7-chat-answer.png'],
+        shots: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/3-traits-filled.png', '/demos/mycoguard/4-result.png', '/demos/mycoguard/5-expert.png', '/demos/mycoguard/6-photo-mode.png', '/demos/mycoguard/8-photo-result.png', '/demos/mycoguard/9-chat-answer.png'],
       },
       techStack: [
         { en: 'Frontend: React 19 · TypeScript · Vite', zh: '前端：React 19 · TypeScript · Vite' },
@@ -279,8 +281,9 @@ export const PROJECTS: Project[] = [
       highlights: [
         { en: 'Local BGE-M3 embeddings — zero embedding API cost', zh: 'BGE-M3 本地向量化 — embedding 零成本' },
         { en: 'Hybrid retrieval: dense + BM25, then BGE rerank', zh: '混合检索：稠密 + BM25，再经 BGE 重排' },
+        { en: 'Retrieval breakdown panel — dense / BM25 / RRF scores per source', zh: '检索分解面板——每个来源的 dense / BM25 / RRF 得分' },
+        { en: 'Conversation history persisted in the browser', zh: '对话历史持久化（浏览器本地保存）' },
         { en: 'Cited answers traceable to source chunks', zh: '回答带引用，可回溯到原文片段' },
-        { en: 'Retrieval + answer-quality evaluation set', zh: '检索命中率与答案质量评测集' },
       ],
       results: [
         { en: 'Honest dual-metric retrieval benchmark on a 50-question eval set over 165 D2L sections (3,439 chunks): strict section-level hit@1 = 0.82 (dense-only, best), hybrid + BM25 = 0.76; loose hit@1 including keyword matches = 0.98 (hybrid). Both metrics reported — the strict number is the honest headline.', zh: '50 题评测集（165 节、3439 chunks）的双口径诚实检索基准：严格章节级 hit@1 = 0.82（纯稠密最优）、混合 + BM25 = 0.76；宽松口径（含关键词命中）混合 hit@1 = 0.98。两组数字都如实报告——严格口径才是诚实的主数字。' },
@@ -288,13 +291,13 @@ export const PROJECTS: Project[] = [
         { en: 'Local BGE-M3 embeddings — zero API cost for retrieval; DeepSeek generates cited answers with source highlighting.', zh: 'BGE-M3 本地向量——检索零 API 成本；DeepSeek 生成带引用回答，来源高亮可溯源。' },
       ],
       demo: {
-        en: 'Screen recording of the chat UI: two deep-learning questions answered with streaming output, cited sources panel and source highlighting.',
-        zh: '聊天界面录屏：两个深度学习问题，流式回答 + 来源面板与引用高亮。',
+        en: 'Screen recording of the chat UI: two deep-learning questions answered with streaming output, the retrieval-breakdown panel (per-source dense / BM25 / RRF scores), copy-answer, conversation history and session restore after reload.',
+        zh: '聊天界面录屏：两个深度学习问题，流式回答 + 检索分解面板（每个来源的 dense / BM25 / RRF 得分）+ 复制答案 + 会话历史与刷新恢复。',
       },
       demoMedia: {
         video: '/demos/sourceqa/demo.mp4',
         gif: '/demos/sourceqa/demo.gif',
-        shots: ['/demos/sourceqa/1-home.png', '/demos/sourceqa/3-streaming.png', '/demos/sourceqa/4-answer.png', '/demos/sourceqa/5-sources.png', '/demos/sourceqa/6-second.png'],
+        shots: ['/demos/sourceqa/1-home.png', '/demos/sourceqa/3-answer.png', '/demos/sourceqa/4-breakdown.png', '/demos/sourceqa/6-second.png', '/demos/sourceqa/7-history.png', '/demos/sourceqa/8-restored.png'],
       },
       techStack: [
         { en: 'Retrieval: BGE-M3 (local) + BM25 + BGE-reranker', zh: '检索：BGE-M3（本地）+ BM25 + BGE 重排' },
@@ -385,6 +388,7 @@ export const PROJECTS: Project[] = [
         { en: 'Self-built multi-agent orchestration (no heavy framework)', zh: '自研轻量多智能体编排（不依赖重型框架）' },
         { en: 'Free arXiv API integration with Crossref fallback', zh: '免费 arXiv API 集成，Crossref 兜底' },
         { en: 'DeepSeek function calling + JSON task board', zh: 'DeepSeek function calling + JSON 任务板' },
+        { en: 'Deterministic claim verification view — quote locations & context, verified by code', zh: '确定性引文核验视图——引文位置与上下文，由代码判定' },
         { en: 'Structured review + related-work survey output', zh: '输出结构化审阅 + 相关工作综述' },
       ],
       results: [
@@ -392,13 +396,13 @@ export const PROJECTS: Project[] = [
         { en: 'Self-built orchestration with an inspectable JSON task board; graceful degradation to abstract-only review when full text is unavailable.', zh: '自研编排 + 可检查的 JSON 任务板；拿不到全文时优雅降级为摘要审阅。' },
       ],
       demo: {
-        en: 'Live recording of a real run: submit the author\u2019s Werewolf paper DOI → the four-agent team (Researcher → Reader → Critic → Synthesizer) executes with visible task-board states → structured review with fact-checked claims.',
-        zh: '真实运行的现场录制：提交本人狼人杀论文 DOI → 四智能体团队（Researcher → Reader → Critic → Synthesizer）执行，任务板状态实时可见 → 输出经事实核查的结构化审阅。',
+        en: 'Live recording of a real run: submit the author\u2019s Werewolf paper DOI → the four-agent team (Researcher → Reader → Critic → Synthesizer) executes with visible task-board states → structured review → per-claim verification view (each quote checked against the paper text by code, with location and context).',
+        zh: '真实运行的现场录制：提交本人狼人杀论文 DOI → 四智能体团队（Researcher → Reader → Critic → Synthesizer）执行，任务板状态实时可见 → 结构化审阅 → 逐条引文核验视图（每条引文由代码对照原文，含位置与上下文）。',
       },
       demoMedia: {
         video: '/demos/paperflow/demo.mp4',
         gif: '/demos/paperflow/demo.gif',
-        shots: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/3-board-start.png', '/demos/paperflow/4-live.png', '/demos/paperflow/9-report.png', '/demos/paperflow/10-report-scrolled.png'],
+        shots: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/2-board.png', '/demos/paperflow/3-report.png', '/demos/paperflow/5-verification.png', '/demos/paperflow/6-verification-expanded.png'],
       },
       techStack: [
         { en: 'Orchestration: self-built agent team + JSON task board', zh: '编排：自研智能体团队 + JSON 任务板' },
@@ -488,8 +492,9 @@ export const PROJECTS: Project[] = [
       highlights: [
         { en: 'GPT from scratch: tokenizer → data → model → train → sample', zh: '从零实现 GPT：分词 → 数据 → 模型 → 训练 → 采样' },
         { en: 'From-scratch LoRA fine-tuning (1.6% trainable parameters)', zh: '自实现 LoRA 微调（仅 1.6% 参数可训练）' },
+        { en: 'Live generation-parameter controls (temperature · top-k · penalties)', zh: '实时生成参数控制（temperature · top-k · 惩罚项）' },
+        { en: 'Before/after fine-tuning comparison, generated from real checkpoints', zh: '微调前后对比（由真实 checkpoint 生成）' },
         { en: 'Streaming FastAPI inference + chat UI', zh: 'FastAPI 流式推理 + 聊天 UI' },
-        { en: 'Before/after fine-tuning comparison', zh: '微调前后效果对比' },
       ],
       results: [
         { en: 'Pre-training: 28.3M-parameter GPT, 6000 steps in 28 minutes on an 8GB laptop GPU (29–87K tok/s), loss 9.50 → 0.10 (train), best val 5.02; custom BPE tokenizer (12,000 vocab) round-trips exactly.', zh: '预训练：28.3M 参数 GPT，8GB 笔记本 GPU 上 6000 步 28 分钟（29–87K tok/s），loss 9.50 → 0.10（训练），最佳验证 5.02；自实现 BPE 分词器（12000 词表）往返精确。' },
@@ -498,13 +503,13 @@ export const PROJECTS: Project[] = [
         { en: 'True token-level SSE streaming (first token ~0.6s) with repetition penalty and no-repeat n-grams; inference fully local — zero API cost.', zh: '真 token 级 SSE 流式（首 token 约 0.6 秒）+ 重复惩罚与 n-gram 去重；推理完全本地——零 API 成本。' },
       ],
       demo: {
-        en: 'Screen recording of the locally served chat UI: ask \u201cIs the death cap mushroom poisonous?\u201d and a follow-up first-aid question — the fine-tuned model streams structured, factual answers with zero API cost.',
-        zh: '本地部署聊天界面录屏：提问"毒鹅膏是否有毒"与急救追问——微调后的模型流式输出结构化、事实正确的回答，零 API 成本。',
+        en: 'Screen recording of the locally served chat UI: adjust generation parameters (temperature, top-k, penalties) live, ask \u201cIs the death cap mushroom poisonous?\u201d with token-level streaming, then switch to the Before/After fine-tuning tab — both answers generated from the real checkpoints, zero API cost.',
+        zh: '本地部署聊天界面录屏：实时调节生成参数（temperature、top-k、惩罚项），提问"毒鹅膏是否有毒"并展示 token 级流式输出，再切换到微调前后对比标签页——两组回答均由真实 checkpoint 生成，零 API 成本。',
       },
       demoMedia: {
         video: '/demos/nanollm/demo.mp4',
         gif: '/demos/nanollm/demo.gif',
-        shots: ['/demos/nanollm/1-home.png', '/demos/nanollm/3-streaming.png', '/demos/nanollm/4-answer.png', '/demos/nanollm/5-answer-scrolled.png', '/demos/nanollm/6-second.png'],
+        shots: ['/demos/nanollm/1-home.png', '/demos/nanollm/2-parameters.png', '/demos/nanollm/3-question.png', '/demos/nanollm/4-streaming.png', '/demos/nanollm/5-answer.png', '/demos/nanollm/6-before-after.png'],
       },
       techStack: [
         { en: 'Framework: PyTorch (from-scratch GPT)', zh: '框架：PyTorch（从零 GPT）' },
