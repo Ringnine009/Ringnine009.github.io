@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#b9bfc9"/>
+    </marker>
+  </defs>
+
+  <!-- A: corpus -->
+  <rect x="20" y="110" width="160" height="80" rx="12" fill="#ffffff" stroke="#e3e5ea" stroke-width="1.5"/>
+  <text x="100" y="137" text-anchor="middle" font-size="14.5" font-weight="600" fill="#17181c">Corpus</text>
+  <text x="100" y="157" text-anchor="middle" font-size="11.5" fill="#6d737c">curated training data</text>
+  <text x="100" y="174" text-anchor="middle" font-size="11.5" fill="#6d737c">token-level ground truth</text>
+
+  <!-- B: tokenizer -->
+  <rect x="215" y="110" width="150" height="80" rx="12" fill="#ffffff" stroke="#e3e5ea" stroke-width="1.5"/>
+  <text x="290" y="137" text-anchor="middle" font-size="14.5" font-weight="600" fill="#17181c">BPE tokenizer</text>
+  <text x="290" y="157" text-anchor="middle" font-size="11.5" fill="#6d737c">subword vocabulary</text>
+  <text x="290" y="174" text-anchor="middle" font-size="11.5" fill="#6d737c">trained from scratch</text>
+
+  <!-- C: model (accent) -->
+  <rect x="400" y="95" width="180" height="110" rx="12" fill="#eef1fe" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="490" y="124" text-anchor="middle" font-size="14.5" font-weight="600" fill="#3730a3">GPT from scratch</text>
+  <text x="490" y="146" text-anchor="middle" font-size="11.5" fill="#4f46e5">multi-layer transformer</text>
+  <text x="490" y="163" text-anchor="middle" font-size="11.5" fill="#4f46e5">attention · layernorm</text>
+  <text x="490" y="180" text-anchor="middle" font-size="11.5" fill="#4f46e5">positional encoding</text>
+  <text x="490" y="196" text-anchor="middle" font-size="10" letter-spacing="0.5" fill="#8f96a5">no pretrained weights</text>
+
+  <!-- D: training -->
+  <rect x="615" y="110" width="150" height="80" rx="12" fill="#ffffff" stroke="#e3e5ea" stroke-width="1.5"/>
+  <text x="690" y="137" text-anchor="middle" font-size="14.5" font-weight="600" fill="#17181c">Training loop</text>
+  <text x="690" y="157" text-anchor="middle" font-size="11.5" fill="#6d737c">cross-entropy loss</text>
+  <text x="690" y="174" text-anchor="middle" font-size="11.5" fill="#6d737c">checkpoints → merged.pt</text>
+
+  <!-- E: serving -->
+  <rect x="800" y="110" width="140" height="80" rx="12" fill="#ffffff" stroke="#e3e5ea" stroke-width="1.5"/>
+  <text x="870" y="137" text-anchor="middle" font-size="13.5" font-weight="600" fill="#17181c">FastAPI · SSE</text>
+  <text x="870" y="157" text-anchor="middle" font-size="11.5" fill="#6d737c">token-level streaming</text>
+  <text x="870" y="174" text-anchor="middle" font-size="11.5" fill="#6d737c">repetition penalties</text>
+
+  <!-- arrows -->
+  <line x1="180" y1="150" x2="211" y2="150" stroke="#b9bfc9" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="365" y1="150" x2="396" y2="150" stroke="#b9bfc9" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="580" y1="150" x2="611" y2="150" stroke="#b9bfc9" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="765" y1="150" x2="796" y2="150" stroke="#b9bfc9" stroke-width="1.8" marker-end="url(#arr)"/>
+</svg>

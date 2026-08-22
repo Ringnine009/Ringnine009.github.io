@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#b9bfc9"/>
+    </marker>
+  </defs>
+
+  <!-- A: game -->
+  <rect x="30" y="145" width="220" height="90" rx="12" fill="#ffffff" stroke="#e3e5ea" stroke-width="1.5"/>
+  <text x="140" y="172" text-anchor="middle" font-size="14.5" font-weight="600" fill="#17181c">9-player Werewolf game</text>
+  <text x="140" y="192" text-anchor="middle" font-size="11.5" fill="#6d737c">AgentScope · LLM agents</text>
+  <text x="140" y="209" text-anchor="middle" font-size="11.5" fill="#6d737c">500 games per config</text>
+
+  <!-- B: DBN (accent) -->
+  <rect x="330" y="60" width="300" height="85" rx="12" fill="#eef1fe" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="480" y="88" text-anchor="middle" font-size="14.5" font-weight="600" fill="#3730a3">DBN — Dynamic Belief Network</text>
+  <text x="480" y="108" text-anchor="middle" font-size="11.5" fill="#4f46e5">EMA belief maintenance</text>
+  <text x="480" y="125" text-anchor="middle" font-size="11.5" fill="#4f46e5">recursive consistency of beliefs</text>
+
+  <!-- C: DTR (accent) -->
+  <rect x="330" y="205" width="300" height="85" rx="12" fill="#eef1fe" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="480" y="233" text-anchor="middle" font-size="14.5" font-weight="600" fill="#3730a3">DTR probe — Deep Thinking Ratio</text>
+  <text x="480" y="253" text-anchor="middle" font-size="11.5" fill="#4f46e5">cross-model logit-lens</text>
+  <text x="480" y="270" text-anchor="middle" font-size="11.5" fill="#4f46e5">hidden-layer activation analysis</text>
+
+  <!-- D: output -->
+  <rect x="700" y="130" width="240" height="90" rx="12" fill="#ffffff" stroke="#e3e5ea" stroke-width="1.5"/>
+  <text x="820" y="157" text-anchor="middle" font-size="14.5" font-weight="600" fill="#17181c">Improved social reasoning</text>
+  <text x="820" y="177" text-anchor="middle" font-size="11.5" fill="#6d737c">win rate 44.2% → 68.8%</text>
+  <text x="820" y="194" text-anchor="middle" font-size="11.5" fill="#6d737c">vote accuracy 35.5% → 66.6%</text>
+  <text x="820" y="211" text-anchor="middle" font-size="10" letter-spacing="0.5" fill="#8f96a5">Brier-score convergence</text>
+
+  <!-- arrows -->
+  <line x1="250" y1="170" x2="326" y2="112" stroke="#b9bfc9" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="250" y1="210" x2="326" y2="248" stroke="#b9bfc9" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="630" y1="112" x2="696" y2="156" stroke="#b9bfc9" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="630" y1="248" x2="696" y2="184" stroke="#b9bfc9" stroke-width="1.8" marker-end="url(#arr)"/>
+</svg>
