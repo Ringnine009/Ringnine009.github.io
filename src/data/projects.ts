@@ -129,7 +129,7 @@ export const PROJECTS: Project[] = [
     tech: ['React 19', 'TypeScript', 'Qwen-VL', 'Knowledge Q&A', 'Offline Rules', 'SVG'],
     stats: [
       { value: '4', label: { en: 'uncertainty tiers (low→unknown)', zh: '级不确定性分级' } },
-      { value: '97', unit: '%', label: { en: 'confidence ceiling (never 100%)', zh: '置信度上限（永不出 100%）' } },
+      { value: '97%', label: { en: 'confidence ceiling (never 100%)', zh: '置信度上限（永不出 100%）' } },
       { value: '26', label: { en: 'curated safety entries with cited sources', zh: '条精编安全知识（逐条标注来源）' } },
     ],
     links: {
