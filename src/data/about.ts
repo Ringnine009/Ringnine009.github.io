@@ -39,11 +39,11 @@ export const aboutContent = {
     heading: { en: 'Published research', zh: '论文发表' },
     title: {
       en: 'Dynamic Belief Networks and Deep-Thinking Probes for Multi-agent Social Reasoning',
-      zh: '多智能体社会推理的动态信念网络与深度思考探针',
+      zh: '基于动态信念网络与深度思考比率探针的多智能体社交推理增强',
     },
     meta: [
       { en: '03/2026 – 06/2026', zh: '2026.03 – 2026.06' },
-      { en: 'Supervisor: Vincent LAU — Chair Professor, HKUST', zh: '导师：刘坚能（香港科技大学讲席教授）' },
+      { en: 'Supervisor: Vincent LAU (HKUST)', zh: '导师：刘坚能（香港科技大学）' },
       { en: 'Published in Theoretical and Natural Science (TNS) · Vol.174', zh: '发表于 Theoretical and Natural Science（TNS）· 第 174 卷' },
     ],
     link: { en: 'See the research page', zh: '查看研究页' },

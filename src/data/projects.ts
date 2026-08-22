@@ -1,12 +1,9 @@
 import type { Project } from '@/data/types';
 
 // ------------------------------------------------------------------
-// Project registry — the single source of truth for all six display
-// slots (5 products + 1 paper). Every card, list row and detail page
-// is rendered from this file. Fill/verify the TODO-marked fields.
-//
-// NOTE: GitHub URLs below are placeholders matching the planned repo
-// names (执行计划 §5). They must be verified/replaced after push.
+// Project registry — the single source of truth for the five product
+// pages plus the research entry. Every card, list row and detail page
+// is rendered from this file.
 // ------------------------------------------------------------------
 
 export const PROJECTS: Project[] = [
@@ -15,7 +12,7 @@ export const PROJECTS: Project[] = [
     kind: 'project',
     name: 'DocMind',
     glyph: '◇',
-    status: { en: 'Flagship', zh: '代表作' },
+    status: { en: 'Multimodal Doc Understanding', zh: '多模态文档理解' },
     tagline: {
       en: 'Multimodal invoice intelligence & audit platform',
       zh: '多模态票据智能审核平台',
@@ -35,7 +32,6 @@ export const PROJECTS: Project[] = [
         label: { en: 'GitHub repo', zh: 'GitHub 仓库' },
         url: 'https://github.com/Ringnine009/docmind-invoice-intelligence',
         external: true,
-        placeholder: true,
       },
       internal: { en: 'Case study', zh: '案例详情' },
     },
@@ -67,8 +63,8 @@ export const PROJECTS: Project[] = [
         ],
       },
       architecture: {
-        en: 'Architecture diagram — upload → Qwen-VL extraction (JSON + confidence) → rule-audit engine → knowledge graph → React dashboard.',
-        zh: '架构图占位 — 上传 → Qwen-VL 抽取（JSON + 置信度）→ 规则审计引擎 → 知识图谱 → React 看板。',
+        en: 'Upload → Qwen-VL extraction (JSON + per-field confidence) → rule-audit engine → dashboard with knowledge-graph view.',
+        zh: '上传 → Qwen-VL 抽取（JSON + 逐字段置信度）→ 规则审计引擎 → 知识图谱视图与看板。',
       },
       highlights: [
         { en: 'Structured field extraction with per-field confidence signals', zh: '结构化字段抽取，带逐字段置信度信号' },
@@ -79,8 +75,7 @@ export const PROJECTS: Project[] = [
       results: [
         { en: 'Real-API benchmark over 30 synthetic invoices (qwen-vl-plus): 82.5% overall field-level accuracy — invoice number 86.7%, date 90.0%, party names 86.7%, amounts 80–86.7%, tax IDs 70–72% (hardest field); average confidence ~0.97; 3/30 file-level failures recorded.', zh: '30 张合成发票的真实 API 基准（qwen-vl-plus）：字段级总体准确率 82.5%——发票号 86.7%、日期 90.0%、购销方名称 86.7%、金额 80–86.7%、税号 70–72%（最难字段）；平均置信度 ~0.97；3/30 整包失败已记录。' },
         { en: '8 audit rules with severity ranking and evidence — including QR-code cross-validation (invoice number / amounts decoded from the invoice QR and checked against the extracted fields) and GB 32100-2015 tax-ID check-digit repair; the 30-invoice demo batch with injected anomalies produces exactly matched findings.', zh: '8 条带严重级与证据的审计规则——含二维码交叉校验（解码发票二维码中的号码/金额与抽取字段比对）与 GB 32100-2015 税号校验位自动修复；注入异常的 30 张演示批次精确产出对应告警。' },
-        { en: 'Reproducible offline evaluation harness with a machine-readable ground-truth benchmark; engineering decisions (model choice, DPI, retry policy) documented with measured evidence.', zh: '可复现的离线评测框架与机器可读真值基准；模型选型、DPI、重试策略等工程决策均有实测证据存档。' },
-        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
+        { en: 'An offline evaluation harness with a machine-readable ground-truth benchmark; model choice, DPI and retry policy are backed by measured evidence.', zh: '离线评测框架 + 机器可读真值基准；模型选型、DPI、重试策略均有实测数据支撑。' },
       ],
       demo: {
         en: 'Screen recording of the full flow: load the 30-invoice demo batch → extraction results with confidence → audit findings → knowledge-graph view.',
@@ -98,8 +93,8 @@ export const PROJECTS: Project[] = [
         { en: 'Data: knowledge graph + field-level evaluation harness', zh: '数据：知识图谱 + 字段级评测框架' },
       ],
       github: {
-        en: 'Source: github.com/Ringnine009/docmind-invoice-intelligence (placeholder — verify after push).',
-        zh: '源码：github.com/Ringnine009/docmind-invoice-intelligence（占位链接，推送后核对）。',
+        en: 'Source: github.com/Ringnine009/docmind-invoice-intelligence',
+        zh: '源码：github.com/Ringnine009/docmind-invoice-intelligence',
       },
       role: {
         heading: { en: 'My role', zh: '我的角色' },
@@ -122,7 +117,7 @@ export const PROJECTS: Project[] = [
     kind: 'project',
     name: 'MycoGuard',
     glyph: '◎',
-    status: { en: 'Safety-first', zh: '安全优先' },
+    status: { en: 'Uncertainty Quantification', zh: '不确定性量化' },
     tagline: {
       en: 'Mushroom safety recognition with calibrated uncertainty',
       zh: '蘑菇安全识别助手（带不确定性量化）',
@@ -142,7 +137,6 @@ export const PROJECTS: Project[] = [
         label: { en: 'GitHub repo', zh: 'GitHub 仓库' },
         url: 'https://github.com/Ringnine009/mycoguard-ai',
         external: true,
-        placeholder: true,
       },
       internal: { en: 'Case study', zh: '案例详情' },
     },
@@ -174,8 +168,8 @@ export const PROJECTS: Project[] = [
         ],
       },
       architecture: {
-        en: 'Architecture diagram — photo → Qwen-VL recognition + offline rule engine → uncertainty calibration → safety verdict + RAG citations.',
-        zh: '架构图占位 — 拍照 → Qwen-VL 识别 + 离线规则引擎 → 不确定性校准 → 安全结论 + RAG 引用。',
+        en: 'Photo → vision recognition + offline rule engine → confidence fusion → calibrated verdict with sources.',
+        zh: '拍照 → 视觉识别 + 离线规则引擎 → 置信度融合 → 带来源的校准结论。',
       },
       highlights: [
         { en: 'Offline rule engine + SVG real-time morphology rendering', zh: '离线规则引擎 + SVG 实时形态渲染' },
@@ -186,8 +180,7 @@ export const PROJECTS: Project[] = [
       results: [
         { en: 'Rule engine distills a random forest trained on the real UCI Mushrooms dataset (8,124 rows): held-out accuracy 100.00% (teaching dataset property, stated as such), Gini importances (odor 0.161, gill-color 0.112, gill-size 0.111, spore-print 0.093, ring-type 0.070) drive the weights; every 100%-purity branch is encoded with its supporting sample count and surfaced as an explainable rule.', zh: '规则引擎由真实 UCI 蘑菇数据集（8124 行）上训练的随机森林蒸馏而来：留出集准确率 100.00%（如实标注为教学数据集属性），Gini 重要性（气味 0.161、菌褶颜色 0.112、菌褶大小 0.111、孢子印 0.093、菌环类型 0.070）驱动权重；每条 100% 纯度分支编码为可解释规则并标注支持样本数。' },
         { en: 'Emits only calibrated uncertainty (low / medium / high / cannot judge) with a 97% confidence ceiling; <3 traits forces "cannot judge"; no absolute edible/poisonous verdicts are ever produced.', zh: '只输出校准后的不确定性分级（低 / 中 / 高 / 无法判断），置信度上限 97%；性状不足 3 项强制"无法判断"；绝不输出绝对化的可食用/有毒结论。' },
-        { en: 'Dual-channel confidence fusion (rule engine + vision model) with an explicit agree / partial / disagree indicator; offline expert explanation generated deterministically — never weaker than the original course version.', zh: '规则引擎与视觉模型双通道置信度融合，带一致 / 部分一致 / 分歧指示；离线专家解读确定性生成——严格不弱于原版课程作业。' },
-        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
+        { en: 'Dual-channel confidence fusion (rule engine + vision model) with an explicit agree / partial / disagree indicator; offline expert explanation generated deterministically.', zh: '规则引擎与视觉模型双通道置信度融合，带一致 / 部分一致 / 分歧指示；离线专家解读确定性生成。' },
       ],
       demo: {
         en: 'Screen recording: select six traits (including strong-risk signals) → live SVG morphology → calibrated risk verdict with disclaimer → safety-knowledge chat. Runs fully offline.',
@@ -205,8 +198,8 @@ export const PROJECTS: Project[] = [
         { en: 'Offline: pure-frontend rule engine + SVG rendering', zh: '离线：纯前端规则引擎 + SVG 渲染' },
       ],
       github: {
-        en: 'Source: github.com/Ringnine009/mycoguard-ai (placeholder — verify after push).',
-        zh: '源码：github.com/Ringnine009/mycoguard-ai（占位链接，推送后核对）。',
+        en: 'Source: github.com/Ringnine009/mycoguard-ai',
+        zh: '源码：github.com/Ringnine009/mycoguard-ai',
       },
       role: {
         heading: { en: 'My role', zh: '我的角色' },
@@ -249,7 +242,6 @@ export const PROJECTS: Project[] = [
         label: { en: 'GitHub repo', zh: 'GitHub 仓库' },
         url: 'https://github.com/Ringnine009/sourceqa-learning-assistant',
         external: true,
-        placeholder: true,
       },
       internal: { en: 'Case study', zh: '案例详情' },
     },
@@ -281,8 +273,8 @@ export const PROJECTS: Project[] = [
         ],
       },
       architecture: {
-        en: 'Architecture diagram — PDF → parser → chunks → BGE-M3 → ChromaDB → hybrid retriever → reranker → DeepSeek → cited answer → chat UI.',
-        zh: '架构图占位 — PDF → 解析 → 分块 → BGE-M3 → ChromaDB → 混合检索 → 重排 → DeepSeek → 带引用回答 → 聊天 UI。',
+        en: 'PDF → parsing → chunking → BGE-M3 embeddings (ChromaDB) + BM25 → hybrid retrieval → DeepSeek → cited answer in the chat UI.',
+        zh: 'PDF → 解析 → 分块 → BGE-M3 向量（ChromaDB）+ BM25 → 混合检索 → DeepSeek → 聊天界面中的带引用回答。',
       },
       highlights: [
         { en: 'Local BGE-M3 embeddings — zero embedding API cost', zh: 'BGE-M3 本地向量化 — embedding 零成本' },
@@ -294,7 +286,6 @@ export const PROJECTS: Project[] = [
         { en: 'Honest dual-metric retrieval benchmark on a 50-question eval set over 165 D2L sections (3,439 chunks): strict section-level hit@1 = 0.82 (dense-only, best), hybrid + BM25 = 0.76; loose hit@1 including keyword matches = 0.98 (hybrid). Both metrics reported — the strict number is the honest headline.', zh: '50 题评测集（165 节、3439 chunks）的双口径诚实检索基准：严格章节级 hit@1 = 0.82（纯稠密最优）、混合 + BM25 = 0.76；宽松口径（含关键词命中）混合 hit@1 = 0.98。两组数字都如实报告——严格口径才是诚实的主数字。' },
         { en: 'Answer quality: 12 questions sampled and human-scored at 4.92/5; SSE streaming with cited sources verified end-to-end (e.g., LSTM questions hit the LSTM chapter).', zh: '答案质量：12 条抽样人工评分 4.92/5；SSE 流式与带引用来源端到端验证（如 LSTM 问题全部命中 LSTM 章节）。' },
         { en: 'Local BGE-M3 embeddings — zero API cost for retrieval; DeepSeek generates cited answers with source highlighting.', zh: 'BGE-M3 本地向量——检索零 API 成本；DeepSeek 生成带引用回答，来源高亮可溯源。' },
-        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
         en: 'Screen recording of the chat UI: two deep-learning questions answered with streaming output, cited sources panel and source highlighting.',
@@ -312,8 +303,8 @@ export const PROJECTS: Project[] = [
         { en: 'UI: React chat interface + API docs', zh: 'UI：React 聊天界面 + API 文档' },
       ],
       github: {
-        en: 'Source: github.com/Ringnine009/sourceqa-learning-assistant (placeholder — verify after push).',
-        zh: '源码：github.com/Ringnine009/sourceqa-learning-assistant（占位链接，推送后核对）。',
+        en: 'Source: github.com/Ringnine009/sourceqa-learning-assistant',
+        zh: '源码：github.com/Ringnine009/sourceqa-learning-assistant',
       },
       role: {
         heading: { en: 'My role', zh: '我的角色' },
@@ -356,7 +347,6 @@ export const PROJECTS: Project[] = [
         label: { en: 'GitHub repo', zh: 'GitHub 仓库' },
         url: 'https://github.com/Ringnine009/paperflow-agents',
         external: true,
-        placeholder: true,
       },
       internal: { en: 'Case study', zh: '案例详情' },
     },
@@ -388,8 +378,8 @@ export const PROJECTS: Project[] = [
         ],
       },
       architecture: {
-        en: 'Architecture diagram — paper link → orchestrator → Researcher / Reader / Critic / Synthesizer (tool calls) → JSON task board → structured review.',
-        zh: '架构图占位 — 论文链接 → 编排器 → Researcher / Reader / Critic / Synthesizer（工具调用）→ JSON 任务板 → 结构化审阅。',
+        en: 'Paper link → dependency-aware orchestrator → Researcher / Reader / Critic / Synthesizer with tool calls → JSON task board → structured review.',
+        zh: '论文链接 → 依赖感知编排器 → Researcher / Reader / Critic / Synthesizer（工具调用）→ JSON 任务板 → 结构化审阅。',
       },
       highlights: [
         { en: 'Self-built multi-agent orchestration (no heavy framework)', zh: '自研轻量多智能体编排（不依赖重型框架）' },
@@ -400,7 +390,6 @@ export const PROJECTS: Project[] = [
       results: [
         { en: 'Two archived end-to-end runs: the author\u2019s Werewolf paper (DOI + local PDF) with every claim paired to a verbatim quote verified against the paper text, and related-work links resolved to real arXiv IDs; a second run through Attention Is All You Need exercises the full arXiv pipeline (BLEU 28.4/41.8 correctly restated) with relevance scored 4/10 against an explicit rubric.', zh: '两份存档的端到端运行：本人的狼人杀论文（DOI + 本地 PDF）每条论断均与原文逐字引文配对核验，相关工作链接解析为真实 arXiv 文献；Attention Is All You Need 第二次运行走通 arXiv 全链路（正确复述 BLEU 28.4/41.8），相关性按明确评分细则评 4/10。' },
         { en: 'Self-built orchestration with an inspectable JSON task board; graceful degradation to abstract-only review when full text is unavailable.', zh: '自研编排 + 可检查的 JSON 任务板；拿不到全文时优雅降级为摘要审阅。' },
-        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
         en: 'Live recording of a real run: submit the author\u2019s Werewolf paper DOI → the four-agent team (Researcher → Reader → Critic → Synthesizer) executes with visible task-board states → structured review with fact-checked claims.',
@@ -418,8 +407,8 @@ export const PROJECTS: Project[] = [
         { en: 'Language: Python', zh: '语言：Python' },
       ],
       github: {
-        en: 'Source: github.com/Ringnine009/paperflow-agents (placeholder — verify after push).',
-        zh: '源码：github.com/Ringnine009/paperflow-agents（占位链接，推送后核对）。',
+        en: 'Source: github.com/Ringnine009/paperflow-agents',
+        zh: '源码：github.com/Ringnine009/paperflow-agents',
       },
       role: {
         heading: { en: 'My role', zh: '我的角色' },
@@ -442,7 +431,7 @@ export const PROJECTS: Project[] = [
     kind: 'project',
     name: 'NanoLM',
     glyph: '▤',
-    status: { en: 'From scratch', zh: '从零实现' },
+    status: { en: 'Model Training', zh: '模型训练' },
     tagline: {
       en: 'A language model trained from scratch, plus QLoRA fine-tuning',
       zh: '从零训练的轻量语言模型',
@@ -462,7 +451,6 @@ export const PROJECTS: Project[] = [
         label: { en: 'GitHub repo', zh: 'GitHub 仓库' },
         url: 'https://github.com/Ringnine009/nanolm-from-scratch',
         external: true,
-        placeholder: true,
       },
       internal: { en: 'Case study', zh: '案例详情' },
     },
@@ -494,8 +482,8 @@ export const PROJECTS: Project[] = [
         ],
       },
       architecture: {
-        en: 'Architecture diagram — corpus → BPE tokenizer → GPT blocks → training loop → checkpoint → FastAPI streaming → chat UI.',
-        zh: '架构图占位 — 语料 → BPE 分词 → GPT 模块 → 训练循环 → 检查点 → FastAPI 流式 → 聊天 UI。',
+        en: 'Corpus → BPE tokenizer → GPT blocks trained from scratch → training loop with checkpoints → FastAPI streaming → chat UI.',
+        zh: '语料 → BPE 分词 → 从零训练的 GPT 模块 → 训练循环与检查点 → FastAPI 流式 → 聊天界面。',
       },
       highlights: [
         { en: 'GPT from scratch: tokenizer → data → model → train → sample', zh: '从零实现 GPT：分词 → 数据 → 模型 → 训练 → 采样' },
@@ -508,7 +496,6 @@ export const PROJECTS: Project[] = [
         { en: 'LoRA fine-tuning: 28 adapters, only 1.60% of parameters trainable (0.459M), 442/49 instruction pairs, val loss 4.03 → 0.84 in 3 minutes. Before fine-tuning the model outputs gibberish; after, it answers \u201cIs the death cap mushroom poisonous?\u201d with structured, factually correct guidance.', zh: 'LoRA 微调：28 个适配器、仅 1.60% 参数可训练（0.459M）、442/49 指令对、3 分钟 val loss 4.03 → 0.84。微调前输出乱码，微调后能结构化且事实正确地回答"毒鹅膏有毒吗"。' },
         { en: 'Held-out evaluation (44 hand-written questions, zero overlap with training): 38.6% keyword hit-rate — strongest on edibility questions (80%), weakest on morphological recall (12.5%). Honest limits documented: a mechanism-focused project, not a production chatbot.', zh: '留出评测（44 条手写题、与训练集零重合）：关键词命中率 38.6%——食性判断最强（80%），形态回忆最弱（12.5%）。限制如实记录：这是机制演示项目，不是生产级聊天机器人。' },
         { en: 'True token-level SSE streaming (first token ~0.6s) with repetition penalty and no-repeat n-grams; inference fully local — zero API cost.', zh: '真 token 级 SSE 流式（首 token 约 0.6 秒）+ 重复惩罚与 n-gram 去重；推理完全本地——零 API 成本。' },
-        { en: 'Demo video + screenshots available in the demo section below.', zh: '演示视频与截图见下方演示区。' },
       ],
       demo: {
         en: 'Screen recording of the locally served chat UI: ask \u201cIs the death cap mushroom poisonous?\u201d and a follow-up first-aid question — the fine-tuned model streams structured, factual answers with zero API cost.',
@@ -526,8 +513,8 @@ export const PROJECTS: Project[] = [
         { en: 'UI: chat interface', zh: 'UI：聊天界面' },
       ],
       github: {
-        en: 'Source: github.com/Ringnine009/nanolm-from-scratch (placeholder — verify after push).',
-        zh: '源码：github.com/Ringnine009/nanolm-from-scratch（占位链接，推送后核对）。',
+        en: 'Source: github.com/Ringnine009/nanolm-from-scratch',
+        zh: '源码：github.com/Ringnine009/nanolm-from-scratch',
       },
       role: {
         heading: { en: 'My role', zh: '我的角色' },
@@ -597,8 +584,8 @@ export const PROJECTS: Project[] = [
         ],
       },
       architecture: {
-        en: 'Method diagram placeholder — DBN belief maintenance (EMA) + DTR logit-lens probe over agent hidden states → social reasoning improvement.',
-        zh: '方法图占位 — DBN 信念维护（EMA）+ DTR 探针对智能体隐藏状态的分析 → 社会推理能力提升。',
+        en: 'DBN belief maintenance (EMA) + cross-model DTR probe over agent hidden states → social reasoning improvement.',
+        zh: 'DBN 信念维护（EMA）+ 跨模型 DTR 探针分析智能体隐藏状态 → 社会推理能力提升。',
       },
       highlights: [
         { en: 'Dynamic Belief Network with EMA belief maintenance', zh: 'EMA 机制维护信念的动态信念网络' },
@@ -607,8 +594,8 @@ export const PROJECTS: Project[] = [
         { en: 'Published open access — Theoretical and Natural Science, Vol.174', zh: '开放获取发表 — Theoretical and Natural Science Vol.174' },
       ],
       results: [
-        { en: 'Villager win rate: 44.2% → 68.8% (verify against the paper PDF).', zh: '村民胜率：44.2% → 68.8%（以论文原文核对）。' },
-        { en: 'Vote accuracy: 35.5% → 66.6% (verify against the paper PDF).', zh: '投票准确率：35.5% → 66.6%（以论文原文核对）。' },
+        { en: 'Villager win rate: 44.2% → 68.8% (best config E: MaKTO + DBN).', zh: '村民胜率：44.2% → 68.8%（最佳配置 E：MaKTO + DBN）。' },
+        { en: 'Vote accuracy: 35.5% → 66.6% (best config F: full modules).', zh: '投票准确率：35.5% → 66.6%（最佳配置 F：全模块）。' },
         { en: 'Brier score convergence — see full tables in the paper.', zh: 'Brier 分数收敛 — 完整表格见论文原文。' },
       ],
       demo: {
@@ -629,8 +616,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'Co-author — developed the Werewolf system on AgentScope, designed the DBN EMA mechanism and the DTR probe, and built the quantitative in-game evaluation metrics. Supervised by LIU Jianneng (HKUST).',
-            zh: '共同作者 — 基于 AgentScope 开发狼人杀系统，设计 DBN EMA 机制与 DTR 探针，并搭建游戏内定量评测指标。导师：刘建能（香港科技大学）。',
+            en: 'Co-author — developed the Werewolf system on AgentScope, designed the DBN EMA mechanism and the DTR probe, and built the quantitative in-game evaluation metrics. Supervised by Vincent LAU (HKUST).',
+            zh: '共同作者 — 基于 AgentScope 开发狼人杀系统，设计 DBN EMA 机制与 DTR 探针，并搭建游戏内定量评测指标。导师：刘坚能（香港科技大学）。',
           },
         ],
       },
@@ -638,10 +625,7 @@ export const PROJECTS: Project[] = [
         { en: 'Research', zh: '科研' },
         { en: 'Multi-agent', zh: '多智能体' },
       ],
-      todos: [
-        { en: 'Cross-check all numbers against the published PDF before launch.', zh: '上线前对照论文 PDF 核对全部数字。' },
-        { en: 'Add method-diagram figure + screenshots.', zh: '补充方法图与截图。' },
-      ],
+      todos: [],
     },
   },
 ];

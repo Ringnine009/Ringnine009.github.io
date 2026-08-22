@@ -7,7 +7,7 @@ export const researchContent = {
   kicker: { en: 'Research · published', zh: '研究 · 已发表' },
   title: {
     en: 'Dynamic Belief Networks and Deep-Thinking Probes for Multi-agent Social Reasoning',
-    zh: '多智能体社会推理的动态信念网络与深度思考探针',
+    zh: '基于动态信念网络与深度思考比率探针的多智能体社交推理增强',
   },
   meta: {
     venue: { en: 'Theoretical and Natural Science (TNS)', zh: 'Theoretical and Natural Science（TNS）' },
@@ -18,7 +18,7 @@ export const researchContent = {
     },
     doi: '10.54254/2753-8818/2026.DL34010',
     access: { en: 'Open access · free to read', zh: '开放获取 · 免费阅读' },
-    supervisor: { en: 'Supervisor: Vincent LAU — Chair Professor, HKUST', zh: '导师：刘坚能（香港科技大学讲席教授）' },
+    supervisor: { en: 'Supervisor: Vincent LAU (HKUST)', zh: '导师：刘坚能（香港科技大学）' },
     date: { en: '03/2026 – 06/2026', zh: '2026 年 3 月 – 6 月' },
     role: { en: 'First & sole author', zh: '第一作者（唯一作者）' },
   },
@@ -43,8 +43,8 @@ export const researchContent = {
     kicker: { en: 'Method', zh: '方法' },
     heading: { en: 'How it works', zh: '方法要点' },
     architecture: {
-      en: 'Method diagram placeholder — DBN belief maintenance (EMA) + cross-model DTR probe over agent hidden states → social reasoning improvements measured by in-game metrics.',
-      zh: '方法图占位 — DBN 信念维护（EMA）+ 跨模型 DTR 探针分析智能体隐藏状态 → 以游戏内指标衡量的社会推理提升。',
+      en: 'DBN belief maintenance (EMA) + cross-model DTR probe over agent hidden states → social reasoning improvements measured by in-game metrics.',
+      zh: 'DBN 信念维护（EMA）+ 跨模型 DTR 探针分析智能体隐藏状态 → 以游戏内指标衡量的社会推理提升。',
     },
     points: [
       {
@@ -74,12 +74,6 @@ export const researchContent = {
   results: {
     kicker: { en: 'Results', zh: '结果' },
     heading: { en: 'Key numbers', zh: '关键数字' },
-    // All figures verified against the published open-access PDF
-    // (research/werewolf-multiagent-paper.pdf, Table 2).
-    todoNote: {
-      en: 'Figures verified against the published paper (Table 2, six configurations × 500 games).',
-      zh: '数字已对照论文原文核实（表 2，6 组配置 × 500 局）。',
-    },
     table: {
       headers: [
         { en: 'Metric', zh: '指标' },

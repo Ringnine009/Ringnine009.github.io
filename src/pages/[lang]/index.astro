@@ -99,7 +99,7 @@ const termLines = c.hero.terminal.lines.map((line) => {
         lang={lang}
       />
       <div class="grid grid--3">
-        {PROJECTS.map((p) => <ProjectCard project={p} lang={lang} />)}
+        {PROJECTS.filter((p) => p.kind === 'project').slice(0, 3).map((p) => <ProjectCard project={p} lang={lang} />)}
       </div>
     </div>
   </section>

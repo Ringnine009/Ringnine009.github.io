@@ -13,12 +13,10 @@ const href =
 const status = project.status ? t(project.status, lang) : null;
 ---
 
-<article class="card card--interactive" data-reveal>
+<a class="card card--interactive" href={href} data-reveal>
   <div class="proj-card__top">
     <span class="proj-card__icon" aria-hidden="true">{project.glyph}</span>
-    <h3 class="proj-card__name">
-      <a href={href}>{project.name}</a>
-    </h3>
+    <h3 class="proj-card__name">{project.name}</h3>
     <div class="proj-card__badges">
       {status && <span class="badge badge--primary">{status}</span>}
     </div>
@@ -39,4 +37,4 @@ const status = project.status ? t(project.status, lang) : null;
       <span class="mono">{project.slug}</span>
     )}
   </div>
-</article>
+</a>

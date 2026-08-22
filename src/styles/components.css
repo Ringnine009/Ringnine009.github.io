@@ -744,6 +744,27 @@ a.chip:hover {
   font-weight: 600;
 }
 
+/* Architecture / method diagrams */
+.diagram-figure {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+}
+.diagram-figure .diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.diagram-figure figcaption {
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--ink-subtle);
+}
+
 /* Info grid (tech stack / role / links) */
 .info-grid {
   display: grid;

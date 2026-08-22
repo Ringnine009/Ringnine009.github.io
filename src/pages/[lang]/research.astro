@@ -1,7 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
 import PageHero from '@/components/PageHero.astro';
-import ArchPlaceholder from '@/components/ArchPlaceholder.astro';
 import TodoNote from '@/components/TodoNote.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { researchContent as c } from '@/data/research';
@@ -75,7 +74,10 @@ const doi = `https://doi.org/${c.meta.doi}`;
         <h3 style="margin-top:6px">{t(c.methods.heading, lang)}</h3>
       </div>
       <div class="detail-section__body">
-        <ArchPlaceholder caption={c.methods.architecture} glyph="◈" lang={lang} />
+        <figure class="diagram-figure">
+          <img class="diagram" src="/diagrams/research.svg" alt={t(c.methods.architecture, lang)} loading="lazy" />
+          <figcaption>{t(c.methods.architecture, lang)}</figcaption>
+        </figure>
         <div style="margin-top:20px;display:grid;gap:14px">
           {c.methods.points.map((p) => (
             <div class="card card--plain" style="padding:16px 18px">
@@ -116,9 +118,6 @@ const doi = `https://doi.org/${c.meta.doi}`;
               ))}
             </tbody>
           </table>
-        </div>
-        <div style="margin-top:14px">
-          <p style="font-size:0.8125rem;color:var(--ink-subtle)">{t(c.results.todoNote, lang)}</p>
         </div>
         <div class="card card--plain" style="padding:0;overflow:hidden;margin-top:24px">
           <div style="padding:16px 18px 0">

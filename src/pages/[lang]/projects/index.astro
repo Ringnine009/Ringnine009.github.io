@@ -28,22 +28,20 @@ const researchHref = `/${lang}/research`;
     kicker={{ en: 'Portfolio', zh: '作品集' }}
     title={{ en: 'Projects & research', zh: '项目与研究' }}
     lede={{
-      en: 'Six display slots: five LLM projects with case-study pages, plus a published multi-agent research paper.',
-      zh: '六个展示位：五个 LLM 项目（各有案例详情页），加一篇已发表的多智能体研究论文。',
+      en: 'Five LLM products with case-study pages, plus a published multi-agent research paper.',
+      zh: '五个 LLM 产品（各有案例详情页），加一篇已发表的多智能体研究论文。',
     }}
-    chips={['6 slots', 'EN / 中文', 'MIT']}
+    chips={['RAG', 'Multi-agent', 'Doc Intelligence', 'Model Training']}
     lang={lang}
   />
 
   <section class="section section--flush">
     <div class="container">
       <!-- Research entry first (published work) -->
-      <div class="card card--interactive" style="margin-bottom:20px" data-reveal>
+      <a class="card card--interactive" style="margin-bottom:20px;display:block" href={researchHref} data-reveal>
         <div class="proj-card__top">
           <span class="proj-card__icon" aria-hidden="true">◉</span>
-          <h3 class="proj-card__name">
-            <a href={researchHref}>{PROJECTS[5].name}</a>
-          </h3>
+          <h3 class="proj-card__name">{PROJECTS[5].name}</h3>
           <div class="proj-card__badges">
             <span class="badge badge--success">{t(PROJECTS[5].status!, lang)}</span>
           </div>
@@ -59,7 +57,7 @@ const researchHref = `/${lang}/research`;
           </span>
           <span class="mono">TNS · Vol.174</span>
         </div>
-      </div>
+      </a>
 
       <!-- Product cards — same structure as the research entry: name + summary + tech stack -->
       <div style="display:grid;gap:16px;margin-top:20px">

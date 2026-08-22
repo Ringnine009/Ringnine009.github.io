@@ -32,7 +32,7 @@ export const homeContent = {
     meta: [
       { en: 'Tongji Univ. · AI · 2023–2027', zh: '同济大学 · 人工智能 · 2023–2027' },
       { en: 'IELTS 7.0', zh: '雅思 7.0' },
-      { en: 'Open-source portfolio · 6 repos', zh: '开源作品集 · 6 个仓库' },
+      { en: '5 projects · 1 published paper', zh: '5 个项目 · 1 篇论文' },
     ],
     terminal: {
       title: { en: 'portfolio — zsh', zh: 'portfolio — zsh' },
@@ -43,7 +43,7 @@ export const homeContent = {
         { kind: 'out', text: { en: 'DocMind  MycoGuard  SourceQA  PaperFlow  NanoLM', zh: 'DocMind  MycoGuard  SourceQA  PaperFlow  NanoLM' } },
         { kind: 'cmd', text: { en: 'python train.py --from-scratch', zh: 'python train.py --from-scratch' } },
         { kind: 'out', text: { en: 'loss ↓ · win-rate ↑ 44.2% → 68.8%', zh: 'loss ↓ · 胜率 ↑ 44.2% → 68.8%' } },
-        { kind: 'dim', text: { en: '# zero external dependencies · static · bilingual', zh: '# 零外部依赖 · 纯静态 · 双语' } },
+        { kind: 'dim', text: { en: '# 5 products · 1 paper · bilingual', zh: '# 5 个项目 · 1 篇论文 · 双语' } },
       ],
     },
   },

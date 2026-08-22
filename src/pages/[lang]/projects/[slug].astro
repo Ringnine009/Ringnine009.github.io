@@ -1,6 +1,5 @@
 ---
 import Base from '@/layouts/Base.astro';
-import ArchPlaceholder from '@/components/ArchPlaceholder.astro';
 import StatGrid from '@/components/StatGrid.astro';
 import TodoNote from '@/components/TodoNote.astro';
 import { getProject, DETAILED_PROJECTS } from '@/data/projects';
@@ -122,7 +121,10 @@ const sections = [
           case 'architecture':
             return (
               <div class="detail-section__body">
-                <ArchPlaceholder caption={d.architecture} glyph="◫" lang={lang} />
+                <figure class="diagram-figure">
+                  <img class="diagram" src={`/diagrams/${project.slug}.svg`} alt={t(d.architecture, lang)} loading="lazy" />
+                  <figcaption>{t(d.architecture, lang)}</figcaption>
+                </figure>
               </div>
             );
           case 'highlights':
@@ -138,7 +140,7 @@ const sections = [
               <div class="detail-section__body">
                 <ul>
                   {d.results.map((r) => (
-                    <li class="todo">{t(r, lang)}</li>
+                    <li>{t(r, lang)}</li>
                   ))}
                 </ul>
               </div>
