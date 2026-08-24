@@ -46,42 +46,53 @@ const sections = [
   <!-- ============ PAGE HERO ============ -->
   <section class="page-hero">
     <div class="container">
-      <nav class="page-hero__crumbs" aria-label="Breadcrumb">
-        <a href={langPath(lang, '/')}>{t({ en: 'Home', zh: '首页' }, lang)}</a>
-        <span aria-hidden="true">/</span>
-        <a href={langPath(lang, '/projects')}>{t({ en: 'Projects', zh: '项目' }, lang)}</a>
-        <span aria-hidden="true">/</span>
-        <span>{project.name}</span>
-      </nav>
-      <div class="section-head__kicker">{t({ en: 'Case study', zh: '案例研究' }, lang)}</div>
-      <h1 class="page-hero__title">{project.name}</h1>
-      <p class="page-hero__lede">{t(project.tagline, lang)}</p>
-      <div class="page-hero__meta">
-        {project.status && <span class="badge badge--primary">{t(project.status, lang)}</span>}
-        <span class="badge badge--outline">{t({ en: 'Project', zh: '项目' }, lang)}</span>
-        {project.tech.slice(0, 4).map((tech) => <span class="chip">{tech}</span>)}
-      </div>
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
-        {project.links.github && (
-          <a
-            class="btn btn--primary"
-            href={project.links.github.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t(project.links.github.label, lang)}
-            <span class="btn__arrow" aria-hidden="true">↗</span>
-          </a>
-        )}
-        {project.links.demo && (
-          <a
-            class="btn btn--secondary"
-            href={project.links.demo.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t(project.links.demo.label, lang)}
-          </a>
+      <div class="page-hero__grid">
+        <div class="page-hero__main">
+          <nav class="page-hero__crumbs" aria-label="Breadcrumb">
+            <a href={langPath(lang, '/')}>{t({ en: 'Home', zh: '首页' }, lang)}</a>
+            <span aria-hidden="true">/</span>
+            <a href={langPath(lang, '/projects')}>{t({ en: 'Projects', zh: '项目' }, lang)}</a>
+            <span aria-hidden="true">/</span>
+            <span>{project.name}</span>
+          </nav>
+          <div class="section-head__kicker">{t({ en: 'Case study', zh: '案例研究' }, lang)}</div>
+          <h1 class="page-hero__title">{project.name}</h1>
+          <p class="page-hero__lede">{t(project.tagline, lang)}</p>
+          <div class="page-hero__meta">
+            {project.status && <span class="badge badge--primary">{t(project.status, lang)}</span>}
+            <span class="badge badge--outline">{t({ en: 'Project', zh: '项目' }, lang)}</span>
+            {project.tech.slice(0, 4).map((tech) => <span class="chip">{tech}</span>)}
+          </div>
+          <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px">
+            {project.links.github && (
+              <a
+                class="btn btn--primary"
+                href={project.links.github.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t(project.links.github.label, lang)}
+                <span class="btn__arrow" aria-hidden="true">↗</span>
+              </a>
+            )}
+            {project.links.demo && (
+              <a
+                class="btn btn--secondary"
+                href={project.links.demo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t(project.links.demo.label, lang)}
+              </a>
+            )}
+          </div>
+        </div>
+        {d.demoMedia && (
+          <div class="page-hero__media" data-reveal>
+            <video controls preload="metadata" poster={d.demoMedia.gif[lang]} style="width:100%;border-radius:12px;border:1px solid var(--hairline);background:#000">
+              <source src={d.demoMedia.video[lang]} type="video/mp4" />
+            </video>
+          </div>
         )}
       </div>
     </div>
