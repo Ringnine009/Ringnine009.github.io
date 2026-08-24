@@ -246,7 +246,7 @@ a.chip:hover {
    Hero
    ------------------------------------------------------------ */
 .hero {
-  padding-block: clamp(48px, 9vw, 96px) clamp(40px, 7vw, 72px);
+  padding-block: clamp(36px, 6vw, 64px) clamp(28px, 5vw, 48px);
 }
 .hero__grid {
   display: grid;
@@ -771,6 +771,83 @@ a.chip:hover {
   font-size: 0.875rem;
   line-height: 1.7;
   color: var(--ink-muted);
+}
+
+/* Screenshot carousel */
+.shot-carousel {
+  position: relative;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  grid-template-rows: auto auto;
+  gap: 10px;
+  align-items: center;
+}
+.carousel__viewport {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+}
+.carousel__slide {
+  margin: 0;
+  display: none;
+}
+.carousel__slide.is-active {
+  display: block;
+}
+.carousel__slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  background: var(--surface-1);
+}
+.carousel__num {
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-subtle);
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+}
+.carousel__arrow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  background: var(--surface-1);
+  color: var(--ink-subtle);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+.carousel__arrow:hover {
+  border-color: var(--primary);
+  color: var(--primary-hover);
+}
+.carousel__dots {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline-strong);
+  background: var(--surface-2);
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.carousel__dot.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 /* Contact strip (about page) */

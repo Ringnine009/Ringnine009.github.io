@@ -52,8 +52,8 @@ export const homeContent = {
     kicker: { en: 'Featured work', zh: '精选项目' },
     heading: { en: 'Selected projects & research', zh: '精选项目与研究' },
     desc: {
-      en: 'Five built products and one published paper — from multimodal document intelligence to a transformer trained from scratch.',
-      zh: '五个成型项目与一篇已发表论文——从多模态文档智能到从零训练的 transformer。',
+      en: 'A published multi-agent paper and five projects — from multimodal document intelligence to a transformer trained from scratch.',
+      zh: '一篇已发表的多智能体论文与五个项目——从多模态文档智能到从零训练的 transformer。',
     },
     viewAll: { en: 'All projects', zh: '全部项目' },
   },

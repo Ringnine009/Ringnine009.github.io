@@ -30,12 +30,12 @@ const d = project.detail;
 // Section order (task spec): problem → approach → architecture → highlights
 // → results → demo → tech stack → GitHub → my role
 const sections = [
-  { id: 'problem', num: '01', label: d.problem.heading ?? { en: 'Problem', zh: '问题' } },
-  { id: 'approach', num: '02', label: d.approach.heading ?? { en: 'Approach', zh: '方法' } },
-  { id: 'architecture', num: '03', label: { en: 'Architecture', zh: '架构' } },
-  { id: 'highlights', num: '04', label: { en: 'Highlights', zh: '亮点' } },
-  { id: 'results', num: '05', label: { en: 'Results', zh: '结果' } },
-  { id: 'demo', num: '06', label: { en: 'Demo', zh: '演示' } },
+  { id: 'demo', num: '01', label: { en: 'Demo', zh: '演示' } },
+  { id: 'problem', num: '02', label: d.problem.heading ?? { en: 'Problem', zh: '问题' } },
+  { id: 'approach', num: '03', label: d.approach.heading ?? { en: 'Approach', zh: '方法' } },
+  { id: 'architecture', num: '04', label: { en: 'Architecture', zh: '架构' } },
+  { id: 'highlights', num: '05', label: { en: 'Highlights', zh: '亮点' } },
+  { id: 'results', num: '06', label: { en: 'Results', zh: '结果' } },
   { id: 'stack', num: '07', label: { en: 'Tech stack', zh: '技术栈' } },
   { id: 'github', num: '08', label: { en: 'Source', zh: '源码' } },
   { id: 'role', num: '09', label: d.role.heading ?? { en: 'My role', zh: '我的角色' } },
@@ -164,11 +164,47 @@ const sections = [
                     <video controls preload="metadata" poster={d.demoMedia.gif} style="width:100%;border-radius:10px;border:1px solid var(--hairline);background:#000">
                       <source src={d.demoMedia.video} type="video/mp4" />
                     </video>
-                    <div style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px">
-                      {d.demoMedia.shots.map((s) => (
-                        <img src={s} alt="" loading="lazy" style="width:100%;border-radius:8px;border:1px solid var(--hairline)" />
-                      ))}
+                    <div class="shot-carousel" data-carousel>
+                      <button type="button" class="carousel__arrow carousel__arrow--prev" data-prev aria-label="Previous screenshot">‹</button>
+                      <div class="carousel__viewport">
+                        {d.demoMedia.shots.map((s, i) => (
+                          <figure class="carousel__slide" data-slide={i}>
+                            <img src={s} alt={`${project.name} demo screenshot ${i + 1}`} loading="lazy" />
+                            <figcaption class="carousel__num">
+                              {i + 1} / {d.demoMedia!.shots.length}
+                            </figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                      <button type="button" class="carousel__arrow carousel__arrow--next" data-next aria-label="Next screenshot">›</button>
+                      <div class="carousel__dots">
+                        {d.demoMedia.shots.map((_, i) => (
+                          <button
+                            type="button"
+                            class="carousel__dot"
+                            data-dot={i}
+                            aria-label={`Screenshot ${i + 1}`}
+                          ></button>
+                        ))}
+                      </div>
                     </div>
+                    <script>
+                      const carousel = document.querySelector('[data-carousel]');
+                      if (carousel) {
+                        const slides = [...carousel.querySelectorAll('[data-slide]')];
+                        const dots = [...carousel.querySelectorAll('[data-dot]')];
+                        let current = 0;
+                        const show = (i) => {
+                          current = (i + slides.length) % slides.length;
+                          slides.forEach((s, k) => s.classList.toggle('is-active', k === current));
+                          dots.forEach((d, k) => d.classList.toggle('is-active', k === current));
+                        };
+                        carousel.querySelector('[data-prev]')?.addEventListener('click', () => show(current - 1));
+                        carousel.querySelector('[data-next]')?.addEventListener('click', () => show(current + 1));
+                        dots.forEach((d, k) => d.addEventListener('click', () => show(k)));
+                        show(0);
+                      }
+                    </script>
                   </div>
                 ) : (
                   <div class="arch-box" data-reveal>

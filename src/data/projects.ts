@@ -173,7 +173,7 @@ export const PROJECTS: Project[] = [
         zh: '拍照 → 视觉识别 + 离线规则引擎 → 置信度融合 → 带来源的校准结论。',
       },
       highlights: [
-        { en: 'Product-grade SVG mushroom rendering — gradients, textures, animated transitions', zh: '产品级 SVG 蘑菇渲染——渐变光影、纹理细节、动画过渡' },
+        { en: 'Detailed SVG mushroom rendering — gradients, textures, animated transitions', zh: '精细的 SVG 蘑菇渲染——渐变光影、纹理细节、动画过渡' },
         { en: 'Offline rule engine + real-time morphology rendering', zh: '离线规则引擎 + SVG 实时形态渲染' },
         { en: 'Photo identification with vision-sourced trait badges', zh: '拍照识别，视觉来源性状带徽章标注' },
         { en: 'Calibrated uncertainty tiers, never absolute claims', zh: '分级不确定性表达，杜绝绝对化表述' },
@@ -362,8 +362,8 @@ export const PROJECTS: Project[] = [
             zh: '文献阅读是瓶颈：一个论文链接或 PDF 需要变成结构化审阅、相关工作链接与下一步建议——人工完成要花数小时。',
           },
           {
-            en: 'Reinforces the multi-agent research direction of the Werewolf paper: role-specialized agents that plan, read, critique and synthesize.',
-            zh: '与狼人杀论文的多智能体研究方向呼应：角色专职智能体进行规划、阅读、批判与综合。',
+            en: 'Role-specialized agents — planning, reading, critiquing and synthesizing — collaborate to turn a single paper link into a structured, verifiable review.',
+            zh: '角色专职智能体——规划、阅读、批判、综合——协作把一篇论文链接转化为结构化、可核验的审阅。',
           },
         ],
       },

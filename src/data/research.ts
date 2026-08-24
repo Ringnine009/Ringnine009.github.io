@@ -160,8 +160,8 @@ export const researchContent = {
   cta: {
     heading: { en: 'Explore the research direction further', zh: '进一步探索研究方向' },
     sub: {
-      en: 'See how the multi-agent direction extends into a product: PaperFlow turns a paper link into a structured review.',
-      zh: '看看多智能体方向如何延伸为产品：PaperFlow 将论文链接转化为结构化审阅。',
+      en: 'See the engineering extension of the multi-agent direction: PaperFlow turns a paper link into a structured review.',
+      zh: '看看多智能体研究方向的工程延伸：PaperFlow 将论文链接转化为结构化审阅。',
     },
     primary: { en: 'View PaperFlow', zh: '查看 PaperFlow' },
   },
