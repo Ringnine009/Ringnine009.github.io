@@ -18,8 +18,8 @@ export const PROJECTS: Project[] = [
       zh: '多模态票据智能审核平台',
     },
     summary: {
-      en: 'End-to-end invoice understanding and audit: Qwen-VL extracts structured fields with confidence, a rule engine flags duplicates, arithmetic mismatches and tax anomalies, and a knowledge graph visualizes the document graph.',
-      zh: '端到端票据理解与稽查：Qwen-VL 抽取结构化字段并输出置信度，规则引擎自动预警重复发票号、金额不一致与税率异常，知识图谱可视化票据关联。',
+      en: 'Qwen-VL invoice extraction with per-field confidence, a rule engine that flags duplicates and anomalies, and an interactive knowledge-graph view.',
+      zh: 'Qwen-VL 抽取票据字段并输出置信度，规则引擎预警重复与异常，交互式知识图谱呈现票据关联。',
     },
     tech: ['FastAPI', 'Qwen-VL', 'Python', 'React · TS', 'Rule Engine', 'KG Viz'],
     stats: [
@@ -40,12 +40,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'Problem', zh: '问题' },
         body: [
           {
-            en: 'Manual invoice review for reimbursement and audit is slow, error-prone and hard to scale: clerks re-key fields, duplicate invoice numbers slip through, and arithmetic or tax-rate inconsistencies are caught only by chance.',
-            zh: '报销与审计中的人工票据审核速度慢、易出错、难扩展：字段重复录入、重复发票号漏检、金额算术与税率不一致只能靠偶然发现。',
-          },
-          {
-            en: 'Existing OCR tools extract text but not structure, and provide no confidence signal or audit logic on top.',
-            zh: '现有 OCR 工具只能提取文本而非结构化字段，且不提供置信度信号，也没有审计逻辑。',
+            en: 'Manual invoice review is slow and error-prone: duplicate numbers slip through, arithmetic and tax-rate inconsistencies go unnoticed, and OCR tools output text without structure or confidence.',
+            zh: '人工票据审核慢且易错：重复发票号漏检、金额与税率不一致难发现；OCR 工具只输出文本，没有结构也没有置信度。',
           },
         ],
       },
@@ -53,12 +49,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'Approach', zh: '方法' },
         body: [
           {
-            en: 'Qwen-VL multimodal document understanding produces structured JSON fields with per-field confidence; a layered FastAPI service orchestrates extraction, normalization and audit.',
-            zh: 'Qwen-VL 多模态文档理解输出带逐字段置信度的结构化 JSON；分层 FastAPI 服务编排抽取、标准化与稽查。',
-          },
-          {
-            en: 'A declarative rule-audit engine detects duplicate invoice numbers, arithmetic inconsistencies, abnormal tax rates and buyer/seller mismatches, then visualizes the document relationships as a knowledge graph.',
-            zh: '声明式规则审计引擎检测重复发票号、金额算术不一致、税率异常与购销方不符，并将票据关系以知识图谱可视化。',
+            en: 'Qwen-VL extracts structured fields with per-field confidence; a declarative rule engine audits duplicates, arithmetic, tax rates and parties; an interactive knowledge graph visualizes the batch.',
+            zh: 'Qwen-VL 抽取结构化字段并输出逐字段置信度；声明式规则引擎审计重复、算术、税率与购销方；交互式知识图谱可视化整批票据。',
           },
         ],
       },
@@ -74,13 +66,12 @@ export const PROJECTS: Project[] = [
         { en: 'Audit statistics charts (by rule / by severity)', zh: '审计统计图（按规则 / 按严重级）' },
       ],
       results: [
-        { en: 'Real-API benchmark over 30 synthetic invoices (qwen-vl-plus): 82.5% overall field-level accuracy — invoice number 86.7%, date 90.0%, party names 86.7%, amounts 80–86.7%, tax IDs 70–72% (hardest field); average confidence ~0.97; 3/30 file-level failures recorded.', zh: '30 张合成发票的真实 API 基准（qwen-vl-plus）：字段级总体准确率 82.5%——发票号 86.7%、日期 90.0%、购销方名称 86.7%、金额 80–86.7%、税号 70–72%（最难字段）；平均置信度 ~0.97；3/30 整包失败已记录。' },
-        { en: '8 audit rules with severity ranking and evidence — including QR-code cross-validation (invoice number / amounts decoded from the invoice QR and checked against the extracted fields) and GB 32100-2015 tax-ID check-digit repair; the 30-invoice demo batch with injected anomalies produces exactly matched findings.', zh: '8 条带严重级与证据的审计规则——含二维码交叉校验（解码发票二维码中的号码/金额与抽取字段比对）与 GB 32100-2015 税号校验位自动修复；注入异常的 30 张演示批次精确产出对应告警。' },
-        { en: 'An offline evaluation harness with a machine-readable ground-truth benchmark; model choice, DPI and retry policy are backed by measured evidence.', zh: '离线评测框架 + 机器可读真值基准；模型选型、DPI、重试策略均有实测数据支撑。' },
+        { en: 'Real-API benchmark, 30 synthetic invoices (qwen-vl-plus): 82.5% field-level accuracy — invoice number 86.7%, date 90.0%, parties 86.7%, amounts 80–86.7%, tax IDs 70–72%; mean confidence ~0.97.', zh: '30 张合成发票真实 API 基准（qwen-vl-plus）：字段级准确率 82.5%——发票号 86.7%、日期 90.0%、购销方 86.7%、金额 80–86.7%、税号 70–72%；平均置信度 ~0.97。' },
+        { en: '8 audit rules with severity + evidence, incl. QR cross-validation and GB 32100-2015 tax-ID repair; the injected-anomaly demo batch produces exactly matched findings.', zh: '8 条带严重级与证据的审计规则，含二维码交叉校验与 GB 32100-2015 税号修复；注入异常的演示批次精确产出对应告警。' },
       ],
       demo: {
-        en: 'Screen recording of the full flow: load the 30-invoice demo batch → live extraction progress → results with confidence → invoice detail drawer → audit findings → amount trend chart with buyer/seller filters + audit statistics → interactive knowledge-graph explorer (object filters, node focus) with a transaction legend.',
-        zh: '完整流程录屏：加载 30 张演示发票 → 实时抽取进度 → 带置信度的抽取结果 → 发票详情抽屉 → 审计告警 → 金额趋势图（可按购销方筛选）+ 审计统计 → 交互式知识图谱（对象筛选、节点聚焦、关系图例）。',
+        en: 'Full flow: demo batch loads with live progress → results with confidence → invoice detail drawer → audit findings → trend + rule-statistics charts → interactive knowledge-graph explorer.',
+        zh: '完整流程：演示批次实时加载 → 带置信度的结果 → 发票详情抽屉 → 审计告警 → 趋势与规则统计图 → 交互式知识图谱。',
       },
       demoMedia: {
         video: { en: '/demos/docmind/demo-en.mp4', zh: '/demos/docmind/demo-zh.mp4' },
@@ -101,8 +92,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'Architected and built the full system: multimodal extraction pipeline with per-field confidence, the declarative audit engine with 8 rules, knowledge-graph builder, batch processing API, React dashboard, and the 30-invoice benchmark with ground truth.',
-            zh: '独立完成系统整体架构与实现：带逐字段置信度的多模态抽取管线、8 条规则的声明式审计引擎、知识图谱构建、批量处理 API、React 看板，以及含真值的 30 张发票评测基准。',
+            en: 'Extraction pipeline with per-field confidence, 8-rule audit engine, knowledge-graph builder, batch API, React dashboard, and a 30-invoice ground-truth benchmark.',
+            zh: '带逐字段置信度的抽取管线、8 条规则审计引擎、知识图谱构建、批量 API、React 看板，以及 30 张发票真值基准。',
           },
         ],
       },
@@ -124,8 +115,8 @@ export const PROJECTS: Project[] = [
       zh: '蘑菇安全识别助手（带不确定性量化）',
     },
     summary: {
-      en: 'Photo-based mushroom identification with Qwen-VL, an offline rule engine with live SVG rendering, built-in safety-knowledge Q&A, and explicit uncertainty tiers instead of overconfident predictions.',
-      zh: '拍照识别蘑菇（Qwen-VL）+ 可离线规则引擎与 SVG 实时形态渲染 + 内置安全知识问答，用分级不确定性表达取代过度自信的绝对化结论。',
+      en: 'Mushroom risk assessment that never over-claims: an offline rule engine with live SVG rendering, Qwen-VL photo identification, and explicit uncertainty tiers.',
+      zh: '不夸大结论的蘑菇风险评估：离线规则引擎 + SVG 实时渲染 + Qwen-VL 拍照识别，输出分级不确定性。',
     },
     tech: ['React 19', 'TypeScript', 'Qwen-VL', 'Knowledge Q&A', 'Offline Rules', 'SVG'],
     stats: [
@@ -146,12 +137,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'Problem', zh: '问题' },
         body: [
           {
-            en: 'Wild mushroom foraging poses real public-health risks, yet most consumer "identification" tools answer with false certainty — a single wrong "safe" call can be dangerous.',
-            zh: '野外采蘑菇存在真实的公共健康风险，而多数消费级“识别”工具给出过度自信的结论——一次错误的“安全”判断可能造成危险。',
-          },
-          {
-            en: 'The app must work offline for field use and must communicate uncertainty honestly.',
-            zh: '应用需支持野外离线使用，并诚实地表达不确定性。',
+            en: 'Consumer mushroom apps answer with false certainty — a single wrong "safe" call can be dangerous. Identification must also work offline in the field.',
+            zh: '消费级蘑菇应用给出过度自信的结论——一次错误的“安全”判断可能致命；识别还必须支持野外离线使用。',
           },
         ],
       },
@@ -207,8 +194,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'Rebuilt the course project into a safety-first product: uncertainty-quantified rule engine and calibration logic, vision proxy backend with secret-safe key handling, curated knowledge base, offline-first degradation, and the compliance/ disclaimer strategy.',
-            zh: '将课程项目重构为安全优先的产品：不确定性量化规则引擎与校准逻辑、密钥安全的视觉代理后端、精编知识库、离线优先降级，以及合规与免责策略。',
+            en: 'Uncertainty-quantified rule engine and calibration logic, vision proxy backend with secret-safe key handling, curated knowledge base, offline-first degradation, and the compliance / disclaimer strategy.',
+            zh: '不确定性量化规则引擎与校准逻辑、密钥安全的视觉代理后端、精编知识库、离线优先降级，以及合规与免责策略。',
           },
         ],
       },
@@ -230,8 +217,8 @@ export const PROJECTS: Project[] = [
       zh: '开放教材问答助手（混合检索 RAG）',
     },
     summary: {
-      en: 'Full-stack RAG over public open textbooks: PDF parsing → chunking → BGE-M3 embeddings → ChromaDB → hybrid retrieval (dense + BM25) → BGE rerank → DeepSeek generation with citations and a retrieval-evaluation harness.',
-      zh: '面向公开教材的全栈 RAG：PDF 解析 → 分块 → BGE-M3 本地向量 → ChromaDB → 混合检索（稠密 + BM25）→ BGE 重排 → DeepSeek 生成（带引用），并配有检索评测集。',
+      en: 'Cited Q&A over open textbooks: BGE-M3 embeddings, hybrid retrieval, DeepSeek generation with per-source citations — with a retrieval breakdown panel and an honest benchmark.',
+      zh: '开放教材带引用问答：BGE-M3 向量 + 混合检索 + DeepSeek 生成，逐来源引用可查，附检索分解面板与诚实评测。',
     },
     tech: ['Python', 'BGE-M3', 'ChromaDB', 'BM25', 'Reranker', 'DeepSeek', 'React'],
     stats: [
@@ -252,12 +239,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'Problem', zh: '问题' },
         body: [
           {
-            en: 'Students ask questions against open textbooks, but generic chatbots hallucinate because they cannot ground answers in the actual source material.',
-            zh: '学生针对公开教材提问，通用聊天机器人却常常幻觉——无法把答案锚定到真实教材内容。',
-          },
-          {
-            en: 'Answers must be verifiable: every claim should point back to a chunk of the book.',
-            zh: '答案必须可验证：每个论断都应能回溯到教材原文片段。',
+            en: 'Generic chatbots hallucinate on textbook questions — answers must be verifiable, with every claim traceable to a source chunk.',
+            zh: '通用聊天机器人回答教材问题时容易幻觉——每个论断都应可回溯到教材原文片段。',
           },
         ],
       },
@@ -297,7 +280,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: { en: '/demos/sourceqa/demo-en.mp4', zh: '/demos/sourceqa/demo-zh.mp4' },
         gif: { en: '/demos/sourceqa/demo-en.gif', zh: '/demos/sourceqa/demo-zh.gif' },
-        shots: { en: ['/demos/sourceqa/1-home.png', '/demos/sourceqa/3-answer.png', '/demos/sourceqa/4-breakdown.png', '/demos/sourceqa/6-second.png', '/demos/sourceqa/7-history.png', '/demos/sourceqa/8-restored.png'], zh: ['/demos/sourceqa/9-zh-home.png', '/demos/sourceqa/10-zh-streaming.png', '/demos/sourceqa/11-zh-answer.png'] },
+        shots: { en: ['/demos/sourceqa/1-home-en.png', '/demos/sourceqa/3-answer-en.png', '/demos/sourceqa/4-breakdown-en.png', '/demos/sourceqa/5-second-en.png', '/demos/sourceqa/6-history-en.png'], zh: ['/demos/sourceqa/1-home-zh.png', '/demos/sourceqa/3-answer-zh.png', '/demos/sourceqa/4-breakdown-zh.png', '/demos/sourceqa/5-second-zh.png', '/demos/sourceqa/6-history-zh.png'] },
       },
       techStack: [
         { en: 'Retrieval: BGE-M3 (local) + BM25 + BGE-reranker', zh: '检索：BGE-M3（本地）+ BM25 + BGE 重排' },
@@ -336,8 +319,8 @@ export const PROJECTS: Project[] = [
       zh: '多智能体科研协作系统',
     },
     summary: {
-      en: 'Drop in a paper URL or PDF and a team of four specialized AI agents — Researcher, Reader, Critic, Synthesizer — plans, reads, critiques and synthesizes a structured review with related-work links.',
-      zh: '丢入论文链接或 PDF，四名专职智能体（Researcher / Reader / Critic / Synthesizer）协同规划、阅读、批判与综合，产出结构化审阅与相关工作链接。',
+      en: 'A four-agent team (Researcher, Reader, Critic, Synthesizer) turns a paper link into a structured, quote-verified review with related-work links.',
+      zh: '四智能体团队（Researcher / Reader / Critic / Synthesizer）把论文链接转化为结构化、引文可核验的审阅。',
     },
     tech: ['Python', 'DeepSeek', 'Function Calling', 'Agent Orc.', 'arXiv API'],
     stats: [
@@ -358,12 +341,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'Problem', zh: '问题' },
         body: [
           {
-            en: 'Reading the literature is a bottleneck: a single paper link or PDF has to become a structured review, related-work links and next-step suggestions — manually this takes hours.',
-            zh: '文献阅读是瓶颈：一个论文链接或 PDF 需要变成结构化审阅、相关工作链接与下一步建议——人工完成要花数小时。',
-          },
-          {
-            en: 'Role-specialized agents — planning, reading, critiquing and synthesizing — collaborate to turn a single paper link into a structured, verifiable review.',
-            zh: '角色专职智能体——规划、阅读、批判、综合——协作把一篇论文链接转化为结构化、可核验的审阅。',
+            en: 'A paper link or PDF must become a structured review with related-work links — manually this takes hours, and the result is hard to verify.',
+            zh: '一篇论文链接需要变成结构化审阅与相关工作链接——人工耗时数小时，结果还难以核验。',
           },
         ],
       },
@@ -402,7 +381,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: { en: '/demos/paperflow/demo-en.mp4', zh: '/demos/paperflow/demo-zh.mp4' },
         gif: { en: '/demos/paperflow/demo-en.gif', zh: '/demos/paperflow/demo-zh.gif' },
-        shots: { en: ['/demos/paperflow/1-dashboard-en.png', '/demos/paperflow/2-board-en.png', '/demos/paperflow/3-summary-en.png', '/demos/paperflow/4-report-en.png', '/demos/paperflow/5-verification-en.png', '/demos/paperflow/6-verification-open-en.png'], zh: ['/demos/paperflow/1-dashboard-zh.png', '/demos/paperflow/2-board-zh.png', '/demos/paperflow/3-summary-zh.png', '/demos/paperflow/4-report-zh.png', '/demos/paperflow/5-verification-zh.png', '/demos/paperflow/6-verification-open-zh.png'] },
+        shots: { en: ['/demos/paperflow/1-submit-en.png', '/demos/paperflow/3-submitted-en.png', '/demos/paperflow/4-board-en.png', '/demos/paperflow/5-report-en.png', '/demos/paperflow/6-verification-en.png', '/demos/paperflow/7-verification-open-en.png'], zh: ['/demos/paperflow/1-submit-zh.png', '/demos/paperflow/3-submitted-zh.png', '/demos/paperflow/4-board-zh.png', '/demos/paperflow/5-report-zh.png', '/demos/paperflow/6-verification-zh.png', '/demos/paperflow/7-verification-open-zh.png'] },
       },
       techStack: [
         { en: 'Orchestration: self-built agent team + JSON task board', zh: '编排：自研智能体团队 + JSON 任务板' },
@@ -418,8 +397,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'My role', zh: '我的角色' },
         body: [
           {
-            en: 'Designed and built the full multi-agent framework — Agent base class, tool registry, JSON task board, dependency-aware orchestrator, four-agent team on DeepSeek function calling, CLI and web dashboard. The direction extends my published multi-agent social-reasoning research into a product.',
-            zh: '设计并实现完整的多智能体框架——Agent 基类、工具注册表、JSON 任务板、依赖感知编排器、基于 DeepSeek function calling 的四智能体团队、CLI 与 Web 看板。该方向是我已发表的多智能体社会推理研究的工程化延伸。',
+            en: 'Designed and built the multi-agent framework — Agent base class, tool registry, JSON task board, dependency-aware orchestrator, four-agent team on DeepSeek function calling, CLI and web dashboard.',
+            zh: '设计并实现多智能体框架——Agent 基类、工具注册表、JSON 任务板、依赖感知编排器、基于 DeepSeek function calling 的四智能体团队、CLI 与 Web 看板。',
           },
         ],
       },
@@ -441,8 +420,8 @@ export const PROJECTS: Project[] = [
       zh: '从零训练的轻量语言模型',
     },
     summary: {
-      en: 'A GPT-style transformer implemented from scratch in PyTorch — tokenizer, data pipeline, model, training loop, sampling — pre-trained on a small domain corpus, then fine-tuned with a from-scratch LoRA implementation.',
-      zh: '用 PyTorch 从零实现 GPT 风格 transformer（分词 / 数据 / 模型 / 训练 / 采样），小领域语料预训练后，用自实现 LoRA 微调。',
+      en: 'A GPT-style transformer built from scratch in PyTorch — BPE tokenizer, training loop, from-scratch LoRA fine-tuning — served as a streaming local chat.',
+      zh: '用 PyTorch 从零构建 GPT 风格 transformer——BPE 分词、训练循环、自实现 LoRA 微调——以流式本地聊天提供服务。',
     },
     tech: ['PyTorch', 'GPT', 'LoRA', 'FastAPI', 'Streaming', 'BPE'],
     stats: [
@@ -463,12 +442,8 @@ export const PROJECTS: Project[] = [
         heading: { en: 'Problem', zh: '问题' },
         body: [
           {
-            en: 'Production LLM apps are easy to demo but hard to understand: the model itself is a black box. A from-scratch implementation makes the full stack — tokenization, attention, training dynamics — legible.',
-            zh: '生产级 LLM 应用容易演示但难理解：模型本身是黑盒。从零实现让全栈——分词、注意力、训练动态——变得可读。',
-          },
-          {
-            en: 'Offline, zero-API-cost chat is a real need (e.g. the offline layer of MycoGuard).',
-            zh: '离线、零 API 成本的聊天是真实需求（例如 MycoGuard 的离线层）。',
+            en: 'LLM apps are easy to demo but hard to understand — the model is a black box. A from-scratch implementation makes tokenization, attention and training dynamics legible.',
+            zh: 'LLM 应用容易演示但难理解——模型是黑盒。从零实现让分词、注意力与训练动态变得可读。',
           },
         ],
       },
@@ -509,7 +484,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: { en: '/demos/nanollm/demo-en.mp4', zh: '/demos/nanollm/demo-zh.mp4' },
         gif: { en: '/demos/nanollm/demo-en.gif', zh: '/demos/nanollm/demo-zh.gif' },
-        shots: { en: ['/demos/nanollm/1-home-en.png', '/demos/nanollm/2-parameters-en.png', '/demos/nanollm/3-question-en.png', '/demos/nanollm/4-streaming-en.png', '/demos/nanollm/5-answer-en.png', '/demos/nanollm/6-before-after-en.png'], zh: ['/demos/nanollm/1-home-zh.png', '/demos/nanollm/2-parameters-zh.png', '/demos/nanollm/3-question-zh.png', '/demos/nanollm/4-streaming-zh.png', '/demos/nanollm/5-answer-zh.png', '/demos/nanollm/6-before-after-zh.png'] },
+        shots: { en: ['/demos/nanollm/1-home-en.png', '/demos/nanollm/2-params-en.png', '/demos/nanollm/3-streaming-en.png', '/demos/nanollm/4-answer1-en.png', '/demos/nanollm/6-answer3-en.png', '/demos/nanollm/7-training-en.png', '/demos/nanollm/9-before-after-en.png'], zh: ['/demos/nanollm/1-home-zh.png', '/demos/nanollm/2-params-zh.png', '/demos/nanollm/3-streaming-zh.png', '/demos/nanollm/4-answer1-zh.png', '/demos/nanollm/6-answer3-zh.png', '/demos/nanollm/7-training-zh.png', '/demos/nanollm/9-before-after-zh.png'] },
       },
       techStack: [
         { en: 'Framework: PyTorch (from-scratch GPT)', zh: '框架：PyTorch（从零 GPT）' },

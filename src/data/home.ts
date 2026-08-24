@@ -23,8 +23,8 @@ export const homeContent = {
       zh: '，以及其背后的多智能体科研。',
     },
     sub: {
-      en: 'I am an AI undergraduate at Tongji University: I ship full-stack LLM products (RAG, document intelligence, agent teams), understand model internals from the weights up, and publish multi-agent social-reasoning research.',
-      zh: '同济大学人工智能专业本科生：交付全栈 LLM 产品（RAG、文档智能、智能体团队），从权重层面理解模型原理，并发表多智能体社会推理研究。',
+      en: 'AI undergraduate at Tongji University. Full-stack LLM applications — RAG, document intelligence, agent teams — and multi-agent social-reasoning research.',
+      zh: '同济大学人工智能专业本科生。全栈 LLM 应用——RAG、文档智能、智能体团队——以及多智能体社会推理研究。',
     },
     ctaPrimary: { en: 'View projects', zh: '查看项目' },
     ctaSecondary: { en: 'Read the paper', zh: '阅读论文' },
@@ -52,8 +52,8 @@ export const homeContent = {
     kicker: { en: 'Featured work', zh: '精选项目' },
     heading: { en: 'Selected projects & research', zh: '精选项目与研究' },
     desc: {
-      en: 'A published multi-agent paper and five projects — from multimodal document intelligence to a transformer trained from scratch.',
-      zh: '一篇已发表的多智能体论文与五个项目——从多模态文档智能到从零训练的 transformer。',
+      en: 'Five projects and one published paper — from document intelligence to a from-scratch transformer.',
+      zh: '五个项目与一篇论文——从文档智能到从零训练的 transformer。',
     },
     viewAll: { en: 'All projects', zh: '全部项目' },
   },
@@ -62,27 +62,27 @@ export const homeContent = {
     kicker: { en: 'Research highlights', zh: '研究亮点' },
     heading: { en: 'Multi-agent social reasoning, published', zh: '已发表的多智能体社会推理研究' },
     desc: {
-      en: 'Dynamic Belief Networks & Deep-Thinking Probes — open access in Theoretical and Natural Science (Vol.174).',
-      zh: '《Dynamic Belief Networks and Deep-Thinking Probes》——开放获取，发表于 Theoretical and Natural Science（Vol.174）。',
+      en: 'Dynamic Belief Networks & Deep-Thinking Probes — Theoretical and Natural Science, Vol.174, open access.',
+      zh: '《Dynamic Belief Networks and Deep-Thinking Probes》——Theoretical and Natural Science Vol.174，开放获取。',
     },
     stats: [
       {
         value: '44.2%',
         unit: '→ 68.8%',
-        label: { en: 'villager win rate (best config: MaKTO-Proxy + DBN)', zh: '村民胜率（最佳配置 MaKTO-Proxy + DBN）' },
+        label: { en: 'villager win rate', zh: '村民胜率' },
       },
       {
         value: '35.5%',
         unit: '→ 66.6%',
-        label: { en: 'vote accuracy improvement', zh: '投票准确率提升' },
+        label: { en: 'vote accuracy', zh: '投票准确率' },
       },
       {
         value: '9P',
-        label: { en: 'standard Werewolf game, AgentScope-based', zh: '基于 AgentScope 的标准狼人杀配置' },
+        label: { en: '9-player Werewolf · AgentScope', zh: '9 人狼人杀 · AgentScope' },
       },
       {
         value: 'EMA',
-        label: { en: 'belief maintenance mechanism (recursive consistency)', zh: '信念维护机制（递归一致性）' },
+        label: { en: 'belief maintenance', zh: '信念维护机制' },
       },
     ] as Stat[],
     cta: { en: 'Read the research page', zh: '查看研究页' },
@@ -100,16 +100,16 @@ export const homeContent = {
       { label: { en: 'C++ · MATLAB · Verilog', zh: 'C++ · MATLAB · Verilog' }, pct: 65, note: { en: 'foundations', zh: '基础' } },
     ],
     note: {
-      en: 'Self-assessed proficiency; verified through shipped projects and published research.',
-      zh: '自我评估水平，以已交付项目与已发表研究为准。',
+      en: 'Self-assessed, evidenced by the projects above.',
+      zh: '自我评估，由上方项目佐证。',
     },
   },
 
   cta: {
     heading: { en: 'Let’s build and research together', zh: '一起构建，一起研究' },
     sub: {
-      en: 'Open to research collaborations in LLM / NLP / multi-agent systems — and always happy to discuss the projects on this page.',
-      zh: '欢迎 LLM / NLP / 多智能体方向的科研合作，也随时乐意聊聊本页的项目。',
+      en: 'Open to LLM / NLP / multi-agent research collaborations.',
+      zh: '欢迎 LLM / NLP / 多智能体科研合作。',
     },
     primary: { en: 'Email me', zh: '发邮件' },
     secondary: { en: 'GitHub profile', zh: 'GitHub 主页' },
