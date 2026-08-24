@@ -11,7 +11,10 @@ const { project, lang } = Astro.props;
 const href =
   project.kind === 'research' ? `/${lang}/research` : `/${lang}/projects/${project.slug}`;
 const status = project.status ? t(project.status, lang) : null;
-const cover = project.detail?.demoMedia?.shots[lang]?.[0];
+const cover =
+  project.kind === 'research'
+    ? '/diagrams/research.svg'
+    : project.detail?.demoMedia?.shots[lang]?.[0];
 ---
 
 <a class="card card--interactive project-card" href={href} data-reveal>

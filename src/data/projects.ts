@@ -178,7 +178,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: { en: '/demos/mycoguard/demo-en.mp4', zh: '/demos/mycoguard/demo-zh.mp4' },
         gif: { en: '/demos/mycoguard/demo-en.gif', zh: '/demos/mycoguard/demo-zh.gif' },
-        shots: { en: ['/demos/mycoguard/1-home-en.png', '/demos/mycoguard/2-traits-en.png', '/demos/mycoguard/3-result-en.png', '/demos/mycoguard/4-expert-en.png', '/demos/mycoguard/5-photo-preview-en.png', '/demos/mycoguard/6-photo-result-en.png'], zh: ['/demos/mycoguard/1-home-zh.png', '/demos/mycoguard/2-traits-zh.png', '/demos/mycoguard/3-result-zh.png', '/demos/mycoguard/4-expert-zh.png', '/demos/mycoguard/5-photo-preview-zh.png', '/demos/mycoguard/6-photo-result-zh.png'] },
+        shots: { en: ['/demos/mycoguard/1-home-en.png', '/demos/mycoguard/2-traits-en.png', '/demos/mycoguard/3-result-en.png', '/demos/mycoguard/4-expert-en.png', '/demos/mycoguard/5-photo-preview-en.png', '/demos/mycoguard/6-photo-result-en.png', '/demos/mycoguard/7-qa-en.png'], zh: ['/demos/mycoguard/1-home-zh.png', '/demos/mycoguard/2-traits-zh.png', '/demos/mycoguard/3-result-zh.png', '/demos/mycoguard/4-expert-zh.png', '/demos/mycoguard/5-photo-preview-zh.png', '/demos/mycoguard/6-photo-result-zh.png', '/demos/mycoguard/7-qa-zh.png'] },
       },
       techStack: [
         { en: 'Frontend: React 19 · TypeScript · Vite', zh: '前端：React 19 · TypeScript · Vite' },
@@ -381,7 +381,7 @@ export const PROJECTS: Project[] = [
       demoMedia: {
         video: { en: '/demos/paperflow/demo-en.mp4', zh: '/demos/paperflow/demo-zh.mp4' },
         gif: { en: '/demos/paperflow/demo-en.gif', zh: '/demos/paperflow/demo-zh.gif' },
-        shots: { en: ['/demos/paperflow/1-submit-en.png', '/demos/paperflow/3-submitted-en.png', '/demos/paperflow/4-board-en.png', '/demos/paperflow/5-report-en.png', '/demos/paperflow/6-verification-en.png', '/demos/paperflow/7-verification-open-en.png'], zh: ['/demos/paperflow/1-submit-zh.png', '/demos/paperflow/3-submitted-zh.png', '/demos/paperflow/4-board-zh.png', '/demos/paperflow/5-report-zh.png', '/demos/paperflow/6-verification-zh.png', '/demos/paperflow/7-verification-open-zh.png'] },
+        shots: { en: ['/demos/paperflow/1-submit-en.png', '/demos/paperflow/3-submitted-en.png', '/demos/paperflow/4-board-en.png', '/demos/paperflow/5-report-en.png', '/demos/paperflow/5b-claim-jump-en.png', '/demos/paperflow/6-verification-en.png', '/demos/paperflow/7-verification-open-en.png'], zh: ['/demos/paperflow/1-submit-zh.png', '/demos/paperflow/3-submitted-zh.png', '/demos/paperflow/4-board-zh.png', '/demos/paperflow/5-report-zh.png', '/demos/paperflow/5b-claim-jump-zh.png', '/demos/paperflow/6-verification-zh.png', '/demos/paperflow/7-verification-open-zh.png'] },
       },
       techStack: [
         { en: 'Orchestration: self-built agent team + JSON task board', zh: '编排：自研智能体团队 + JSON 任务板' },
