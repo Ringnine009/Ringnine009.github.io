@@ -48,8 +48,10 @@ const markers = [
   [join(dist, 'zh', 'research', 'index.html'), '10.54254/2753-8818/2026.DL34010', 'research/zh DOI'],
   [join(dist, 'en', 'about', 'index.html'), 'Tongji University', 'about/en education'],
   [join(dist, 'zh', 'about', 'index.html'), '同济大学', 'about/zh education'],
-  [join(dist, 'en', 'projects', 'docmind', 'index.html'), 'Problem', 'docmind/en has Problem section'],
-  [join(dist, 'zh', 'projects', 'docmind', 'index.html'), '问题', 'docmind/zh has 问题 section'],
+  [join(dist, 'en', 'projects', 'docmind', 'index.html'), 'DocMind', 'docmind/en page'],
+  [join(dist, 'zh', 'projects', 'docmind', 'index.html'), 'DocMind', 'docmind/zh page'],
+  [join(dist, 'en', 'projects', 'docmind', 'index.html'), 'shot-carousel', 'docmind/en carousel'],
+  [join(dist, 'en', 'projects', 'nanolm', 'index.html'), 'diagrams/nanolm.svg', 'nanolm diagram link'],
   [join(dist, 'en', 'index.html'), 'full-stack LLM applications', 'home/en hero positioning'],
 ];
 

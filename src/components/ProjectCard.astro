@@ -11,30 +11,29 @@ const { project, lang } = Astro.props;
 const href =
   project.kind === 'research' ? `/${lang}/research` : `/${lang}/projects/${project.slug}`;
 const status = project.status ? t(project.status, lang) : null;
+const cover = project.detail?.demoMedia?.shots[lang]?.[0];
 ---
 
-<a class="card card--interactive" href={href} data-reveal>
-  <div class="proj-card__top">
-    <span class="proj-card__icon" aria-hidden="true">{project.glyph}</span>
-    <h3 class="proj-card__name">{project.name}</h3>
-    <div class="proj-card__badges">
+<a class="card card--interactive project-card" href={href} data-reveal>
+  {cover && (
+    <div class="project-card__cover">
+      <img src={cover} alt="" loading="lazy" />
+    </div>
+  )}
+  <div class="project-card__body">
+    <div class="proj-card__top">
+      <h3 class="proj-card__name">{project.name}</h3>
       {status && <span class="badge badge--primary">{status}</span>}
     </div>
-  </div>
-
-  <p class="proj-card__summary">{t(project.summary, lang)}</p>
-
-  <div class="proj-card__tags">
-    {project.tech.slice(0, 5).map((tech) => <span class="chip">{tech}</span>)}
-  </div>
-
-  <div class="proj-card__foot">
-    <span class="link-arrow">
-      {t(project.links.internal, lang)}
-      <span class="arr" aria-hidden="true">→</span>
-    </span>
-    {project.kind === 'project' && (
-      <span class="mono">{project.slug}</span>
-    )}
+    <p class="project-card__summary">{t(project.summary, lang)}</p>
+    <div class="proj-card__tags">
+      {project.tech.slice(0, 6).map((tech) => <span class="chip">{tech}</span>)}
+    </div>
+    <div class="proj-card__foot">
+      <span class="link-arrow">
+        {t(project.links.internal, lang)}
+        <span class="arr" aria-hidden="true">→</span>
+      </span>
+    </div>
   </div>
 </a>

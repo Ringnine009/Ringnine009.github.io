@@ -144,7 +144,61 @@ a.chip:hover {
   padding: 20px;
 }
 
-/* Project card */
+/* Project card (home list) */
+.project-list {
+  display: grid;
+  gap: 16px;
+}
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) 1fr;
+  gap: 20px;
+  padding: 0;
+  overflow: hidden;
+}
+.project-card__cover {
+  min-height: 160px;
+  background: var(--surface-2);
+}
+.project-card__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.project-card__body {
+  padding: 20px 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+.project-card__summary {
+  color: var(--ink-subtle);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin: 0 0 14px;
+  flex: 1;
+}
+@media (max-width: 720px) {
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+  .project-card__cover {
+    min-height: 0;
+  }
+  .project-card__body {
+    padding: 16px;
+  }
+}
+
+/* Highlight grid (project detail) */
+.highlight-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
 .proj-card__top {
   display: flex;
   align-items: center;
@@ -247,6 +301,9 @@ a.chip:hover {
    ------------------------------------------------------------ */
 .hero {
   padding-block: clamp(36px, 6vw, 64px) clamp(28px, 5vw, 48px);
+}
+.hero__head {
+  max-width: 720px;
 }
 .hero__grid {
   display: grid;

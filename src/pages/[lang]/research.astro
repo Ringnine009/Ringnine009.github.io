@@ -1,7 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
 import PageHero from '@/components/PageHero.astro';
-import CtaBand from '@/components/CtaBand.astro';
 import { researchContent as c } from '@/data/research';
 import { siteConfig } from '@/data/site';
 import { t, langPath, type Lang } from '@/lib/i18n';
@@ -77,14 +76,6 @@ const doi = `https://doi.org/${c.meta.doi}`;
           <img class="diagram" src="/diagrams/research.svg" alt={t(c.methods.architecture, lang)} loading="lazy" />
           <figcaption>{t(c.methods.architecture, lang)}</figcaption>
         </figure>
-        <div style="margin-top:20px;display:grid;gap:14px">
-          {c.methods.points.map((p) => (
-            <div class="card card--plain" style="padding:16px 18px">
-              <h4 style="margin-bottom:6px;color:var(--primary-hover)">{t(p.title, lang)}</h4>
-              <p style="font-size:0.8125rem">{t(p.body, lang)}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   </section>
@@ -199,12 +190,4 @@ const doi = `https://doi.org/${c.meta.doi}`;
       </div>
     </div>
   </section>
-
-  <CtaBand
-    heading={c.cta.heading}
-    sub={c.cta.sub}
-    primary={{ label: c.cta.primary, href: langPath(lang, '/projects/paperflow') }}
-    secondary={{ label: { en: 'Back to home', zh: '返回首页' }, href: langPath(lang, '/') }}
-    lang={lang}
-  />
 </Base>

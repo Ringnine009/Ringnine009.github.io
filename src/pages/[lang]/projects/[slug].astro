@@ -26,24 +26,10 @@ const path = `/${lang}/projects/${slug}`;
 const title = `${project.name} — ${t(project.tagline, lang)}${t(siteConfig.seo.titleSuffix, lang)}`;
 const description = t(project.summary, lang);
 const d = project.detail;
-
-// Section order (task spec): problem → approach → architecture → highlights
-// → results → demo → tech stack → GitHub → my role
-const sections = [
-  { id: 'demo', num: '01', label: { en: 'Demo', zh: '演示' } },
-  { id: 'problem', num: '02', label: d.problem.heading ?? { en: 'Problem', zh: '问题' } },
-  { id: 'approach', num: '03', label: d.approach.heading ?? { en: 'Approach', zh: '方法' } },
-  { id: 'architecture', num: '04', label: { en: 'Architecture', zh: '架构' } },
-  { id: 'highlights', num: '05', label: { en: 'Highlights', zh: '亮点' } },
-  { id: 'results', num: '06', label: { en: 'Results', zh: '结果' } },
-  { id: 'stack', num: '07', label: { en: 'Tech stack', zh: '技术栈' } },
-  { id: 'github', num: '08', label: { en: 'Source', zh: '源码' } },
-  { id: 'role', num: '09', label: d.role.heading ?? { en: 'My role', zh: '我的角色' } },
-] as const;
 ---
 
 <Base lang={lang} title={title} description={description} path={path} ogType="article">
-  <!-- ============ PAGE HERO ============ -->
+  <!-- ============ HERO: title + links (left), demo video (right) ============ -->
   <section class="page-hero">
     <div class="container">
       <div class="page-hero__grid">
@@ -55,33 +41,21 @@ const sections = [
             <span aria-hidden="true">/</span>
             <span>{project.name}</span>
           </nav>
-          <div class="section-head__kicker">{t({ en: 'Case study', zh: '案例研究' }, lang)}</div>
           <h1 class="page-hero__title">{project.name}</h1>
-          <p class="page-hero__lede">{t(project.tagline, lang)}</p>
+          <p class="page-hero__lede">{t(project.summary, lang)}</p>
           <div class="page-hero__meta">
             {project.status && <span class="badge badge--primary">{t(project.status, lang)}</span>}
-            <span class="badge badge--outline">{t({ en: 'Project', zh: '项目' }, lang)}</span>
-            {project.tech.slice(0, 4).map((tech) => <span class="chip">{tech}</span>)}
+            {project.tech.slice(0, 6).map((tech) => <span class="chip">{tech}</span>)}
           </div>
           <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px">
             {project.links.github && (
-              <a
-                class="btn btn--primary"
-                href={project.links.github.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="btn btn--primary" href={project.links.github.url} target="_blank" rel="noopener noreferrer">
                 {t(project.links.github.label, lang)}
                 <span class="btn__arrow" aria-hidden="true">↗</span>
               </a>
             )}
             {project.links.demo && (
-              <a
-                class="btn btn--secondary"
-                href={project.links.demo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="btn btn--secondary" href={project.links.demo.url} target="_blank" rel="noopener noreferrer">
                 {t(project.links.demo.label, lang)}
               </a>
             )}
@@ -98,183 +72,79 @@ const sections = [
     </div>
   </section>
 
-  <!-- ============ ON THIS PAGE ============ -->
-  <section class="section section--flush" style="padding-bottom:8px">
-    <div class="container">
-      <nav class="section-nav" aria-label="On this page">
-        {sections.map((sec) => (
-          <a class="chip" href={`#${sec.id}`}>{t(sec.label, lang)}</a>
-        ))}
-      </nav>
-    </div>
-  </section>
-
-  <!-- ============ STATS ============ -->
+  <!-- ============ KEY NUMBERS ============ -->
   {project.stats.length > 0 && (
-    <section class="section section--flush" style="padding-bottom:8px">
+    <section class="section section--flush" style="padding-bottom:4px">
       <div class="container">
         <StatGrid stats={project.stats} lang={lang} />
       </div>
     </section>
   )}
 
-  <!-- ============ DETAIL SECTIONS ============ -->
-  {
-    sections.map((sec) => {
-      const body = (() => {
-        switch (sec.id) {
-          case 'problem':
-            return (
-              <div class="detail-section__body">
-                {d.problem.body.map((b) => (
-                  <p>{t(b, lang)}</p>
-                ))}
-              </div>
-            );
-          case 'approach':
-            return (
-              <div class="detail-section__body">
-                {d.approach.body.map((b) => (
-                  <p>{t(b, lang)}</p>
-                ))}
-              </div>
-            );
-          case 'architecture':
-            return (
-              <div class="detail-section__body">
-                <figure class="diagram-figure">
-                  <img class="diagram" src={`/diagrams/${project.slug}.svg`} alt={t(d.architecture, lang)} loading="lazy" />
-                  <figcaption>{t(d.architecture, lang)}</figcaption>
-                </figure>
-              </div>
-            );
-          case 'highlights':
-            return (
-              <div class="detail-section__body">
-                <ul>
-                  {d.highlights.map((h) => <li>{t(h, lang)}</li>)}
-                </ul>
-              </div>
-            );
-          case 'results':
-            return (
-              <div class="detail-section__body">
-                <ul>
-                  {d.results.map((r) => (
-                    <li>{t(r, lang)}</li>
-                  ))}
-                </ul>
-              </div>
-            );
-          case 'demo':
-            return (
-              <div class="detail-section__body">
-                {d.demoMedia ? (
-                  <div class="demo-media">
-                    <p class="demo-caption">{t(d.demo, lang)}</p>
-                    <video controls preload="metadata" poster={d.demoMedia.gif[lang]} style="width:100%;border-radius:10px;border:1px solid var(--hairline);background:#000">
-                      <source src={d.demoMedia.video[lang]} type="video/mp4" />
-                    </video>
-                    <div class="shot-carousel" data-carousel>
-                      <button type="button" class="carousel__arrow carousel__arrow--prev" data-prev aria-label="Previous screenshot">‹</button>
-                      <div class="carousel__viewport">
-                        {d.demoMedia.shots[lang].map((s, i) => (
-                          <figure class="carousel__slide" data-slide={i}>
-                            <img src={s} alt={`${project.name} demo screenshot ${i + 1}`} loading="lazy" />
-                            <figcaption class="carousel__num">
-                              {i + 1} / {d.demoMedia!.shots[lang].length}
-                            </figcaption>
-                          </figure>
-                        ))}
-                      </div>
-                      <button type="button" class="carousel__arrow carousel__arrow--next" data-next aria-label="Next screenshot">›</button>
-                      <div class="carousel__dots">
-                        {d.demoMedia.shots[lang].map((_, i) => (
-                          <button
-                            type="button"
-                            class="carousel__dot"
-                            data-dot={i}
-                            aria-label={`Screenshot ${i + 1}`}
-                          ></button>
-                        ))}
-                      </div>
-                    </div>
-                    <script>
-                      const carousel = document.querySelector('[data-carousel]');
-                      if (carousel) {
-                        const slides = [...carousel.querySelectorAll('[data-slide]')];
-                        const dots = [...carousel.querySelectorAll('[data-dot]')];
-                        let current = 0;
-                        const show = (i) => {
-                          current = (i + slides.length) % slides.length;
-                          slides.forEach((s, k) => s.classList.toggle('is-active', k === current));
-                          dots.forEach((d, k) => d.classList.toggle('is-active', k === current));
-                        };
-                        carousel.querySelector('[data-prev]')?.addEventListener('click', () => show(current - 1));
-                        carousel.querySelector('[data-next]')?.addEventListener('click', () => show(current + 1));
-                        dots.forEach((d, k) => d.addEventListener('click', () => show(k)));
-                        show(0);
-                      }
-                    </script>
-                  </div>
-                ) : (
-                  <div class="arch-box" data-reveal>
-                    <span class="mono" aria-hidden="true">▶</span>
-                    {t(d.demo, lang)}
-                  </div>
-                )}
-              </div>
-            );
-          case 'stack':
-            return (
-              <div class="detail-section__body">
-                <ul>
-                  {d.techStack.map((s) => <li>{t(s, lang)}</li>)}
-                </ul>
-              </div>
-            );
-          case 'github':
-            return (
-              <div class="detail-section__body">
-                <p>{t(d.github, lang)}</p>
-                {project.links.github?.url && (
-                  <div style="margin-top:12px">
-                    <a class="chip" href={project.links.github.url} target="_blank" rel="noopener noreferrer">
-                      {project.links.github.url}
-                    </a>
-                  </div>
-                )}
-              </div>
-            );
-          case 'role':
-            return (
-              <div class="detail-section__body">
-                {d.role.body.map((b) => <p>{t(b, lang)}</p>)}
-                {d.roleTags.length > 0 && (
-                  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">
-                    {d.roleTags.map((tag) => <span class="badge badge--outline">{t(tag, lang)}</span>)}
-                  </div>
-                )}
-              </div>
-            );
-        }
-      })();
+  <!-- ============ HIGHLIGHTS ============ -->
+  <section class="section section--flush" style="padding-top:20px">
+    <div class="container">
+      <ul class="highlight-grid">
+        {d.highlights.map((h) => (
+          <li class="card card--plain" style="padding:14px 16px;font-size:0.875rem;line-height:1.6">{t(h, lang)}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
 
-      return (
-        <section class="detail-section" id={sec.id}>
-          <div class="container detail-section__grid">
-            <div>
-              <div class="detail-section__label">
-                <span class="num">{sec.num}</span>
-                {t(sec.label, lang)}
-              </div>
-            </div>
-            {body}
+  <!-- ============ ARCHITECTURE DIAGRAM ============ -->
+  <section class="section section--flush" style="padding-top:24px">
+    <div class="container">
+      <figure class="diagram-figure">
+        <img class="diagram" src={`/diagrams/${project.slug}.svg`} alt={t(d.architecture, lang)} loading="lazy" />
+        <figcaption>{t(d.architecture, lang)}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ SCREENSHOTS (carousel) ============ -->
+  {d.demoMedia && (
+    <section class="section section--flush" style="padding-top:24px">
+      <div class="container">
+        <div class="shot-carousel" data-carousel>
+          <button type="button" class="carousel__arrow carousel__arrow--prev" data-prev aria-label="Previous screenshot">‹</button>
+          <div class="carousel__viewport">
+            {d.demoMedia.shots[lang].map((s, i) => (
+              <figure class="carousel__slide" data-slide={i}>
+                <img src={s} alt={`${project.name} screenshot ${i + 1}`} loading="lazy" />
+                <figcaption class="carousel__num">
+                  {i + 1} / {d.demoMedia!.shots[lang].length}
+                </figcaption>
+              </figure>
+            ))}
           </div>
-        </section>
-      );
-    })
-  }
+          <button type="button" class="carousel__arrow carousel__arrow--next" data-next aria-label="Next screenshot">›</button>
+          <div class="carousel__dots">
+            {d.demoMedia.shots[lang].map((_, i) => (
+              <button type="button" class="carousel__dot" data-dot={i} aria-label={`Screenshot ${i + 1}`}></button>
+            ))}
+          </div>
+        </div>
+        <script>
+          const carousel = document.querySelector('[data-carousel]');
+          if (carousel) {
+            const slides = [...carousel.querySelectorAll('[data-slide]')];
+            const dots = [...carousel.querySelectorAll('[data-dot]')];
+            let current = 0;
+            const show = (i) => {
+              current = (i + slides.length) % slides.length;
+              slides.forEach((s, k) => s.classList.toggle('is-active', k === current));
+              dots.forEach((dd, k) => dd.classList.toggle('is-active', k === current));
+            };
+            carousel.querySelector('[data-prev]')?.addEventListener('click', () => show(current - 1));
+            carousel.querySelector('[data-next]')?.addEventListener('click', () => show(current + 1));
+            dots.forEach((dd, k) => dd.addEventListener('click', () => show(k)));
+            show(0);
+          }
+        </script>
+      </div>
+    </section>
+  )}
 
   <!-- ============ NEXT PROJECT ============ -->
   {
@@ -282,17 +152,15 @@ const sections = [
       const idx = DETAILED_PROJECTS.findIndex((p) => p.slug === slug);
       const next = DETAILED_PROJECTS[(idx + 1) % DETAILED_PROJECTS.length];
       return (
-        <section class="section" style="padding-top:0">
+        <section class="section" style="padding-top:28px">
           <div class="container">
-            <a class="card card--interactive" style="padding:20px;flex-direction:row;align-items:center;justify-content:space-between;gap:16px" href={`/${lang}/projects/${next.slug}`}>
+            <a class="card card--interactive" style="padding:18px 20px;flex-direction:row;align-items:center;justify-content:space-between;gap:16px" href={`/${lang}/projects/${next.slug}`}>
               <div>
-                <div class="detail-section__label" style="margin-bottom:6px">
+                <div style="font-size:0.75rem;color:var(--ink-subtle);margin-bottom:4px">
                   {t({ en: 'Next project', zh: '下一个项目' }, lang)}
                 </div>
-                <h3 style="font-family:var(--font-mono);font-size:1.0625rem;font-weight:600">
-                  {next.name}
-                </h3>
-                <p style="color:var(--ink-subtle);font-size:0.8125rem;margin-top:4px">{t(next.tagline, lang)}</p>
+                <h3 style="font-family:var(--font-mono);font-size:1rem;font-weight:600;margin:0">{next.name}</h3>
+                <p style="color:var(--ink-subtle);font-size:0.8125rem;margin:4px 0 0">{t(next.tagline, lang)}</p>
               </div>
               <span class="link-arrow hide-mobile" aria-hidden="true">
                 <span class="arr">→</span>
