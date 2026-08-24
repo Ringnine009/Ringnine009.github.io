@@ -83,9 +83,9 @@ export const PROJECTS: Project[] = [
         zh: '完整流程录屏：加载 30 张演示发票 → 实时抽取进度 → 带置信度的抽取结果 → 发票详情抽屉 → 审计告警 → 金额趋势图（可按购销方筛选）+ 审计统计 → 交互式知识图谱（对象筛选、节点聚焦、关系图例）。',
       },
       demoMedia: {
-        video: '/demos/docmind/demo.mp4',
-        gif: '/demos/docmind/demo.gif',
-        shots: ['/demos/docmind/1-home.png', '/demos/docmind/3-results.png', '/demos/docmind/4-detail-drawer.png', '/demos/docmind/5-audit.png', '/demos/docmind/6-analysis.png', '/demos/docmind/7-analysis-rules.png', '/demos/docmind/8-graph-full.png', '/demos/docmind/11-graph-focus.png'],
+        video: { en: '/demos/docmind/demo.mp4', zh: '/demos/docmind/demo.mp4' },
+        gif: { en: '/demos/docmind/demo.gif', zh: '/demos/docmind/demo.gif' },
+        shots: { en: ['/demos/docmind/1-home.png', '/demos/docmind/3-results.png', '/demos/docmind/4-detail-drawer.png', '/demos/docmind/5-audit.png', '/demos/docmind/6-analysis.png', '/demos/docmind/7-analysis-rules.png', '/demos/docmind/8-graph-full.png', '/demos/docmind/11-graph-focus.png'], zh: ['/demos/docmind/1-home.png', '/demos/docmind/3-results.png', '/demos/docmind/4-detail-drawer.png', '/demos/docmind/5-audit.png', '/demos/docmind/6-analysis.png', '/demos/docmind/7-analysis-rules.png', '/demos/docmind/8-graph-full.png', '/demos/docmind/11-graph-focus.png'] },
       },
       techStack: [
         { en: 'Backend: Python · FastAPI (layered architecture)', zh: '后端：Python · FastAPI（分层架构）' },
@@ -189,9 +189,9 @@ export const PROJECTS: Project[] = [
         zh: '录屏：逐项选择关键性状（SVG 蘑菇动画过渡实时变化）→ 校准后的风险结论与免责声明 → 用真实蘑菇照片拍照识别（视觉性状带标记、双通道融合）→ AI 增强的安全知识问答。规则引擎全程离线运行。',
       },
       demoMedia: {
-        video: '/demos/mycoguard/demo.mp4',
-        gif: '/demos/mycoguard/demo.gif',
-        shots: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/3-traits-filled.png', '/demos/mycoguard/4-result.png', '/demos/mycoguard/5-expert.png', '/demos/mycoguard/6-photo-mode.png', '/demos/mycoguard/8-photo-result.png', '/demos/mycoguard/9-chat-answer.png'],
+        video: { en: '/demos/mycoguard/demo.mp4', zh: '/demos/mycoguard/demo.mp4' },
+        gif: { en: '/demos/mycoguard/demo.gif', zh: '/demos/mycoguard/demo.gif' },
+        shots: { en: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/3-traits-filled.png', '/demos/mycoguard/4-result.png', '/demos/mycoguard/5-expert.png', '/demos/mycoguard/6-photo-mode.png', '/demos/mycoguard/8-photo-result.png', '/demos/mycoguard/9-chat-answer.png'], zh: ['/demos/mycoguard/1-home.png', '/demos/mycoguard/3-traits-filled.png', '/demos/mycoguard/4-result.png', '/demos/mycoguard/5-expert.png', '/demos/mycoguard/6-photo-mode.png', '/demos/mycoguard/8-photo-result.png', '/demos/mycoguard/9-chat-answer.png'] },
       },
       techStack: [
         { en: 'Frontend: React 19 · TypeScript · Vite', zh: '前端：React 19 · TypeScript · Vite' },
@@ -295,9 +295,9 @@ export const PROJECTS: Project[] = [
         zh: '聊天界面录屏：两个深度学习问题，流式回答 + 检索分解面板（每个来源的 dense / BM25 / RRF 得分）+ 复制答案 + 会话历史与刷新恢复。',
       },
       demoMedia: {
-        video: '/demos/sourceqa/demo.mp4',
-        gif: '/demos/sourceqa/demo.gif',
-        shots: ['/demos/sourceqa/1-home.png', '/demos/sourceqa/3-answer.png', '/demos/sourceqa/4-breakdown.png', '/demos/sourceqa/6-second.png', '/demos/sourceqa/7-history.png', '/demos/sourceqa/8-restored.png'],
+        video: { en: '/demos/sourceqa/demo.mp4', zh: '/demos/sourceqa/demo.mp4' },
+        gif: { en: '/demos/sourceqa/demo.gif', zh: '/demos/sourceqa/demo.gif' },
+        shots: { en: ['/demos/sourceqa/1-home.png', '/demos/sourceqa/3-answer.png', '/demos/sourceqa/4-breakdown.png', '/demos/sourceqa/6-second.png', '/demos/sourceqa/7-history.png', '/demos/sourceqa/8-restored.png'], zh: ['/demos/sourceqa/1-home.png', '/demos/sourceqa/3-answer.png', '/demos/sourceqa/4-breakdown.png', '/demos/sourceqa/6-second.png', '/demos/sourceqa/7-history.png', '/demos/sourceqa/8-restored.png'] },
       },
       techStack: [
         { en: 'Retrieval: BGE-M3 (local) + BM25 + BGE-reranker', zh: '检索：BGE-M3（本地）+ BM25 + BGE 重排' },
@@ -400,9 +400,9 @@ export const PROJECTS: Project[] = [
         zh: '真实运行的现场录制：提交本人狼人杀论文 DOI → 四智能体团队（Researcher → Reader → Critic → Synthesizer）执行，任务板状态实时可见 → 结构化审阅 → 逐条引文核验视图（每条引文由代码对照原文，含位置与上下文）。',
       },
       demoMedia: {
-        video: '/demos/paperflow/demo.mp4',
-        gif: '/demos/paperflow/demo.gif',
-        shots: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/2-board.png', '/demos/paperflow/3-report.png', '/demos/paperflow/5-verification.png', '/demos/paperflow/6-verification-expanded.png'],
+        video: { en: '/demos/paperflow/demo.mp4', zh: '/demos/paperflow/demo.mp4' },
+        gif: { en: '/demos/paperflow/demo.gif', zh: '/demos/paperflow/demo.gif' },
+        shots: { en: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/2-board.png', '/demos/paperflow/3-report.png', '/demos/paperflow/5-verification.png', '/demos/paperflow/6-verification-expanded.png'], zh: ['/demos/paperflow/1-dashboard.png', '/demos/paperflow/2-board.png', '/demos/paperflow/3-report.png', '/demos/paperflow/5-verification.png', '/demos/paperflow/6-verification-expanded.png'] },
       },
       techStack: [
         { en: 'Orchestration: self-built agent team + JSON task board', zh: '编排：自研智能体团队 + JSON 任务板' },
@@ -507,9 +507,9 @@ export const PROJECTS: Project[] = [
         zh: '本地部署聊天界面录屏：实时调节生成参数（temperature、top-k、惩罚项），提问"毒鹅膏是否有毒"并展示 token 级流式输出，再切换到微调前后对比标签页——两组回答均由真实 checkpoint 生成，零 API 成本。',
       },
       demoMedia: {
-        video: '/demos/nanollm/demo.mp4',
-        gif: '/demos/nanollm/demo.gif',
-        shots: ['/demos/nanollm/1-home.png', '/demos/nanollm/2-parameters.png', '/demos/nanollm/3-question.png', '/demos/nanollm/4-streaming.png', '/demos/nanollm/5-answer.png', '/demos/nanollm/6-before-after.png'],
+        video: { en: '/demos/nanollm/demo.mp4', zh: '/demos/nanollm/demo.mp4' },
+        gif: { en: '/demos/nanollm/demo.gif', zh: '/demos/nanollm/demo.gif' },
+        shots: { en: ['/demos/nanollm/1-home.png', '/demos/nanollm/2-parameters.png', '/demos/nanollm/3-question.png', '/demos/nanollm/4-streaming.png', '/demos/nanollm/5-answer.png', '/demos/nanollm/6-before-after.png'], zh: ['/demos/nanollm/1-home.png', '/demos/nanollm/2-parameters.png', '/demos/nanollm/3-question.png', '/demos/nanollm/4-streaming.png', '/demos/nanollm/5-answer.png', '/demos/nanollm/6-before-after.png'] },
       },
       techStack: [
         { en: 'Framework: PyTorch (from-scratch GPT)', zh: '框架：PyTorch（从零 GPT）' },

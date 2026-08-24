@@ -70,11 +70,11 @@ export interface Project {
     results: L[];
     /** demo area placeholder */
     demo: L;
-    /** optional demo media paths under /demos/<slug>/ (video, gif, screenshots) */
+    /** demo media paths per language under /demos/<slug>/ (video, gif, screenshots) */
     demoMedia?: {
-      video: string;
-      gif: string;
-      shots: string[];
+      video: { en: string; zh: string };
+      gif: { en: string; zh: string };
+      shots: { en: string[]; zh: string[] };
     };
     /** tech stack list */
     techStack: L[];

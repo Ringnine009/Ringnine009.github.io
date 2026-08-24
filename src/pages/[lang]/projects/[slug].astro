@@ -161,24 +161,24 @@ const sections = [
                 {d.demoMedia ? (
                   <div class="demo-media">
                     <p class="demo-caption">{t(d.demo, lang)}</p>
-                    <video controls preload="metadata" poster={d.demoMedia.gif} style="width:100%;border-radius:10px;border:1px solid var(--hairline);background:#000">
-                      <source src={d.demoMedia.video} type="video/mp4" />
+                    <video controls preload="metadata" poster={d.demoMedia.gif[lang]} style="width:100%;border-radius:10px;border:1px solid var(--hairline);background:#000">
+                      <source src={d.demoMedia.video[lang]} type="video/mp4" />
                     </video>
                     <div class="shot-carousel" data-carousel>
                       <button type="button" class="carousel__arrow carousel__arrow--prev" data-prev aria-label="Previous screenshot">‹</button>
                       <div class="carousel__viewport">
-                        {d.demoMedia.shots.map((s, i) => (
+                        {d.demoMedia.shots[lang].map((s, i) => (
                           <figure class="carousel__slide" data-slide={i}>
                             <img src={s} alt={`${project.name} demo screenshot ${i + 1}`} loading="lazy" />
                             <figcaption class="carousel__num">
-                              {i + 1} / {d.demoMedia!.shots.length}
+                              {i + 1} / {d.demoMedia!.shots[lang].length}
                             </figcaption>
                           </figure>
                         ))}
                       </div>
                       <button type="button" class="carousel__arrow carousel__arrow--next" data-next aria-label="Next screenshot">›</button>
                       <div class="carousel__dots">
-                        {d.demoMedia.shots.map((_, i) => (
+                        {d.demoMedia.shots[lang].map((_, i) => (
                           <button
                             type="button"
                             class="carousel__dot"

@@ -856,6 +856,7 @@ a.chip:hover {
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+}
 .contact-strip__item {
   display: inline-flex;
   align-items: center;
