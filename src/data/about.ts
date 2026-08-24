@@ -11,8 +11,8 @@ export const aboutContent = {
     zh: '人工智能本科生 · LLM 工程师 · 多智能体研究者',
   },
   intro: {
-    en: 'I am an undergraduate in Artificial Intelligence at Tongji University. My work spans the full stack of LLM products — retrieval, document intelligence, agent orchestration — and research into how agents reason socially. I build, measure and publish.',
-    zh: '同济大学人工智能专业本科生。工作覆盖 LLM 产品全栈——检索、文档智能、智能体编排——以及智能体社会推理研究。既做工程，也做评测，也发表论文。',
+    en: 'AI undergraduate at Tongji University. Full-stack LLM applications — retrieval, document intelligence, agent orchestration — and multi-agent social-reasoning research.',
+    zh: '同济大学人工智能专业本科生。全栈 LLM 应用——检索、文档智能、智能体编排——以及多智能体社会推理研究。',
   },
   contact: {
     email: 'guozhenxiao6778@163.com',
@@ -60,20 +60,12 @@ export const aboutContent = {
         period: { en: 'Aug 5 – 28, 2026', zh: '2026.08.05 – 2026.08.28' },
         points: [
           {
-            en: 'Collected, cleaned and preprocessed multi-source visual perception data; built standardized multimodal datasets with temporal-spatial alignment and cross-modality feature correlation.',
-            zh: '采集、清洗与预处理多源视觉感知数据；构建标准化多模态数据集，实现跨模态时空对齐与特征关联。',
+            en: 'Built standardized multimodal datasets (temporal-spatial alignment, cross-modality correlation) and reproduced mainstream fusion-perception models in PyTorch with performance and ablation analyses.',
+            zh: '构建标准化多模态数据集（时空对齐、跨模态关联），并用 PyTorch 复现主流融合感知模型，完成性能与消融分析。',
           },
           {
-            en: 'Reproduced mainstream multimodal fusion perception models in PyTorch; ran performance tests, metric analysis and experiment organization.',
-            zh: '基于 PyTorch 复现主流多模态融合感知模型，完成性能测试、指标分析与实验整理。',
-          },
-          {
-            en: 'Helped design lightweight feature-fusion modules and attention-optimization strategies against feature redundancy and information interference; ran comparative, ablation and visualization analyses.',
-            zh: '针对特征冗余与信息干扰问题，协助设计轻量特征融合模块与注意力优化策略；开展对比实验、消融实验与可视化分析。',
-          },
-          {
-            en: 'Contributed to training pipelines (data loading, tuning, environment config, validation) and algorithm module testing for robotic visual perception in complex scenarios.',
-            zh: '参与训练管线（数据加载、调参、环境配置、结果验证）与算法模块测试，支撑复杂场景机器人视觉感知。',
+            en: 'Contributed to lightweight feature-fusion module design, training pipelines and algorithm testing for robotic visual perception.',
+            zh: '参与轻量特征融合模块设计、训练管线与算法测试，支撑机器人视觉感知。',
           },
         ],
       },
@@ -91,16 +83,12 @@ export const aboutContent = {
         period: { en: 'Jun 23 – Jul 31, 2026', zh: '2026.06.23 – 2026.07.31' },
         points: [
           {
-            en: 'Developed modules of the GEO system (enterprise knowledge-base management, AI visibility diagnostics, content generation, publishing scheduling, result tracking) with React + TypeScript frontend and Python + FastAPI backend.',
-            zh: '参与 GEO 系统模块开发（企业知识库管理、AI 可见度诊断、内容生成、发布调度、结果追踪）：React + TypeScript 前端，Python + FastAPI 后端。',
+            en: 'Developed GEO system modules (knowledge-base management, AI visibility diagnostics, content generation, publishing scheduling, result tracking) — React + TypeScript frontend, Python + FastAPI backend.',
+            zh: '开发 GEO 系统模块（知识库管理、AI 可见度诊断、内容生成、发布调度、结果追踪）：React + TypeScript 前端，Python + FastAPI 后端。',
           },
           {
-            en: 'Built AI-assisted automation tools: GEO desktop assistant, AI search data collection, multi-platform publishing automation (web-desktop coordination, session management, browser automation, task scheduling).',
-            zh: '开发 AI 辅助自动化工具：GEO 桌面助手、AI 搜索数据采集、多平台发布自动化（Web-桌面协同、会话管理、浏览器自动化、任务调度）。',
-          },
-          {
-            en: 'Supported testing, regression verification, Docker-based dev environments and desktop build processes; wrote technical documentation and standardized recurring workflows.',
-            zh: '支持功能测试、回归验证、Docker 开发环境与桌面构建；编写技术文档并将重复性工作流程标准化。',
+            en: 'Built AI automation tools (desktop assistant, AI search data collection, multi-platform publishing automation) and supported testing, Docker environments and desktop builds.',
+            zh: '开发 AI 自动化工具（桌面助手、AI 搜索采集、多平台发布自动化），并支持测试、Docker 环境与桌面构建。',
           },
         ],
       },
@@ -111,16 +99,12 @@ export const aboutContent = {
         period: { en: 'Jan 5 – Feb 27, 2026', zh: '2026.01.05 – 2026.02.27' },
         points: [
           {
-            en: 'Collected and cleaned cloud-phone platform user behavior logs with Python scripts (dedup, field standardization, quality checks, summaries).',
-            zh: '用 Python 脚本采集与清洗云手机平台用户行为日志（去重、字段标准化、质量检查、摘要）。',
+            en: 'Cleaned cloud-phone user behavior logs with Python (dedup, standardization, quality checks); built warehouse table structures and scheduled ETL flows.',
+            zh: '用 Python 清洗云手机用户行为日志（去重、标准化、质检）；搭建数仓表结构与定时 ETL 流程。',
           },
           {
-            en: 'Helped build data-warehouse table structures and ETL flows with scheduled jobs; ran multi-dimensional operational queries in SQL and built dashboards.',
-            zh: '协助搭建数仓表结构与定时 ETL 流程；使用 SQL 进行多维度运营统计查询并搭建可视化看板。',
-          },
-          {
-            en: 'Handled cloud-server basics, cloud storage/database resource management, deployment testing, log monitoring and troubleshooting; documented operations.',
-            zh: '负责云服务器基础配置与日常维护、云存储与云数据库资源管理、部署测试、日志监控与排障，并编写运维文档。',
+            en: 'Ran multi-dimensional SQL analytics and dashboards; handled cloud-server configuration, storage/database resources, deployment and monitoring.',
+            zh: '使用 SQL 做多维度运营分析并搭建看板；负责云服务器配置、存储/数据库资源、部署与监控。',
           },
         ],
       },
@@ -131,12 +115,8 @@ export const aboutContent = {
         period: { en: 'Jul 3 – Aug 22, 2025', zh: '2025.07.03 – 2025.08.22' },
         points: [
           {
-            en: 'Participated in designing and developing functional modules of the company’s digital content management platform: content publishing management, user permission management, and basic user-interface work.',
-            zh: '参与企业数字内容管理平台功能模块的设计与开发：内容发布管理、用户权限管理与基础界面工作。',
-          },
-          {
-            en: 'Supported user guidance, on-site troubleshooting and feedback loops between users and the development team.',
-            zh: '支持用户引导、现场问题排查，以及用户与研发团队之间的反馈闭环。',
+            en: 'Designed and developed platform modules (content publishing, user permissions) and supported user guidance, troubleshooting and feedback loops.',
+            zh: '设计并开发平台模块（内容发布、用户权限），并支持用户引导、问题排查与反馈闭环。',
           },
         ],
       },
